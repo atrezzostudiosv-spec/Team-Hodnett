@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {searchProperties,parseQuery,readFilters} from '../public/src/search-core.mjs';
+const source=JSON.parse(await readFile(new URL('../content/properties.json',import.meta.url),'utf8'));
+const properties=source.map(p=>({...p,search_text:[p.description,...Object.values(p.features)].join(' ')}));
+test('the current-sitemap snapshot has 394 records and a photographed active collection',()=>{assert.equal(properties.length,394);const active=properties.filter(p=>p.status==='For Sale');assert.equal(active.length,16);assert.ok(active.every(p=>p.cover));});
+test('a natural-language location, budget and bedroom query finds the correct home',()=>{const result=searchProperties(properties,{query:'Southlake 6 beds under $5m',status:'For Sale'});assert.deepEqual(result.map(p=>p.title),['1204 Andre Court']);});
+test('a budget does not invent a price for historical transactions',()=>{assert.equal(searchProperties(properties,{query:'sold under $500k',status:'For Sale'}).length,0);assert.equal(searchProperties(properties,{status:'For Sale',query:'under $500k'}).length,11);});
+test('a valid empty search remains empty instead of broadening its conditions',()=>{assert.equal(searchProperties(properties,{query:'Southlake under $2m',status:'For Sale'}).length,0);});
+test('pool, budget and bedroom conditions apply together',()=>{const result=searchProperties(properties,{query:'pool under $5m',status:'For Sale',beds:4});assert.ok(result.some(p=>p.title==='1204 Andre Court'));assert.ok(result.every(p=>p.has_pool&&p.price<=5000000&&p.beds>=4));});
+test('unknown prices sort after known prices and stay unknown',()=>{const result=searchProperties(properties,{sort:'price-asc'});const firstUnknown=result.findIndex(p=>p.price===null);assert.equal(firstUnknown,20);assert.ok(result.slice(firstUnknown).every(p=>p.price===null));});
+test('explicit all-properties and community selections survive a deep link',()=>{const filters=readFilters(new URLSearchParams('status=&city=Southlake&q=pool'),{status:'For Sale'});assert.equal(filters.status,'');assert.equal(filters.city,'Southlake');assert.equal(filters.query,'pool');assert.equal(parseQuery('under $1.5m').maxPrice,1500000);});

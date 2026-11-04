@@ -1,0 +1,35 @@
+/* ATREZZO TRANSITIONS 01 — independent overlay styles. No site typography overrides. */
+:root { --atz-transition-color: #151b22; }
+.atz-transition-layer {
+  position: fixed; inset: 0; z-index: 2147483645; overflow: hidden;
+  visibility: hidden; pointer-events: none; isolation: isolate;
+  --atz-color: var(--atz-transition-color);
+}
+.atz-transition-layer--active { visibility: visible; pointer-events: auto; }
+.atz-transition-panel { position:absolute; background:var(--atz-color); will-change:transform, clip-path; }
+.atz-transition-panel--primary { inset:0; }
+.atz-transition-panel--secondary { display:none; }
+.atz-transition-layer[data-atz-effect="split"] .atz-transition-panel--primary { right:50%; }
+.atz-transition-layer[data-atz-effect="split"] .atz-transition-panel--secondary { display:block; left:50%; right:0; top:0; bottom:0; }
+.atz-transition-identity[hidden] { display:none !important; }
+.atz-transition-identity {
+  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:12px; color:#f6f3ec; pointer-events:none; text-align:center; padding:24px;
+  font-family: Arial, Helvetica, sans-serif; opacity:0;
+  animation: atz-identity 0.85s ease both;
+}
+.atz-transition-layer--active .atz-transition-identity { opacity:1; }
+.atz-transition-identity__eyebrow { font-size:10px; font-weight:700; letter-spacing:.34em; text-transform:uppercase; }
+.atz-transition-identity__title { font-size:clamp(28px,6vw,88px); font-weight:500; line-height:1; letter-spacing:-.065em; max-width:90vw; }
+@keyframes atz-identity { from {opacity:0} to {opacity:1} }
+/* Only a cross-document arrival can set this class, from atrezzo-preflight.js in the head.
+   If the engine fails, this temporary paint cover removes itself after 1.4 seconds. */
+html.atz-arrival-pending body::after {
+  content:''; position:fixed; inset:0; z-index:2147483644; background:var(--atz-transition-color);
+  pointer-events:none; animation:atz-boot-failsafe 1.4s ease forwards;
+}
+@keyframes atz-boot-failsafe { 0%,75% {opacity:1;visibility:visible} 100% {opacity:0;visibility:hidden} }
+@media (prefers-reduced-motion: reduce) {
+  html.atz-arrival-pending body::after { display:none; }
+  .atz-transition-layer { display:none !important; }
+}

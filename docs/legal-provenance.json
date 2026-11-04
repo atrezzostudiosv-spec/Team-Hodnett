@@ -1,0 +1,26 @@
+[
+  {
+    "file": "assets/legal/consumer-protection.pdf",
+    "source_url": "https://d1e1jt2fj4r8r.cloudfront.net/57836748-dc71-4fea-a5d4-3da8403ab1bd/hCykOYGpu/CN%201-4-1_1.pdf",
+    "current_fetch": "success",
+    "sha256": "3e9ad5bf2d9dca6d40d5e50a06bf5d8dd746f0fe0b2149d88f418b56a46e4016",
+    "same_as_zip": true,
+    "retrieval_date": "2026-11-04"
+  },
+  {
+    "file": "assets/legal/brokerage-services.pdf",
+    "source_url": "https://d1e1jt2fj4r8r.cloudfront.net/941683e7-1d74-4151-b4dc-e47ada989393/77a8b719-d3e6-4822-b587-7fd0d4519f1c/Updated%20IABS.pdf",
+    "current_fetch": "success",
+    "sha256": "2f32c90bca1f8be4efd46a591e5569bd4b4b43bda94008904256cdf66c7b0ce5",
+    "same_as_zip": true,
+    "retrieval_date": "2026-11-04"
+  },
+  {
+    "file": "assets/legal/commission-disclaimer.pdf",
+    "source_url": "https://d1e1jt2fj4r8r.cloudfront.net/938208c7-113c-4b76-96bb-f65cefa93252/pkR5n4vC6/trec.pdf",
+    "current_fetch": "success",
+    "sha256": "ccc5021bf4c0f0ff2035ba066a0f3524e9f9e2217b574d296b3de0fec2565e98",
+    "same_as_zip": true,
+    "retrieval_date": "2026-11-04"
+  }
+]

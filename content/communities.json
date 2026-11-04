@@ -1,0 +1,474 @@
+[
+  {
+    "slug": "highland-park",
+    "name": "Highland Park",
+    "source_id": "P-01a8c9863b1102a1",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/highland-park",
+    "cover": "assets/editorial/highland-park.webp",
+    "description": "Explore Highland Park, TX: 8,774 residents, median age 45.6, average individual income of $187,202, school information and a home search.",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "Highland Park"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "westlake",
+    "name": "Westlake",
+    "source_id": "P-0fd10fcd6a5e1f3d",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/westlake",
+    "cover": "assets/editorial/westlake.webp",
+    "description": "Find your dream home in the exclusive community of Westlake with Sharon Hodnett's neighborhood guide. Call Sharon today and find homes for sale in Westlake! ",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Westlake"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Charming atmosphere"
+      },
+      {
+        "tag": "li",
+        "text": "Wealthy and highly sought after"
+      },
+      {
+        "tag": "li",
+        "text": "Luxury homes and neighborhoods"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "Westlake Academy , 100% graduation rate."
+      },
+      {
+        "tag": "li",
+        "text": "Carroll Senior High School"
+      },
+      {
+        "tag": "li",
+        "text": "Walnut Grove Elementary School"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "southlake",
+    "name": "Southlake",
+    "source_id": "P-1353503b533265e1",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/southlake",
+    "cover": "assets/editorial/southlake.webp",
+    "description": "Southlake Town Square (Luxury Neighborhoods, Great restaurants and shopping!).",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Southlake"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Sophisticated and neighborly atmosphere"
+      },
+      {
+        "tag": "li",
+        "text": "The wealthiest city in Texas"
+      },
+      {
+        "tag": "li",
+        "text": "Conveniently located"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "The Clariden School"
+      },
+      {
+        "tag": "li",
+        "text": "Acton Academy Southlake"
+      },
+      {
+        "tag": "li",
+        "text": "Carpe Diem Private Preschool"
+      },
+      {
+        "tag": "li",
+        "text": "Fusion Academy Southlake"
+      },
+      {
+        "tag": "li",
+        "text": "Southlake Montessori"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "flower-mound",
+    "name": "Flower Mound",
+    "source_id": "P-3c4e9a9bc4589f0c",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/flower-mound",
+    "cover": "assets/editorial/flower-mound.webp",
+    "description": "Explore Flower Mound, TX: 77,886 residents, a median age of 43, average individual income of $68,823, nearby schools, and home search options.",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "Flower Mound"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "grapevine",
+    "name": "Grapevine",
+    "source_id": "P-7d7c66acf9c2799d",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/grapevine",
+    "cover": "assets/editorial/grapevine.webp",
+    "description": "Explore Grapevine, 10 minutes from DFW Airport, with historic Main Street, Lake Grapevine recreation, year-round festivals and Christmas events.",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Grapevine"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Convenient location"
+      },
+      {
+        "tag": "li",
+        "text": "Christmas capital of Texas"
+      },
+      {
+        "tag": "li",
+        "text": "Active community"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "Grapevine Faith - High School"
+      },
+      {
+        "tag": "li",
+        "text": "Holy Trinity Catholic School"
+      },
+      {
+        "tag": "li",
+        "text": "The Novus Academy"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "keller",
+    "name": "Keller",
+    "source_id": "P-80c5e43bf3169b47",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/keller",
+    "cover": "assets/editorial/keller.webp",
+    "description": "Explore Keller, TX, with 11 parks, 26 miles of trails, top-rated schools, friendly neighborhoods and housing from apartments to horse-friendly homes.",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Keller"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Walkable"
+      },
+      {
+        "tag": "li",
+        "text": "Small-town vibes mixed with big-city conveniences"
+      },
+      {
+        "tag": "li",
+        "text": "Tight-knit, friendly community"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "Fusion Academy Southlake"
+      },
+      {
+        "tag": "li",
+        "text": "Harvest Christian Academy"
+      },
+      {
+        "tag": "li",
+        "text": "The Winston School , a college preparatory"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "trophy-club",
+    "name": "Trophy Club",
+    "source_id": "P-8c7de8a1ae546ebb",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/trophy-club",
+    "cover": "assets/editorial/trophy-club.webp",
+    "description": "Explore Trophy Club, a master-planned community near Hwy 114 with 36 golf holes, scenic parks and trails, and annual festivals like Taste of Trophy Club.",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Trophy Club"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Many local festivals and events"
+      },
+      {
+        "tag": "li",
+        "text": "Convenient location"
+      },
+      {
+        "tag": "li",
+        "text": "High quality of life"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "Byron Nelson High School"
+      },
+      {
+        "tag": "li",
+        "text": "Lakeview Elementary School"
+      },
+      {
+        "tag": "li",
+        "text": "Samuel Beck Elementary School"
+      },
+      {
+        "tag": "li",
+        "text": "Medlin Middle School"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "colleyville",
+    "name": "Colleyville",
+    "source_id": "P-918d86dd2289e2e9",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/colleyville",
+    "cover": "assets/editorial/colleyville.webp",
+    "description": "Grapevine Colleyville Independent School District, ranked #8 out of 1018 schools in Texas.",
+    "blocks": [
+      {
+        "tag": "h2",
+        "text": "Welcome to Colleyville"
+      },
+      {
+        "tag": "h3",
+        "text": "What to Love"
+      },
+      {
+        "tag": "li",
+        "text": "Slower pace"
+      },
+      {
+        "tag": "li",
+        "text": "A friendly, welcoming community"
+      },
+      {
+        "tag": "li",
+        "text": "Centrally located"
+      },
+      {
+        "tag": "li",
+        "text": "Peaceful atmosphere in the heart of the city"
+      },
+      {
+        "tag": "h3",
+        "text": "Local Lifestyle"
+      },
+      {
+        "tag": "h3",
+        "text": "Dining, Entertainment, & Shopping"
+      },
+      {
+        "tag": "h3",
+        "text": "Things to Do"
+      },
+      {
+        "tag": "h3",
+        "text": "Schools"
+      },
+      {
+        "tag": "li",
+        "text": "Covenant Christian Academy"
+      },
+      {
+        "tag": "li",
+        "text": "Inspire Academy"
+      },
+      {
+        "tag": "li",
+        "text": "Waypoint Montessori"
+      },
+      {
+        "tag": "li",
+        "text": "Crown of Life Lutheran School"
+      },
+      {
+        "tag": "li",
+        "text": "Colleyville Montessori"
+      },
+      {
+        "tag": "li",
+        "text": "Creme de la Creme"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "university-park",
+    "name": "University Park",
+    "source_id": "P-9d3dc5e0401dc5e8",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/university-park",
+    "cover": "assets/editorial/university-park.webp",
+    "description": "Are you looking for a luxury home in University Park? Let Sharon Hodnett's neighborhood guide show you around this prestigious Dallas suburb. Call her today! ",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "University Park"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "coppell",
+    "name": "Coppell",
+    "source_id": "P-bcdb032a79f5653b",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/coppell",
+    "cover": "assets/editorial/coppell.webp",
+    "description": "Discover the charm of Coppell's neighborhoods with Sharon Hodnett. This guide will help you find perfect homes for sale in Texas. Call Sharon now! ",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "Coppell"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "irving-las-colinas",
+    "name": "Irving / Las Colinas",
+    "source_id": "P-c461384fe1710ca9",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/irving-las-colinas",
+    "cover": "assets/editorial/irving-las-colinas.webp",
+    "description": "Explore Irving–Las Colinas: 255,036 residents, median age 32.8, average individual income of $39,462, household data, and nearby schools.",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "Irving - Las Colinas"
+      }
+    ],
+    "data_date": "2026-10-27"
+  },
+  {
+    "slug": "north-dallas",
+    "name": "North Dallas",
+    "source_id": "P-dcf9a04f519bc879",
+    "source_url": "https://teamhodnettluxury.com/neighborhoods/north-dallas",
+    "cover": "assets/editorial/north-dallas.webp",
+    "description": "Explore North Dallas – By Preston Hollow: 13,851 residents, a median age of 56, average individual income of $154,154, and nearby school information.",
+    "blocks": [
+      {
+        "tag": "h1",
+        "text": "North Dallas - By Preston Hollow"
+      }
+    ],
+    "data_date": "2026-10-27"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-04",
+  "environments": [
+    "Chromium in-app browser",
+    "Chrome desktop",
+    "390 x 844 mobile viewport"
+  ],
+  "observed_passes": [
+    "Featured photograph controls and chapter navigation",
+    "Search: Southlake 6 beds under $5m returns 1204 Andre Court",
+    "No-results state and reset; all 394 records; load more renders 24 cards",
+    "Save, persist and remove property favorites; Escape returns dialog focus",
+    "Eight-photo gallery navigation and close",
+    "Showing form validates and prepares local summary without transmission",
+    "Valuation address is carried into inquiry context",
+    "Mobile full menu includes working preview profile and saved collection",
+    "Mobile document width equals viewport width: 390 pixels",
+    "Reduced motion removes inert and aria-hidden from all three story chapters",
+    "23 video options; selecting mounts youtube-nocookie iframe, closing removes it",
+    "Desktop home and chapter composition visually reviewed after final typography changes"
+  ],
+  "limits": [
+    "MLS availability is a captured snapshot, not a live feed",
+    "No real authentication, CRM delivery, booking or automatic valuation",
+    "External video playback beyond iframe mounting was not verified",
+    "No Lighthouse or field Core Web Vitals claims"
+  ],
+  "console": "No site-origin errors observed in checked flows. Chrome reported unrelated AdBlock extension errors."
+}
