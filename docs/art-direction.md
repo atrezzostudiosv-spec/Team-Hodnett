@@ -16,3 +16,7 @@ Las tres grabaciones del usuario se estudiaron mediante secuencias de fotogramas
 
 ## Código y autoría
 Los módulos propios ATREZZO se inspeccionaron antes de integrarlos. Se preservan comentarios de autoría; se adaptan paleta, textos, fotografía y accesibilidad. No se usan las imágenes de las demostraciones de componentes ni dependencias de animación externas.
+
+
+## Escenas personales y header
+El recorrido inicial es Hero → A Personal Connection / Sharon → The Hodnett Team → selección de propiedades. Se utilizan las dos fotografías suministradas sin modificar sus píxeles; degradados y blanco/dorado se componen en CSS. Una fijación CSS dentro de la sección crea una pausa visual con zoom máximo del 2,5 %. El siguiente panel avanza por el flujo del documento y cubre el retrato, sin bloquear el scroll. Las dos columnas de texto comparten anclaje derecho. El header cambia desde transparente a vidrio ahumado (RGBA con blur de 22px), conserva el teléfono y prioriza los cinco destinos comerciales. Los controles de favoritos/perfil se trasladan fuera del header desktop.

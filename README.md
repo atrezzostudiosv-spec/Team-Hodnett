@@ -60,3 +60,7 @@ Cuando la propietaria apruebe el proyecto: elegir continuidad en Luxury Presence
 
 ## Dirección visual actual
 Base blanca y negra, dorado discreto y rojo vinculado a Keller Williams. La tipografía sans domina; la cursiva se reserva para el cierre editorial. Se conservan las nueve cifras históricas con sus atribuciones de oficina y fechas. El footer recupera los logos originales KW y REALTOR® / Equal Housing, enlaces sociales y documentos TREC. El sitemap permite navegar las secciones principales. Los filtros utilizan controles propios con teclado, selección por prefijo, Escape y URL persistente. Las imágenes del índice de comunidades son provisionales y pueden sustituirse en `content/communities.json`.
+
+
+## Navegación y escenas de conexión
+Header desktop con Properties, Home Search, Home Valuation, Communities, Let’s Connect y teléfono. Al desplazarse usa vidrio ahumado translúcido con blur. El menú móvil conserva todas las rutas; favoritos y perfil de demostración están en menú/footer. Tras el hero aparece Sharon a pantalla completa con las imágenes horizontal y vertical suministradas, texto a la derecha y revelado progresivo. El zoom nativo de 1 a 1,025 se estabiliza antes de que el panel The Hodnett Team se deslice por encima. No se intercepta rueda ni gesto táctil. En movimiento reducido o ventanas muy bajas, ambos paneles permanecen en flujo normal. Properties y Home Search conservan destinos distintos dentro del catálogo de demostración; la conexión MLS continúa pendiente.

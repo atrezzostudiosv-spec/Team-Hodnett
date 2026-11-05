@@ -16,6 +16,22 @@
   sync();
  }
  function initPlaces(){const root=$('[data-place-index]');if(!root||!window.AtrezzoEditorialGallery01)return;const gallery=AtrezzoEditorialGallery01.init(root);const sync=()=>gallery.setReduced(document.body.classList.contains('reduced-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches);new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});sync();}
+ function initConnectionStory(){
+  const story=$('[data-connection-story]');if(!story)return;
+  const scenes=$$('[data-connection-scene]',story),media=matchMedia('(prefers-reduced-motion: reduce)');let frame=0,near=true;
+  const reduced=()=>media.matches||document.body.classList.contains('reduced-motion');
+  function update(){frame=0;if(!near)return;const height=innerHeight,progress=Math.min(1,Math.max(0,-story.getBoundingClientRect().top/(height*.35)));story.style.setProperty('--connection-scale',String(reduced()?1:1+progress*.025));
+   scenes.forEach((scene,i)=>{const r=scene.getBoundingClientRect();if(r.top<height*.85&&r.bottom>0)scene.classList.add('is-entered');if(r.top<height*(i===0?.16:.58))scene.classList.add('is-copy-ready');});
+  }
+  const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
+  const observer=new IntersectionObserver(entries=>{near=entries[0].isIntersecting;if(near)schedule();},{rootMargin:'100px 0px'});observer.observe(story);
+  const sync=()=>{story.classList.toggle('is-reduced',reduced());if(reduced())scenes.forEach(scene=>scene.classList.add('is-entered','is-copy-ready'));near=true;schedule();};
+  scenes.forEach(scene=>scene.addEventListener('focusin',()=>scene.classList.add('is-entered','is-copy-ready')));
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});addEventListener('pageshow',schedule);
+  media.addEventListener('change',sync);new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});
+  // Scroll remains native: sticky CSS provides the visual pause, with no wheel/touch interception.
+  story.classList.add('is-enhanced');sync();
+ }
  function initSelects(){
   const controls=[];let opened=null;
   $$('select#filter-status,select#filter-city,select#filter-beds,select#catalog-sort').forEach((select,n)=>{
@@ -49,6 +65,6 @@
   document.addEventListener('pointerdown',event=>{if(!event.target.closest('.luxury-select'))opened?.close();});
   document.addEventListener('hodnett:catalog-updated',()=>controls.forEach(c=>c.refresh()));
  }
- function init(){initFilm();initPlaces();initSelects();}
+ function init(){initFilm();initPlaces();initConnectionStory();initSelects();}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();

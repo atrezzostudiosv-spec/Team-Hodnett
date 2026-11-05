@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-05",
+  "result": "passed",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1435,
+      707
+    ],
+    [
+      1024,
+      900
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      390,
+      667
+    ]
+  ],
+  "checks": {
+    "desktop_navigation": "Properties, Home Search, Home Valuation, Communities, Let’s Connect, telephone; no desktop hamburger/profile/heart",
+    "header": "transparent on hero; rgba(10,11,13,.72) and blur(22px) on scroll",
+    "home_order": "hero → Sharon → The Hodnett Team → collection",
+    "photography": "supplied desktop and mobile portraits, original files preserved",
+    "native_scroll": "Sharon stays at top 0 while Team enters over it; no scroll interception",
+    "zoom": "scale 1 at scroll900, 1.025 at scroll1260; Sharon remains pinned",
+    "text_alignment": "both desktop columns left815.15625, width550 at1435px viewport",
+    "mobile": "correct vertical portrait; no horizontal overflow; menu closes with Escape and restores focus",
+    "short_mobile": "390×667: normal flow, Team margin0, no sticky pin",
+    "reduced_motion": "normal flow, no zoom, all eight copy elements visible",
+    "routes": "Properties → /properties/sale/; Home Search → /home-search/listings/",
+    "saved_homes": "opens from footer and closes with Escape"
+  },
+  "build": {
+    "pages": 453,
+    "checked_local_references": 31800,
+    "broken": 0
+  },
+  "screenshots": [
+    "docs/screenshots/v5/sharon-desktop.png",
+    "docs/screenshots/v5/team-desktop.png",
+    "docs/screenshots/v5/sharon-mobile.png"
+  ]
+}
