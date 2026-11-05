@@ -51,7 +51,7 @@ La biblioteca completa, el ZIP original y los informes de auditoría no se suben
 
 Se reutilizan ATREZZO SCROLL SECTIONS 02 y ATREZZO TRANSITIONS 01 de la biblioteca facilitada por el usuario. Se mantienen sus comentarios de autoría; se adaptan identidad, composición, medios y contenido. No se incluyen las fotografías de muestra de esos componentes.
 
-Las fuentes Cormorant Garamond y Manrope se alojan localmente y conservan sus licencias OFL. El logo y los medios inmobiliarios proceden del sitio y archivo del cliente. La referencia Elite no aporta código, copy, fotografías, equipo, documentos ni datos a este prototipo.
+Las fuentes DM Sans y Playfair Display se alojan localmente y conservan sus licencias OFL. El logo y los medios inmobiliarios proceden del sitio y archivo del cliente. La referencia Elite no aporta código, copy, fotografías, equipo, documentos ni datos a este prototipo.
 
 ## Conexión posterior
 

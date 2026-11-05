@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-04",
+  "families": {
+    "primary": "DM Sans",
+    "display_accents": "Playfair Display"
+  },
+  "desktop_observed": {
+    "viewport": 1439,
+    "hero_title_px": 74.828,
+    "chapter_title_px": 61.877,
+    "property_title_px": 50.365,
+    "property_price_px": 33.097,
+    "statistic_px": 28
+  },
+  "mobile_observed": {
+    "viewport": 390,
+    "document_width": 390,
+    "hero_title_px": 40,
+    "catalog_title_px": 36,
+    "property_card_title_px": 23
+  },
+  "numerals": "DM Sans, lining-nums tabular-nums for prices, statistics and counters",
+  "visual_checks": [
+    "Desktop home and chapter",
+    "Property address, price and statistics",
+    "Mobile home and menu",
+    "Mobile catalog, no horizontal overflow"
+  ],
+  "scope": "All shared page templates, dialogs, property cards, search, editorial, video and legal pages"
+}
