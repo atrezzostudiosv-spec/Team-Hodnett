@@ -17,7 +17,7 @@ Para un host que use un subdirectorio, compilar con `SITE_BASE_PATH=/Team-Hodnet
 
 ## Funcionalidad del prototipo
 
-- Portada fotográfica a pantalla completa, escena narrativa de tres capítulos con scroll nativo, colección seleccionable y transiciones entre páginas.
+- Hero con el vídeo original de Sharon y alternativa ligera para móvil. Propiedad destacada a pantalla completa, bandas inmersivas para Featured Neighborhoods e índice fotográfico de comunidades con scroll, puntero y foco de teclado.
 - Buscador público sin barrera de registro. Busca ciudad, dirección, ZIP y características. Entiende ejemplos como `Southlake 6 beds under $5m` o `pool under $2m`.
 - Filtros de estado, ciudad, presupuesto, habitaciones y piscina; ordenación, paginación y URL que conserva los filtros.
 - 394 registros de propiedades del sitemap observado el 4 de noviembre de 2026, con sus fichas, galerías recuperadas y procedencia.
@@ -49,10 +49,14 @@ La biblioteca completa, el ZIP original y los informes de auditoría no se suben
 
 ## Componentes y recursos
 
-Se reutilizan ATREZZO SCROLL SECTIONS 02 y ATREZZO TRANSITIONS 01 de la biblioteca facilitada por el usuario. Se mantienen sus comentarios de autoría; se adaptan identidad, composición, medios y contenido. No se incluyen las fotografías de muestra de esos componentes.
+Se reutilizan ATREZZO SERVICE SHOWCASE 01 (03 / Immersive bands), ATREZZO EDITORIAL GALLERY 01 (01 / Editorial Index) y ATREZZO TRANSITIONS 01 de la biblioteca facilitada por el usuario. Se mantienen sus comentarios de autoría; se adaptan identidad, composición, medios y contenido. No se incluyen las fotografías de muestra de esos componentes.
 
 Las fuentes DM Sans y Playfair Display se alojan localmente y conservan sus licencias OFL. El logo y los medios inmobiliarios proceden del sitio y archivo del cliente. La referencia Elite no aporta código, copy, fotografías, equipo, documentos ni datos a este prototipo.
 
 ## Conexión posterior
 
 Cuando la propietaria apruebe el proyecto: elegir continuidad en Luxury Presence o reconstrucción independiente, conectar proveedor MLS, autenticación, CRM/formularios, valoración, agenda y medición autorizada. Revisar contenido, datos, consentimiento y recepción real antes de publicar la web de producción. Ver `docs/integrations.md`.
+
+
+## Dirección visual actual
+Base blanca y negra, dorado discreto y rojo vinculado a Keller Williams. La tipografía sans domina; la cursiva se reserva para el cierre editorial. Se conservan las nueve cifras históricas con sus atribuciones de oficina y fechas. El footer recupera los logos originales KW y REALTOR® / Equal Housing, enlaces sociales y documentos TREC. El sitemap permite navegar las secciones principales. Los filtros utilizan controles propios con teclado, selección por prefijo, Escape y URL persistente. Las imágenes del índice de comunidades son provisionales y pueden sustituirse en `content/communities.json`.

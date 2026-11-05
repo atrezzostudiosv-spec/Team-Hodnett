@@ -1,0 +1,94 @@
+{
+  "source": "https://teamhodnettluxury.com/",
+  "assets": [
+    {
+      "asset_id": "A-6a91c0348e1b7cb4",
+      "original_asset_url": "https://media-production.lp-cdn.com/media/ce5e1bb9-62ac-4b46-96d2-3ec9d1542fbd",
+      "content_type": "image/png",
+      "sha256": "636cf3662b2887acdd1a6c3fc4ae1892822b7a8ebe2e1e2aeaf0e033a50b6d52",
+      "zip_path": "client-migration/capture/assets/636cf3662b2887acdd1a6c3fc4ae1892822b7a8ebe2e1e2aeaf0e033a50b6d52.png"
+    },
+    {
+      "asset_id": "A-6f83e9b4f0b51df8",
+      "original_asset_url": "https://media-production.lp-cdn.com/media/525037cb-b620-4046-881f-d94155903aa7",
+      "content_type": "image/png",
+      "sha256": "8b2050e901c8b4bcc8059c34326dcb0b5102dc001a1fefa2f753c762557a6d60",
+      "zip_path": "client-migration/capture/assets/8b2050e901c8b4bcc8059c34326dcb0b5102dc001a1fefa2f753c762557a6d60.png"
+    },
+    {
+      "asset_id": "A-fa4953a25cd414d9",
+      "original_asset_url": "https://res.cloudinary.com/luxuryp/videos/f_auto,q_auto/so_0,eo_0/kxi5q8b41nark9slxtyo/my-movie-5-sharon.jpg",
+      "content_type": "image/jpeg",
+      "sha256": "89829f3a1da7313427cd55576367bad55240730fb1c3c5b48d85b0a2f2541b54",
+      "zip_path": "client-migration/capture/assets/89829f3a1da7313427cd55576367bad55240730fb1c3c5b48d85b0a2f2541b54.jpg"
+    },
+    {
+      "asset_id": "A-c7f6f4762909da0b",
+      "original_asset_url": "https://res.cloudinary.com/luxuryp/videos/f_webm,vc_vp9,q_auto:best,w_1920,c_limit/kxi5q8b41nark9slxtyo/my-movie-5-sharon.webm",
+      "content_type": "video/webm;codecs=vp9",
+      "sha256": "7057a03de849d06b0c41c446dbd117afbb83e049bd4f50329ba2d61a170dee84",
+      "zip_path": "client-migration/capture/assets/7057a03de849d06b0c41c446dbd117afbb83e049bd4f50329ba2d61a170dee84.webm"
+    },
+    {
+      "asset_id": "A-680cb32df7062a16",
+      "original_asset_url": "https://res.cloudinary.com/luxuryp/videos/f_mp4,vc_h265,q_auto:best,w_1920,c_limit/kxi5q8b41nark9slxtyo/my-movie-5-sharon.mp4",
+      "content_type": "video/mp4;codecs=hvc1",
+      "sha256": "cffa741233088eb614c65e61c3b144cf71fb7fc306f9b9cbeed7cfe4c5c8eb8c",
+      "zip_path": "client-migration/capture/assets/cffa741233088eb614c65e61c3b144cf71fb7fc306f9b9cbeed7cfe4c5c8eb8c.mp4"
+    },
+    {
+      "asset_id": "A-1eb86de2fe64eb40",
+      "original_asset_url": "https://res.cloudinary.com/luxuryp/videos/f_mp4,vc_h264,q_auto:best,w_1920,c_limit/kxi5q8b41nark9slxtyo/my-movie-5-sharon.mp4",
+      "content_type": "video/mp4;codecs=avc1",
+      "sha256": "c5fcbb6f95463ce976811ab29ec2d322527d553b2d1196a5e6c06ec4a89d57b9",
+      "zip_path": "client-migration/capture/assets/c5fcbb6f95463ce976811ab29ec2d322527d553b2d1196a5e6c06ec4a89d57b9.mp4"
+    }
+  ],
+  "statistics": [
+    {
+      "value": "30+",
+      "label": "Years In Business"
+    },
+    {
+      "value": "$2.3 Billion",
+      "label": "Closed volume as an office"
+    },
+    {
+      "value": "1,750 +",
+      "label": "Total Transactions"
+    },
+    {
+      "value": "1.0%",
+      "label": "Ranked Top 1% out of all the Realtors\u00ae Nationwide"
+    },
+    {
+      "value": "$1.5 M",
+      "label": "2023 Average List Price"
+    },
+    {
+      "value": "9 Yrs",
+      "label": "Consecutive Winner of Five Star Professional Award"
+    },
+    {
+      "value": "4th",
+      "label": "Ranked in the Individual Category for 4 state regions for 2022 production"
+    },
+    {
+      "value": "1st",
+      "label": "Ranked in the Individual Category for offices for 2022"
+    },
+    {
+      "value": "5,000",
+      "label": "Units Closed as an office"
+    }
+  ],
+  "mobile_derivative": {
+    "source_asset_id": "A-1eb86de2fe64eb40",
+    "resolution": "1280x720",
+    "fps": 24,
+    "bytes": 4676918,
+    "audio": "removed",
+    "content": "complete original sequence",
+    "file": "public/assets/video/sharon-mobile.mp4"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "desktop_viewport": {
+    "width": 1435,
+    "height": 707
+  },
+  "mobile_viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "observed_passes": [
+    "Original background video played muted; pause/play control updated",
+    "Mobile video chose sharon-mobile.mp4",
+    "Featured stage measured 1435 x 707, equal to the viewport",
+    "Selected property changed photo, title, price, details and real destination",
+    "Immersive bands expanded Westlake by click and Colleyville by ArrowRight, inactive content inert",
+    "Editorial index synchronized Grapevine with photo and 04 / 06 after scroll/focus",
+    "Custom filters showed 355 past sales, 394 all properties and 22 in Southlake",
+    "Collection and community selection worked by keyboard, including city prefix and Escape",
+    "Filter reset synchronized custom labels and URL",
+    "Mobile filters selected 16 For Sale records with no horizontal overflow",
+    "Reduced motion paused hero video and exposed community photographs in linear flow",
+    "All nine statistical values use DM Sans and fit their desktop columns",
+    "KW, REALTOR / Equal Housing, social links, TREC, privacy and sitemap present"
+  ],
+  "verification_limits": [
+    "Pointer preview is implemented with native pointerenter; keyboard and scroll transitions were directly exercised",
+    "No live MLS, authentication, CRM delivery or booking connection",
+    "No Lighthouse or field performance score claimed"
+  ]
+}

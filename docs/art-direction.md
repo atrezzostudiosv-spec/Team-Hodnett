@@ -1,24 +1,18 @@
-# Dirección artística
+# Dirección artística · noviembre 2026
 
-La referencia aportada es `elite-realtor-demo.ubntag.com`, estudiada en el ZIP y en el navegador. Su función es orientar escala, continuidad y ritmo, exclusivamente. No se replica su identidad ni sus materiales.
+Las tres grabaciones del usuario se estudiaron mediante secuencias de fotogramas. La primera referencia usa sans serif dominante, tipografía breve y fotografía sin marco; la segunda alterna escenas completas y énfasis cursivo selectivo; la tercera documenta el sitio original de Sharon. La referencia Elite aporta dirección visual exclusivamente, sin copiar código, fotografías, personas, identidad ni textos.
 
-## Aplicación a Sharon Hodnett
+## Aplicación
+- Blanco y negro como base. Dorado para detalles de navegación y rojo ligado a Keller Williams.
+- Hero con el vídeo original recuperado del archivo de Sharon. Variante móvil H264 de 4,5 MB, secuencia completa, sin audio. Pausa explícita y respuesta a movimiento reducido.
+- Propiedad destacada a todo el ancho y alto del viewport, cambio de fotografía mediante disolución y tabs con teclado.
+- Featured Neighborhoods integra 03 / Immersive bands de ATREZZO Service Showcase. Expansión por selección y flechas; móvil vertical.
+- A Sense of Place integra 01 / Editorial Index de ATREZZO Editorial Gallery. Fotografías sincronizadas con scroll, puntero y foco. En móvil o con movimiento reducido, cada fotografía queda junto a su contenido.
+- Los nombres de comunidades se mantienen como enlaces reales a sus guías. La fotografía es provisional, según indicación del usuario.
+- Se eliminan las tres escenas repetitivas de la Home anterior para dar protagonismo a los recorridos específicos de propiedades y lugares.
+- Nueve cifras históricas con sans serif y números alineados. Se mantienen años, atribución de oficina y alcance de los premios.
+- Footer con KW, REALTOR® / Equal Housing Opportunity, contacto, enlaces sociales y documentos existentes. El crédito de la plataforma original es procedencia, no autoría de esta reconstrucción.
+- Filtros propios sobre controles de formulario conservados como base. Teclado, prefijos de ciudad, Escape, cierre exterior y actualización de URL.
 
-- Fotografía real del cliente a pantalla completa, sin encerrar el hero en una tarjeta.
-- Contraste entre escenas cinematográficas y pausas editoriales de lectura.
-- Títulos y controles en DM Sans, con acentos puntuales en Playfair Display y conservación del logo de Sharon.
-- Marfil, carbón y latón discreto. El protagonismo recae en los inmuebles y las personas.
-- Tres capítulos progresivos con máscara y profundidad fotográfica, sincronizados con scroll nativo.
-- Colección de propiedades a gran escala con selección explícita, además del buscador orientado a tareas.
-- Transición Veil de ATREZZO con duración contenida; sin animar para retrasar la exploración.
-- Movimiento reducido que conserva todas las escenas y todos los enlaces en flujo normal.
-
-## Reutilización técnica
-
-Se han leído los módulos de ATREZZO antes de integrarlos. El sistema añade estado accesible a los planos inactivos y sustituye todas sus fotos y textos de ejemplo por material de Sharon. No hay dependencias externas de animación, captura de rueda, scroll-jacking, vídeo en autoplay o controles que inventen conexiones operativas.
-
-El catálogo usa una retícula cuando el objetivo es comparar inmuebles. La portada reserva la escala fotográfica y el movimiento para introducir la marca y sus recorridos; cada efecto tiene un papel concreto.
-
-
-## Revisión tipográfica
-DM Sans pasa a ser la familia principal en títulos, interfaz, direcciones y cifras. Playfair Display se limita a acentos en títulos y citas, en redonda. La referencia visual de combinación es Elegant Massage (massage-menu); se reduce la escala para mantener el protagonismo de las fotografías. Precios y estadísticas usan cifras alineadas y tabulares.
+## Código y autoría
+Los módulos propios ATREZZO se inspeccionaron antes de integrarlos. Se preservan comentarios de autoría; se adaptan paleta, textos, fotografía y accesibilidad. No se usan las imágenes de las demostraciones de componentes ni dependencias de animación externas.
