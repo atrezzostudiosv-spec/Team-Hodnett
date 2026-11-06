@@ -84,9 +84,23 @@ def flower_mound():
     # Real place, photographic provenance and CC BY 2.0 explicitly verified.
     url=("https://upload.wikimedia.org/wikipedia/commons/d/d8/"
          "Sunrise_on_a_foggy_cold_day_in_Flower_Mound_%2852692865160%29.jpg")
-    image,source_bytes=download(url)
-    if image.width < 3000 or image.height < 1900:
-        raise ValueError(f"Commons source unexpectedly small: {image.size}")
+    errors=[]
+    candidates=[
+        url,
+        "https://images.weserv.nl/?url=upload.wikimedia.org/wikipedia/commons/d/d8/Sunrise_on_a_foggy_cold_day_in_Flower_Mound_%2852692865160%29.jpg&w=3000&output=jpg",
+        "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/commons/d/d8/Sunrise_on_a_foggy_cold_day_in_Flower_Mound_%2852692865160%29.jpg&w=3000&output=jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg?width=3000"
+    ]
+    for target in candidates:
+        try:
+            image,source_bytes=download(target)
+            if image.width < 2950 or image.height < 1750:
+                raise ValueError(f"Commons source unexpectedly small: {image.size}")
+            break
+        except Exception as exc:
+            errors.append(f"{target[:82]}: {type(exc).__name__}: {str(exc)[:120]}")
+    else:
+        raise RuntimeError("All verified Commons access paths failed: "+"; ".join(errors))
     old=Image.open(OUT/"flower-mound.webp").size
     new=save(image,OUT/"flower-mound.webp",target=3000)
     return {"status":"replaced_original_location_photograph",
