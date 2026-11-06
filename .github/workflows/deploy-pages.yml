@@ -34,6 +34,8 @@ jobs:
           SITE_BASE_PATH: /Team-Hodnett
         run: npm run build
       - name: Validate site links and assets
+        env:
+          SITE_BASE_PATH: /Team-Hodnett
         run: npm run check
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
