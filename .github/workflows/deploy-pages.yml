@@ -29,10 +29,19 @@ jobs:
           node-version: '20'
       - name: Test property search
         run: npm test
+      - name: Syntax-check browser modules
+        run: |
+          node --check public/src/ui.js
+          node --check public/src/assistant.mjs
+          node --check public/src/assistant-core.mjs
+          node --check scripts/build.mjs
+          node --check scripts/templates.mjs
       - name: Build for repository subpath
         env:
           SITE_BASE_PATH: /Team-Hodnett
         run: npm run build
+      - name: Syntax-check generated knowledge
+        run: node --check dist/data/knowledge.mjs
       - name: Validate site links and assets
         env:
           SITE_BASE_PATH: /Team-Hodnett
