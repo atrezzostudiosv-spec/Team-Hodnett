@@ -4,7 +4,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  const descriptions={southlake:'A local perspective on Southlake, from the town square to the places you call home.',westlake:'Discover Westlake and a different pace of North Texas living.',colleyville:'Explore the neighborhoods and local character of Colleyville.',grapevine:'A closer look at Grapevine, its Main Street and the surrounding community.','flower-mound':'Get to know Flower Mound and the possibilities around your next move.',keller:'Explore Keller with a perspective rooted in the local community.'};
  const placeImage=c=>c.cover||'assets/editorial/'+c.slug+'.webp';
 
- const featuredPanels=featured.map((p,i)=>`<article class="collection-panel" id="collection-panel-${i+1}" data-collection-panel role="tabpanel" aria-labelledby="collection-tab-${i+1}" aria-hidden="${i===0?'false':'true'}">
+ const featuredPanels=featured.map((p,i)=>`<article class="collection-panel" id="collection-panel-${i+1}" data-collection-panel role="tabpanel" aria-labelledby="collection-tab-${i+1}" aria-hidden="false">
   <div class="collection-image-wrap"><img class="collection-photo" src="${U(p.cover)}" alt="${e(p.title)}, ${e(p.city)}" loading="${i===0?'eager':'lazy'}" decoding="async"></div>
   <div class="collection-scrim" aria-hidden="true"></div>
   <div class="collection-overlay">
