@@ -46,7 +46,7 @@
 
     function updateIndex() {
       raf = 0;
-      if (destroyed || reduced || !entries.length || global.innerWidth <= 680) return;
+      if (destroyed || reduced || !entries.length || (global.innerWidth <= 680 && !root.classList.contains('is-immersive'))) return;
       const center = global.innerHeight * .49;
       let closest = 0;
       let distance = Infinity;
@@ -56,6 +56,14 @@
         if (d < distance) { distance = d; closest = i; }
       });
       setIndex(closest);
+      // Hodnett full-bleed variant: a restrained scroll-driven photo zoom.
+      // Keep it scoped to this one page, never to other editorial galleries.
+      if (root.classList.contains('is-immersive')) {
+        const rect = entries[closest].getBoundingClientRect();
+        const distance = Math.max(1, rect.height + global.innerHeight);
+        const progress = clamp((global.innerHeight - rect.top) / distance, 0, 1);
+        root.style.setProperty('--place-photo-zoom', String((1.025 + progress * .055).toFixed(4)));
+      }
     }
     function scheduleIndex() { if (!raf) raf = global.requestAnimationFrame(updateIndex); }
 
