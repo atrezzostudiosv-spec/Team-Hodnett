@@ -1,0 +1,97 @@
+/* ATREZZO / THE HODNETT TEAM — SELECTED HOMES CINEMATIC CHAPTERS
+   Visual reference: Thaissage treatments. Native scroll, full-screen photography,
+   accessible direct chapter controls. No wheel interception and no automatic timing. */
+.connection-story + .collection-section{padding-top:0!important}
+.collection-section{position:relative;background:#fff;color:#111}
+.collection-section .collection-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;padding-top:clamp(75px,8vw,120px);padding-bottom:clamp(50px,5.4vw,84px)}
+.collection-section .collection-intro h2{font:400 clamp(44px,5vw,78px)/1.06 var(--sans);letter-spacing:-.055em;margin:20px 0 0}
+.collection-section .collection-intro>p{font-size:15px;max-width:350px;line-height:1.8;margin:0 0 7px;color:#666}
+.collection-scroll-track{width:100%;position:relative;background:#101114}
+.collection-stage{width:100%;margin:0;position:relative;background:#111;color:#fff}
+.collection-stage:after{display:none!important}
+.collection-frames{position:relative;width:100%}
+.collection-panel{position:relative;isolation:isolate;overflow:hidden;color:#fff}
+.collection-image-wrap,.collection-photo,.collection-scrim{position:absolute;inset:0;width:100%;height:100%}
+.collection-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;transform:scale(1.025);transform-origin:50% 50%;will-change:transform;transition:none!important}
+.collection-image-wrap{overflow:hidden;z-index:-2}
+.collection-scrim{z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.55) 71%,rgba(0,0,0,.88) 100%),linear-gradient(90deg,rgba(0,0,0,.17),transparent 65%)}
+.collection-stage .collection-image-index{position:absolute;left:var(--gutter);top:clamp(27px,5svh,54px);z-index:12;color:#fff;letter-spacing:.2em;font-size:10px;text-shadow:0 1px 12px #0007}
+.collection-image-counter{position:absolute;z-index:12;top:clamp(27px,5svh,54px);right:var(--gutter);font-size:11px;letter-spacing:.15em;line-height:1.5;font-variant-numeric:tabular-nums;color:#f2eee6}
+.collection-section .collection-overlay{position:absolute;left:var(--gutter);right:var(--gutter);bottom:clamp(185px,26svh,260px);z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:30px}
+.collection-section .collection-overlay h3{font:400 clamp(37px,4.6vw,76px)/1.05 var(--sans);letter-spacing:-.052em;margin:13px 0 14px;color:#fff}
+.collection-section .collection-overlay .eyebrow{font-size:10px;letter-spacing:.17em;color:#eee6d6}
+.collection-section .collection-meta{display:flex;flex-wrap:wrap;gap:10px 25px;align-items:center;font-size:13px;color:#f5f3ef;font-variant-numeric:tabular-nums}
+.collection-property-copy{min-width:0;max-width:75%}
+.collection-property-link{white-space:nowrap;flex-shrink:0;min-height:50px;padding:14px 19px;gap:24px;font-size:12px;letter-spacing:.02em}
+.collection-section .collection-bottom{position:absolute;z-index:15;bottom:clamp(25px,3.6svh,48px);left:var(--gutter);right:var(--gutter);color:#fff}
+.collection-bottom-top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:19px}
+.collection-bottom-top>span{font-size:10px;letter-spacing:.18em;font-weight:500;color:#fff}
+.collection-all-homes{display:inline-flex;align-items:center;gap:19px;min-height:43px;padding:10px 19px;border:1px solid rgba(255,255,255,.8);border-radius:99px;background:rgba(5,8,8,.30);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);font-size:12px;font-weight:500;color:#fff;white-space:nowrap;transition:background .2s,color .2s}
+.collection-all-homes svg{width:17px;height:17px}
+.collection-all-homes:hover{background:#fff;color:#131313}
+.collection-section .collection-tabs{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(15px,2.3vw,46px);margin:0;border:0;width:100%}
+.collection-section .collection-tab,.collection-section .collection-tab:first-child,.collection-section .collection-tab:last-child{appearance:none;background:transparent;color:rgba(255,255,255,.68);padding:0 0 3px;min-width:0;min-height:58px;display:flex;flex-direction:column;gap:0;text-align:left;align-items:stretch;justify-content:flex-start;border:0;border-radius:0;box-shadow:none!important;transition:color .2s}
+.collection-tab-rule{position:relative;display:block;width:100%;height:2px;margin-bottom:13px;background:rgba(255,255,255,.35);overflow:hidden}
+.collection-tab-rule:after{content:'';position:absolute;inset:0 auto 0 0;width:calc(var(--chapter-fill,0)*100%);height:100%;background:#fff;transition:width .13s linear}
+.collection-section .collection-tab .collection-tab-title{font:500 clamp(11px,1.1vw,15px)/1.3 var(--sans);letter-spacing:.006em;color:inherit;display:block}
+.collection-section .collection-tab .collection-tab-city{font:400 10px/1.4 var(--sans);letter-spacing:.025em;color:rgba(255,255,255,.62);margin-top:5px;display:block}
+.collection-section .collection-tab:hover,.collection-section .collection-tab:focus-visible,.collection-section .collection-tab[aria-selected="true"]{color:#fff}
+.collection-section .collection-tab:focus-visible{outline:2px solid #fff;outline-offset:6px}
+.collection-section .collection-fallback-link{padding-block:20px 65px}
+.collection-section.is-cinema-active .collection-scroll-track{height:430svh}
+.collection-section.is-cinema-active .collection-stage{position:sticky;top:0;height:100svh;min-height:0;isolation:isolate;overflow:hidden}
+.collection-section.is-cinema-active .collection-frames{position:absolute;inset:0;height:100%}
+.collection-section.is-cinema-active .collection-panel{position:absolute;inset:0;opacity:0;pointer-events:none;will-change:opacity;transition:opacity .13s linear}
+.collection-section.is-cinema-active .collection-panel:first-child{opacity:1}
+.collection-section.is-cinema-active .collection-fallback-link{display:none}
+.collection-section:not(.is-cinema-active) .collection-scroll-track{height:auto}
+.collection-section:not(.is-cinema-active) .collection-stage{height:auto;min-height:0;position:relative;overflow:visible;background:#fff}
+.collection-section:not(.is-cinema-active) .collection-frames{position:relative;display:grid;gap:14px}
+.collection-section:not(.is-cinema-active) .collection-panel{position:relative;display:block;min-height:540px;height:min(90svh,740px);opacity:1!important;pointer-events:auto!important}
+.collection-section:not(.is-cinema-active) .collection-panel .collection-photo{transform:scale(1)!important}
+.collection-section:not(.is-cinema-active) .collection-bottom,.collection-section:not(.is-cinema-active) .collection-image-counter,.collection-section:not(.is-cinema-active) .collection-image-index{display:none}
+.collection-section:not(.is-cinema-active) .collection-overlay{bottom:clamp(35px,8svh,70px)}
+.collection-section:not(.is-cinema-active) .collection-property-copy{max-width:75%}
+@media(max-width:1023px){
+ .collection-section .collection-overlay{bottom:clamp(184px,27svh,260px)}
+ .collection-section .collection-overlay h3{font-size:clamp(34px,4.2vw,58px)}
+ .collection-section .collection-property-link{min-height:46px;padding:12px 16px;gap:15px;font-size:11px}
+ .collection-section .collection-tabs{gap:18px}
+}
+@media(max-width:767px){
+ .collection-section .collection-intro{display:block;padding-top:67px;padding-bottom:40px}
+ .collection-section .collection-intro h2{font-size:clamp(38px,10vw,54px);margin-top:12px}
+ .collection-section .collection-intro>p{font-size:13px;margin:19px 0 0;max-width:350px}
+ .collection-stage .collection-image-index{left:22px;top:24px;font-size:9px;letter-spacing:.12em;max-width:235px}
+ .collection-image-counter{right:22px;top:24px;font-size:10px}
+ .collection-section .collection-overlay{left:22px;right:22px;bottom:clamp(167px,22svh,215px);display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+ .collection-section .collection-property-copy{max-width:100%;width:100%}
+ .collection-section .collection-overlay h3{font-size:clamp(32px,8.8vw,46px);margin:9px 0 11px;line-height:1.08;max-width:340px}
+ .collection-section .collection-overlay .eyebrow{font-size:9px}
+ .collection-section .collection-meta{font-size:11px;gap:8px 13px}
+ .collection-section .collection-property-link{min-height:43px;padding:11px 17px;font-size:11px}
+ .collection-section .collection-bottom{left:22px;right:22px;bottom:22px}
+ .collection-bottom-top{margin-bottom:15px}
+ .collection-bottom-top>span{font-size:8px;letter-spacing:.12em}
+ .collection-all-homes{font-size:10px;min-height:35px;padding:7px 10px;gap:8px}
+ .collection-all-homes svg{width:14px;height:14px}
+ .collection-section .collection-tabs{gap:10px}
+ .collection-section .collection-tab,.collection-section .collection-tab:first-child,.collection-section .collection-tab:last-child{min-height:62px}
+ .collection-section .collection-tab .collection-tab-title{font-size:clamp(10px,2.85vw,13px);line-height:1.28;max-width:100%}
+ .collection-section .collection-tab .collection-tab-city{display:none}
+ .collection-tab-rule{margin-bottom:10px}
+ .collection-section:not(.is-cinema-active) .collection-panel{min-height:550px;height:min(85svh,720px)}
+ .collection-section:not(.is-cinema-active) .collection-overlay{bottom:38px}
+}
+@media(max-height:759px) and (min-width:768px){
+ .collection-section .collection-overlay{bottom:174px}
+ .collection-section .collection-overlay h3{font-size:clamp(32px,4vw,56px)}
+ .collection-section .collection-meta{font-size:11px}
+ .collection-section .collection-bottom{bottom:20px}
+ .collection-section .collection-tab,.collection-section .collection-tab:first-child,.collection-section .collection-tab:last-child{min-height:53px}
+ .collection-tab-rule{margin-bottom:8px}
+ .collection-bottom-top{margin-bottom:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ .collection-panel,.collection-photo,.collection-tab-rule:after{transition:none!important;animation:none!important}
+}
