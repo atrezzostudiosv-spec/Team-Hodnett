@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - scripts/restore_community_photos.py
       - .github/workflows/replace-community-photos.yml
   workflow_dispatch:
 
