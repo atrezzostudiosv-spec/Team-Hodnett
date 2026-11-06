@@ -70,12 +70,12 @@
   pointer-events:none;
   background:
     linear-gradient(90deg,
-      rgba(2,4,5,.04) 0%,
-      rgba(2,4,5,.13) 32%,
-      rgba(2,4,5,.49) 52%,
-      rgba(2,4,5,.78) 72%,
-      rgba(2,4,5,.90) 100%),
-    linear-gradient(0deg,rgba(0,0,0,.34),transparent 30%,rgba(0,0,0,.10));
+      rgba(2,4,5,.01) 0%,
+      rgba(2,4,5,.06) 32%,
+      rgba(2,4,5,.30) 52%,
+      rgba(2,4,5,.58) 72%,
+      rgba(2,4,5,.73) 100%),
+    linear-gradient(0deg,rgba(0,0,0,.23),transparent 30%,rgba(0,0,0,.05));
 }
 .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__stage-meta{
   z-index:2;
@@ -226,7 +226,7 @@
     width:min(490px,50vw);
   }
   .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__stage:after{
-    background:linear-gradient(90deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.40) 34%,rgba(0,0,0,.82) 70%,rgba(0,0,0,.91) 100%);
+    background:linear-gradient(90deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,.28) 34%,rgba(0,0,0,.65) 70%,rgba(0,0,0,.78) 100%);
   }
 }
 /* Phones: full-screen photos still transition on scroll. The gradient comes
@@ -312,4 +312,32 @@
 @media(prefers-reduced-motion:reduce){
   .place-index.atg1 .atg1-index__photo,
   .place-index.atg1 .atg1-index__entry h3{transition:none!important;transform:none!important}
+}
+
+/* Verified photo credit without obstructing the immersive viewport. */
+.place-index .place-photo-credits{
+  margin:0;
+  padding:13px var(--gutter);
+  background:#0e1012;
+  color:rgba(255,255,255,.68);
+  font:400 10px/1.65 var(--sans,Arial,sans-serif);
+  letter-spacing:.01em;
+}
+.place-index .place-photo-credits a{
+  color:#ead3a3;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.place-index .place-photo-credits a:hover,.place-index .place-photo-credits a:focus-visible{color:#fff}
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry h3,
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry p,
+.place-index.atg1.is-immersive:not(.is-reduced) .place-index-intro h2,
+.place-index.atg1.is-immersive:not(.is-reduced) .place-index-intro p{
+  text-shadow:0 2px 19px rgba(0,0,0,.38);
+}
+@media(max-width:767px){
+  .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__stage:after{
+    background:linear-gradient(180deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.17) 25%,rgba(0,0,0,.36) 49%,rgba(0,0,0,.71) 77%,rgba(0,0,0,.85) 100%);
+  }
+  .place-index .place-photo-credits{padding:12px 24px;font-size:9px}
 }
