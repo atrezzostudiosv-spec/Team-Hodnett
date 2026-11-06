@@ -15,7 +15,7 @@
   const visibility=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)video.pause();else sync();},{threshold:0});visibility.observe(video);
   sync();
  }
- function initPlaces(){const root=$('[data-place-index]');if(!root||!window.AtrezzoEditorialGallery01)return;const gallery=AtrezzoEditorialGallery01.init(root);const sync=()=>gallery.setReduced(document.body.classList.contains('reduced-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches);new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});sync();}
+ function initPlaces(){const root=$('[data-place-index]');if(!root||!window.AtrezzoEditorialGallery01)return;root.classList.add('is-immersive');const gallery=AtrezzoEditorialGallery01.init(root);const sync=()=>gallery.setReduced(document.body.classList.contains('reduced-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches);new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});sync();}
  function initConnectionStory(){
   const story=$('[data-connection-story]');if(!story)return;
   const scenes=$$('[data-connection-scene]',story),media=matchMedia('(prefers-reduced-motion: reduce)');let frame=0,near=true;
