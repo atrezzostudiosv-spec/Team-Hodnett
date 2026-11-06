@@ -54,7 +54,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
     <div class="atg1-index__stage" aria-hidden="true">
      ${places.map((c,i)=>`<img class="atg1-index__photo${i===0?' is-active':''}" loading="lazy" decoding="async" src="${U(placeImage(c))}" alt="">`).join('')}
      <div class="atg1-index__stage-meta"><span>LOCAL PERSPECTIVE</span><span data-atg1-index-number>01 / 06</span></div>
-     <span class="sample-image-note">Temporary community photography</span>
+     
     </div>
     <div class="atg1-index__content">
      <div class="place-index-intro"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div>
@@ -69,7 +69,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
      </div>
     </div>
    </div>
-  </div>
+  <p class="place-photo-credits">Flower Mound photography: <a href="https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg" target="_blank" rel="noopener noreferrer">Shiva Shenoy</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>. Resized and converted to WebP.</p>
  </section>
  <section class="performance-section" aria-labelledby="performance-title"><div class="performance-heading wrap"><div class="eyebrow">EXPERIENCE IN NUMBERS</div><h2 id="performance-title">A record that<br>speaks for itself.</h2><p>Selected achievements published on Sharon’s original website.</p></div><div class="performance-grid wrap">${client.stats.map(s=>`<div class="performance-stat"><strong>${e(s.value)}</strong><span>${e(s.label)}</span></div>`).join('')}</div><p class="performance-source wrap">Historical figures from the original website. Office totals, award periods and the stated 2022 / 2023 dates retain their original scope.</p></section>
  <section class="quote-section home-quote"><div class="eyebrow">IN OUR CLIENTS’ WORDS</div><blockquote>“${e(excerpt)}”</blockquote><cite>${e(mainQuote.name)}</cite><p>${link('testimonials/','Read client stories')}</p></section>
