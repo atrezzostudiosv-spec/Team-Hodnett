@@ -1,0 +1,43 @@
+name: Replace community photographs with verified sources
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/replace-community-photos.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hodnett-community-source-photography
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image conversion
+        run: python -m pip install pillow==11.3.0
+      - name: Download verified real-location photograph and inspect Westlake original
+        run: python scripts/restore_community_photos.py
+      - name: Commit new source photograph and provenance
+        run: |
+          git config user.name "atrezzo-community-editorial[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/editorial/flower-mound.webp public/assets/editorial/westlake.webp docs/community-photo-update.json
+          if git diff --cached --quiet; then
+            echo "No usable source replacements found"
+            exit 1
+          fi
+          git commit -m "Replace Flower Mound photograph with real 3K licensed original and inspect Westlake source"
+          git push origin HEAD:main
