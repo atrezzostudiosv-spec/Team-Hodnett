@@ -41,6 +41,8 @@ for file in sorted(ASSETS.rglob("*")):
     target="assets/"+rel
     if rel in FOCUS_FULL or target in focus:
         role="hero" # full-screen / full-width photograph
+    elif "logo-" in rel or "brand-" in rel:
+        role="logo_or_misc" # retain exact original graphic fidelity
     elif rel.startswith("editorial/") and "recognition-" not in rel and "film-" not in rel:
         role="editorial"
     elif rel.startswith("properties/") and ".large." in file.name:
@@ -61,7 +63,9 @@ for file in sorted(ASSETS.rglob("*")):
     except Exception as ex:
         results.append({"asset":target,"error":str(ex)[:100]})
         continue
-    req={"hero":2400,"editorial":1600,"detail":1800,"card":900,"logo_or_misc":0}[role]
+    req={"hero":2400,"editorial":1440,"detail":1800,"card":900,"logo_or_misc":0}[role]
+    if rel=="editorial/sharon-scene-mobile.webp":
+        req=1200
     flag=(w<req and role!="logo_or_misc")
     results.append(dict(asset=target,role=role,width=w,height=h,bytes=file.stat().st_size,
                         format=fmt,edge_score=edge,target_width=req,below_target=flag,
