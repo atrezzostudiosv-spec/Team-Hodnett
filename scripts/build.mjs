@@ -73,4 +73,32 @@ await mkdir(path.join(dist,'data'),{recursive:true});
 await writeFile(path.join(dist,'data/catalog.js'),'window.HODNETT_CATALOG='+JSON.stringify(catalog).replace(/<\//g,'<\\/')+';');
 await writeFile(path.join(dist,'favicon.svg'),'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#252b27"/><text x="32" y="46" font-family="Georgia,serif" font-size="44" text-anchor="middle" fill="#e3cda6">H</text></svg>');
 await writeFile(path.join(dist,'robots.txt'),'User-agent: *\nDisallow: /\n');
+// Offline page knowledge for the voice/text concierge: sourced only from client content.
+const siteKnowledge=[
+ ...communities.map(c=>({type:'Community guide',title:c.name,description:c.description,
+  text:(c.blocks||[]).map(b=>b.text).filter(Boolean).join('\n'),href:'neighborhoods/'+c.slug+'/'})),
+ ...articles.map(a=>({type:'Journal article',title:a.title,description:a.description,
+  text:(a.blocks||[]).map(b=>b.text).filter(Boolean).join('\n'),href:'blog/'+a.slug+'/'})),
+ {type:'The team',title:'Meet Sharon Hodnett',href:'about/',description:'Sharon Hodnett serves buyers and sellers in Southlake and Dallas–Fort Worth.',
+  text:'Sharon Hodnett, The Hodnett Team. Residential and luxury real estate, new construction and builder relationships. Southlake, Colleyville, Grapevine, Westlake, Trophy Club, Flower Mound and Dallas–Fort Worth.'},
+ {type:'Contact',title:'Contact Sharon Hodnett',href:'contact/',description:'Call (817) 994-7152 or email sharon@teamhodnett.com.',
+  text:'Sharon Hodnett. Phone: (817) 994-7152. Email: sharon@teamhodnett.com. Address: 2106 E State Hwy 114, Ste 101, Southlake, TX 76092. Contact form is simulated in this presentation.'},
+ {type:'For sellers',title:'Sell with the Hodnett Team',href:'sellers/',description:'Learn about property presentation, selling and marketing.',
+  text:'Home selling. Property presentation, professional photography, tours, drone video, luxury marketing, outreach and personalized sales consultation. Details are arranged directly with the team.'},
+ {type:'Valuation',title:'Home valuation',href:'home-valuation/',description:'Begin a conversation about home value.',
+  text:'Enter a property address to prepare a valuation inquiry. No automatic valuation or instant price estimate is provided in the preview.'},
+ {type:'Property search',title:'Find homes and property listings',href:'homes/',description:'Browse and filter the captured North Texas property catalog.',
+  text:'Search properties by city, address, ZIP, price, bedrooms and pool. Includes listings and historical sold homes. MLS status and pricing are not live.'},
+ {type:'Saved homes',title:'Your saved homes',href:'client-login/',description:'Save favorites on this device.',
+  text:'Favorites are saved locally in the browser, not connected to a real authenticated account.'},
+ {type:'Client stories',title:'Client testimonials',href:'testimonials/',description:'Read customer reviews from Sharon Hodnett’s original website.',
+  text:testimonials.map(t=>[t.name,t.quote].filter(Boolean).join(': ')).join('\n')},
+ {type:'Recognition',title:'Press and awards',href:'awards/',description:'Historical accolades from the client website.',
+  text:(recognition.headings||[]).join('\n')},
+ {type:'Videos',title:'Property films and videos',href:'vlog/',description:'Explore original Sharon Hodnett videos.',
+  text:videos.map(v=>v.title).join('\n')},
+ {type:'Privacy',title:'Privacy policy and terms',href:'terms-and-conditions/',description:'Read the privacy policy and legal terms preserved from the original site.',
+  text:(legal.blocks||[]).map(b=>b.text).filter(Boolean).join('\n')}
+];
+await writeFile(path.join(dist,'data/knowledge.mjs'),'export const siteKnowledge='+JSON.stringify(siteKnowledge).replace(/<\//g,'<\\/')+';\n');
 console.log(JSON.stringify({built:true,properties:properties.length,communities:communities.length,articles:articles.length,output:dist}));
