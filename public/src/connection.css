@@ -65,3 +65,16 @@ body .site-nav{display:flex;align-items:center;gap:clamp(20px,2.15vw,38px);font-
 .connection-story.is-enhanced .connection-team .connection-photo{opacity:1}
 
 .connection-scene{scroll-margin-top:-100px}
+
+/* Direction-aware global header: visible at top and when scrolling upwards. */
+body .site-header,body .site-header.is-scrolled{
+ transform:translate3d(0,0,0);
+ transition:transform .33s cubic-bezier(.25,.75,.25,1),background .45s ease,border-color .45s ease,box-shadow .45s ease;
+}
+body .site-header.is-hidden,body .site-header.is-hidden.is-scrolled{
+ transform:translate3d(0,calc(-100% - 3px),0);
+ pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+ body .site-header,body .site-header.is-scrolled{transition:none}
+}
