@@ -107,7 +107,7 @@
   margin-left:auto;
   margin-right:var(--gutter);
   width:min(520px,43vw);
-  max-width:calc(100% - var(--gutter)*2);
+  max-width:calc(100% - var(--gutter) - var(--gutter));
 }
 .place-index.atg1.is-immersive:not(.is-reduced) .place-index-intro{
   min-height:100svh;
