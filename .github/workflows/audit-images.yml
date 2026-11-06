@@ -1,0 +1,37 @@
+name: Audit website image quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_image_quality.py
+      - .github/workflows/audit-images.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image inspection dependency
+        run: python -m pip install pillow==11.3.0
+      - name: Audit source images
+        run: python scripts/audit_image_quality.py
+      - name: Save reviewable audit report
+        run: |
+          git config user.name "atrezzo-image-audit[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/image-quality-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Audit current photographic assets and display requirements"
+            git push origin HEAD:main
+          fi
