@@ -1,0 +1,31 @@
+{
+  "flower_mound": {
+    "status": "replaced_original_location_photograph",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg",
+    "author": "Shiva Shenoy",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "location": "Grapevine Lake, Murrell Park, Flower Mound, Texas",
+    "original_dimensions": [
+      3482,
+      1959
+    ],
+    "old_dimensions": [
+      2400,
+      1500
+    ],
+    "new_dimensions": [
+      3000,
+      1688
+    ],
+    "source_bytes": 969430,
+    "transform": "Resized to 3000px width; converted to WebP; no scene edits"
+  },
+  "westlake": {
+    "status": "retained_no_verified_high_resolution_original",
+    "details": [
+      "https://www.westlake-tx.org/ImageRepository/Document?documentID=3450: original only (1512, 1134), not a meaningful improvement",
+      "https://westlake-tx.org/ImageRepository/Document?documentID=3450: original only (1512, 1134), not a meaningful improvement"
+    ]
+  }
+}
