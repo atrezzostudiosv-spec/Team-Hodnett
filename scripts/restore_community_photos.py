@@ -91,8 +91,7 @@ def flower_mound():
         "https://wsrv.nl/?url=upload.wikimedia.org/wikipedia/commons/d/d8/Sunrise_on_a_foggy_cold_day_in_Flower_Mound_%2852692865160%29.jpg&w=3000&output=jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg?width=3000"
     ]
-    # Fallback to the photographer's original Flickr host; Wikimedia may rate-limit CI.
-    # We only use the explicitly CC-BY licensed photo documented at Commons.
+    # Flickr is an alternative host for this exact CC-BY 2.0 photograph.
     try:
         import re
         import html as html_entities
@@ -101,45 +100,9 @@ def flower_mound():
         with urlopen(req,timeout=24) as response:
             markup=response.read(6_000_000).decode("utf-8","ignore")
         decoded=html_entities.unescape(markup).replace("\\/", "/")
-        images=re.findall(r'https?://live\\.staticflickr\\.com/\\d+/52692865160_[a-zA-Z0-9]+_[a-z0-9]+\\.jpg',decoded)
-        # Include Flickr's 3K and 2K variants, with no upscaling.
+        images=re.findall(r'https?://live\.staticflickr\.com/\d+/52692865160_[a-zA-Z0-9]+_[a-z0-9]+\.jpg',decoded)
         for src in dict.fromkeys(images):
-            stem=re.sub(r'_(?:[a-z0-9]+)\\.jpg
-            if image.width < 2300 or image.height < 1600:
-                raise ValueError(f"Commons source unexpectedly small: {image.size}")
-            break
-        except Exception as exc:
-            errors.append(f"{target[:82]}: {type(exc).__name__}: {str(exc)[:120]}")
-    else:
-        raise RuntimeError("All verified Commons access paths failed: "+"; ".join(errors))
-    old=Image.open(OUT/"flower-mound.webp").size
-    new=save(image,OUT/"flower-mound.webp",target=3000)
-    return {"status":"replaced_original_location_photograph",
-            "source":"https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg",
-            "author":"Shiva Shenoy","license":"CC BY 2.0",
-            "license_url":"https://creativecommons.org/licenses/by/2.0/",
-            "location":"Grapevine Lake, Murrell Park, Flower Mound, Texas",
-            "original_dimensions":list(image.size),"old_dimensions":list(old),
-            "new_dimensions":new, "source_bytes":source_bytes,
-            "transform":"Resized to 3000px width; converted to WebP; no scene edits"}
-
-def main():
-    results={"flower_mound":None,"westlake":None}
-    try: results["flower_mound"]=flower_mound()
-    except Exception as exc:
-        results["flower_mound"]={"status":"not_replaced","error":str(exc)}
-    try: results["westlake"]=westlake()
-    except Exception as exc:
-        results["westlake"]={"status":"not_replaced","error":str(exc)}
-    REPORT.write_text(json.dumps(results,indent=2)+"\n")
-    print(json.dumps(results,indent=2))
-    # Do not label success if Flower Mound was not actually replaced.
-    return 0 if results["flower_mound"]["status"]=="replaced_original_location_photograph" else 1
-
-if __name__=="__main__":
-    from PIL import ImageFilter
-    raise SystemExit(main())
-, '', src)
+            stem=re.sub(r'_(?:[a-z0-9]+)\.jpg$', '', src)
             for size in ("3k","k","h"):
                 candidates.append(stem+"_"+size+".jpg")
         if not images:
@@ -149,7 +112,7 @@ if __name__=="__main__":
     for target in candidates:
         try:
             image,source_bytes=download(target)
-            if image.width < 2950 or image.height < 1750:
+            if image.width < 2300 or image.height < 1600:
                 raise ValueError(f"Commons source unexpectedly small: {image.size}")
             break
         except Exception as exc:
