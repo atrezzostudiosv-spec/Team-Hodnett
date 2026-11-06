@@ -25,7 +25,7 @@ function matchMoney(source,phrase){
 const escapePattern = value => String(value).replace(/[-/\\^$*+?.()|[\]{}]/g,'\\$&');
 export function interpretQuestion(question,properties=[]){
  const q=normalize(question).trim();
- const cities=[...new Set(properties.map(p=>p.city).filter(Boolean))].sort((a,b)=>b.length-a.length);
+ const cities=[...new Set([...properties.map(p=>p.city).filter(Boolean),'Argyle'])].sort((a,b)=>b.length-a.length);
  const city=cities.find(c=>new RegExp('(^|[^a-z])'+escapePattern(normalize(c))+'([^a-z]|$)').test(q))||'';
  const houseWords=/\b(casa|casas|vivienda|viviendas|propiedad|propiedades|inmueble|inmuebles|home|homes|house|houses|property|properties|listing|listings|compra|comprar|venta|vender|rent|rental|lease|alquiler|alquilar|bed|beds|bedroom|bedrooms|habitaciones|habitacion|recamaras|recamara|dormitorios|dormitorio|piscina|alberca|pool|mls)\b/i;
  const address=properties.find(p=> {
