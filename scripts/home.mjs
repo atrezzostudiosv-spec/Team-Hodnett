@@ -48,7 +48,29 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   <div class="collection-fallback-link wrap">${link('homes/','Explore All Homes')}</div>
  </section>
  <section class="featured-neighborhoods atz-service-showcase" data-atz-service-showcase aria-labelledby="featured-places-title"><div class="neighborhoods-lead wrap"><div class="eyebrow">FEATURED NEIGHBORHOODS</div><div><h2 id="featured-places-title">Find your place.</h2><p>Three communities. A world of possibility.</p></div></div><div data-atz-panels><div class="atz-panels">${places.slice(0,3).map((c,i)=>`<article class="atz-panel${i===0?' is-active':''}" data-atz-service-panel><img loading="lazy" src="${U(placeImage(c))}" alt="${e(c.name)} community photograph"><button class="atz-panel-toggle" type="button" data-atz-panel-toggle aria-controls="neighborhood-copy-${i}" aria-expanded="${i===0}"><span class="atz-micro">0${i+1} / NORTH TEXAS</span><span class="atz-panel-toggle-bottom"><span class="atz-panel-title">${e(c.name)}</span><span class="atz-panel-plus" aria-hidden="true">+</span></span></button><div class="atz-panel-content" data-atz-panel-content id="neighborhood-copy-${i}"><p>${e(descriptions[c.slug])}</p><a class="atz-outline-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore ${e(c.name)} ${icon('arrow')}</a></div></article>`).join('')}</div></div><div class="neighborhoods-end wrap"><span>Explore the places behind the properties.</span>${link('neighborhoods/','All communities')}</div></section>
- <section class="atg1 place-index" data-place-index aria-labelledby="local-life-title"><div class="atg1-index"><div class="place-index-intro"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div><div class="atg1-index__layout"><div class="atg1-index__stage" aria-hidden="true">${places.map((c,i)=>`<img class="atg1-index__photo${i===0?' is-active':''}" loading="lazy" src="${U(placeImage(c))}" alt="">`).join('')}<div class="atg1-index__stage-meta"><span>LOCAL PERSPECTIVE</span><span data-atg1-index-number>01 / 06</span></div><span class="sample-image-note">Temporary community photography</span></div><div class="atg1-index__entries">${places.map((c,i)=>`<article class="atg1-index__entry${i===0?' is-active':''}" id="local-${c.slug}"><div class="atg1-index__entry-header"><span>0${i+1} / THE COMMUNITY</span>${icon('arrow')}</div><h3><a class="community-name" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>${e(c.name)}</a></h3><img class="atg1-index__mobile-photo" loading="lazy" src="${U(placeImage(c))}" alt="Illustrative community photograph for ${e(c.name)}"><p>${e(descriptions[c.slug])}</p><a class="place-guide-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore the area ${icon('arrow')}</a></article>`).join('')}</div></div></div></section>
+ <section class="atg1 place-index" data-place-index aria-labelledby="local-life-title">
+  <div class="atg1-index">
+   <div class="atg1-index__layout">
+    <div class="atg1-index__stage" aria-hidden="true">
+     ${places.map((c,i)=>`<img class="atg1-index__photo${i===0?' is-active':''}" loading="lazy" decoding="async" src="${U(placeImage(c))}" alt="">`).join('')}
+     <div class="atg1-index__stage-meta"><span>LOCAL PERSPECTIVE</span><span data-atg1-index-number>01 / 06</span></div>
+     <span class="sample-image-note">Temporary community photography</span>
+    </div>
+    <div class="atg1-index__content">
+     <div class="place-index-intro"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div>
+     <div class="atg1-index__entries">
+      ${places.map((c,i)=>`<article class="atg1-index__entry${i===0?' is-active':''}" id="local-${c.slug}">
+       <div class="atg1-index__entry-header"><span>0${i+1} / THE COMMUNITY</span>${icon('arrow')}</div>
+       <h3><a class="community-name" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>${e(c.name)}</a></h3>
+       <img class="atg1-index__mobile-photo" loading="lazy" src="${U(placeImage(c))}" alt="Illustrative community photograph for ${e(c.name)}">
+       <p>${e(descriptions[c.slug])}</p>
+       <a class="place-guide-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore the area ${icon('arrow')}</a>
+      </article>`).join('')}
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
  <section class="performance-section" aria-labelledby="performance-title"><div class="performance-heading wrap"><div class="eyebrow">EXPERIENCE IN NUMBERS</div><h2 id="performance-title">A record that<br>speaks for itself.</h2><p>Selected achievements published on Sharon’s original website.</p></div><div class="performance-grid wrap">${client.stats.map(s=>`<div class="performance-stat"><strong>${e(s.value)}</strong><span>${e(s.label)}</span></div>`).join('')}</div><p class="performance-source wrap">Historical figures from the original website. Office totals, award periods and the stated 2022 / 2023 dates retain their original scope.</p></section>
  <section class="quote-section home-quote"><div class="eyebrow">IN OUR CLIENTS’ WORDS</div><blockquote>“${e(excerpt)}”</blockquote><cite>${e(mainQuote.name)}</cite><p>${link('testimonials/','Read client stories')}</p></section>
  <section class="journal-section wrap"><div class="section-heading"><div><div class="eyebrow">THE JOURNAL</div><h2>A local perspective.</h2></div>${link('blog/','All stories')}</div><div class="journal-grid">${homeArticles.map(journalCard).join('')}</div></section>
