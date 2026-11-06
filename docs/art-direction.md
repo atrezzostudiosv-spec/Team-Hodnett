@@ -20,3 +20,10 @@ Los módulos propios ATREZZO se inspeccionaron antes de integrarlos. Se preserva
 
 ## Escenas personales y header
 El recorrido inicial es Hero → A Personal Connection / Sharon → The Hodnett Team → selección de propiedades. Se utilizan las dos fotografías suministradas sin modificar sus píxeles; degradados y blanco/dorado se componen en CSS. Una fijación CSS dentro de la sección crea una pausa visual con zoom máximo del 2,5 %. El siguiente panel avanza por el flujo del documento y cubre el retrato, sin bloquear el scroll. Las dos columnas de texto comparten anclaje derecho. El header cambia desde transparente a vidrio ahumado (RGBA con blur de 22px), conserva el teléfono y prioriza los cinco destinos comerciales. Los controles de favoritos/perfil se trasladan fuera del header desktop.
+
+
+## Sustitución fotográfica — 6 noviembre 2026
+- Se retiró la etiqueta pública `Temporary community photography` de la sección A Sense of Place.
+- Flower Mound: se sustituyó la imagen de origen por una fotografía real del amanecer en Murrell Park / Grapevine Lake, tomada por Shiva Shenoy en Flower Mound, TX (3482 × 1959 original, variante WebP de 3000 × 1688). Fuente: https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg. Licencia CC BY 2.0: https://creativecommons.org/licenses/by/2.0/. La atribución y la indicación de adaptación constan debajo de la sección.
+- Westlake: la imagen original de la municipalidad solo estaba disponible a 1512 × 1134, sin alternativa superior verificada. Se conservó la imagen existente en lugar de presentar una ampliación artificial como fotografía nueva. Es una **limitación pendiente** de fotografía de origen.
+- El degradado negro se suavizó a la derecha y se preservó el texto blanco de alto contraste. No se alteraron composición, emplazamientos ni transiciones del componente.
