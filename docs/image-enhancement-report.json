@@ -1,0 +1,1392 @@
+{
+  "approach": "Conservative non-generative photographic enhancement. No scene content changed.",
+  "limitations": "Increased resolution does not recover detail not present in the source. Replace with verified higher-resolution original where available.",
+  "scanned": 768,
+  "enhanced": 86,
+  "skipped": 0,
+  "enhanced_by_role": {
+    "hero": 33,
+    "editorial": 20,
+    "detail": 2,
+    "card": 31
+  },
+  "changes": [
+    {
+      "asset": "assets/editorial/article-P-016385460f8c3838.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 74842,
+      "new_bytes": 182970,
+      "mean_pixel_drift": 2.57,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-05935dee16b6b1d2.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 132924,
+      "new_bytes": 347132,
+      "mean_pixel_drift": 3.8,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-381e42ed23e85988.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 92170,
+      "new_bytes": 227396,
+      "mean_pixel_drift": 2.66,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-41266e5757246b63.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 27880,
+      "new_bytes": 63060,
+      "mean_pixel_drift": 1.62,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-44b16cf0eece7b15.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 86622,
+      "new_bytes": 221940,
+      "mean_pixel_drift": 2.43,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-4fa62738756cf362.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 60490,
+      "new_bytes": 142610,
+      "mean_pixel_drift": 2.04,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-7878d093c5d89af7.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 82718,
+      "new_bytes": 205674,
+      "mean_pixel_drift": 2.75,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-8f672913477587de.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 78806,
+      "new_bytes": 193462,
+      "mean_pixel_drift": 2.39,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-90acce665c273648.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 56358,
+      "new_bytes": 137882,
+      "mean_pixel_drift": 2.2,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-90e496f2fd34ae0b.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 140096,
+      "new_bytes": 336608,
+      "mean_pixel_drift": 2.87,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-9ca513fb924183b6.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 65176,
+      "new_bytes": 147214,
+      "mean_pixel_drift": 1.66,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-a323365de689060a.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 61528,
+      "new_bytes": 151154,
+      "mean_pixel_drift": 2.16,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-d12e716ba2f2c4b1.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 55446,
+      "new_bytes": 134028,
+      "mean_pixel_drift": 2.17,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-d58666ee9226d8d9.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 119962,
+      "new_bytes": 271070,
+      "mean_pixel_drift": 2.6,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-e3410dd05fb662c7.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 50138,
+      "new_bytes": 120796,
+      "mean_pixel_drift": 2.09,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-e3af0d93ffe0a6c3.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 41028,
+      "new_bytes": 92820,
+      "mean_pixel_drift": 1.45,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-f51432821ec17f81.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 105966,
+      "new_bytes": 263906,
+      "mean_pixel_drift": 2.7,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/article-P-fb91018aba07e9f0.webp",
+      "role": "editorial",
+      "before": [
+        960,
+        600
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 95834,
+      "new_bytes": 231798,
+      "mean_pixel_drift": 3.19,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/colleyville.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 320744,
+      "new_bytes": 642282,
+      "mean_pixel_drift": 2.81,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/flower-mound.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 183760,
+      "new_bytes": 372430,
+      "mean_pixel_drift": 1.35,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/grapevine.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 278816,
+      "new_bytes": 554942,
+      "mean_pixel_drift": 2.44,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/keller.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 126790,
+      "new_bytes": 240976,
+      "mean_pixel_drift": 1.64,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/landscape.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 214688,
+      "new_bytes": 450900,
+      "mean_pixel_drift": 2.21,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/north-dallas.webp",
+      "role": "editorial",
+      "before": [
+        1280,
+        800
+      ],
+      "after": [
+        1440,
+        900
+      ],
+      "old_bytes": 111768,
+      "new_bytes": 161874,
+      "mean_pixel_drift": 1.97,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/sharon-scene-desktop.webp",
+      "role": "hero",
+      "before": [
+        1672,
+        941
+      ],
+      "after": [
+        2400,
+        1351
+      ],
+      "old_bytes": 45866,
+      "new_bytes": 105410,
+      "mean_pixel_drift": 1.39,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/sharon-scene-mobile.webp",
+      "role": "hero",
+      "before": [
+        940,
+        1672
+      ],
+      "after": [
+        1200,
+        2134
+      ],
+      "old_bytes": 53678,
+      "new_bytes": 108206,
+      "mean_pixel_drift": 1.4,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/sharon.webp",
+      "role": "editorial",
+      "before": [
+        1067,
+        1600
+      ],
+      "after": [
+        1440,
+        2159
+      ],
+      "old_bytes": 53050,
+      "new_bytes": 85896,
+      "mean_pixel_drift": 1.17,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/southlake.webp",
+      "role": "hero",
+      "before": [
+        1772,
+        1200
+      ],
+      "after": [
+        2400,
+        1625
+      ],
+      "old_bytes": 712070,
+      "new_bytes": 1508066,
+      "mean_pixel_drift": 4.77,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/editorial/westlake.webp",
+      "role": "hero",
+      "before": [
+        1920,
+        1200
+      ],
+      "after": [
+        2400,
+        1500
+      ],
+      "old_bytes": 260446,
+      "new_bytes": 518392,
+      "mean_pixel_drift": 1.54,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/052ec0bcd686f528d9d23519.webp",
+      "role": "card",
+      "before": [
+        576,
+        768
+      ],
+      "after": [
+        900,
+        1200
+      ],
+      "old_bytes": 55956,
+      "new_bytes": 150876,
+      "mean_pixel_drift": 2.82,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/05eb4aa446d2264fb47f462e.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 293324,
+      "new_bytes": 694024,
+      "mean_pixel_drift": 2.67,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/197aefca4be8f0588ed848c2.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 530294,
+      "new_bytes": 1185192,
+      "mean_pixel_drift": 4.15,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/1b117afcfd2921998e6d12ce.webp",
+      "role": "card",
+      "before": [
+        888,
+        800
+      ],
+      "after": [
+        900,
+        811
+      ],
+      "old_bytes": 109914,
+      "new_bytes": 176260,
+      "mean_pixel_drift": 4.3,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/1b237fc28849c720070159e2.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 795498,
+      "new_bytes": 1732360,
+      "mean_pixel_drift": 5.96,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/21180ba014b2117b134a7669.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 209672,
+      "new_bytes": 479064,
+      "mean_pixel_drift": 2.13,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/2c8eadf02a6ffebd197870ae.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 606964,
+      "new_bytes": 1338260,
+      "mean_pixel_drift": 4.57,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/330c48ff778b1b86faa4f531.webp",
+      "role": "card",
+      "before": [
+        680,
+        768
+      ],
+      "after": [
+        900,
+        1016
+      ],
+      "old_bytes": 25388,
+      "new_bytes": 52460,
+      "mean_pixel_drift": 2.17,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/3c120424b4d76abd4a545e48.webp",
+      "role": "card",
+      "before": [
+        727,
+        480
+      ],
+      "after": [
+        900,
+        594
+      ],
+      "old_bytes": 91436,
+      "new_bytes": 194318,
+      "mean_pixel_drift": 4.89,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/3f72a52b3b02a0bdde16c937.webp",
+      "role": "card",
+      "before": [
+        594,
+        751
+      ],
+      "after": [
+        900,
+        1138
+      ],
+      "old_bytes": 47384,
+      "new_bytes": 113676,
+      "mean_pixel_drift": 2.27,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/41761c7e5fb28ec815418cde.webp",
+      "role": "card",
+      "before": [
+        778,
+        768
+      ],
+      "after": [
+        900,
+        888
+      ],
+      "old_bytes": 102776,
+      "new_bytes": 191178,
+      "mean_pixel_drift": 3.84,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/431ae76cfd6e2b2fae525f81.large.webp",
+      "role": "detail",
+      "before": [
+        1365,
+        768
+      ],
+      "after": [
+        1800,
+        1013
+      ],
+      "old_bytes": 130588,
+      "new_bytes": 229874,
+      "mean_pixel_drift": 2.27,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/4c592548abf2c24399236f02.webp",
+      "role": "card",
+      "before": [
+        885,
+        768
+      ],
+      "after": [
+        900,
+        781
+      ],
+      "old_bytes": 143400,
+      "new_bytes": 228530,
+      "mean_pixel_drift": 5.64,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/4ebb1b1544f99419b5a81cfb.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 306352,
+      "new_bytes": 685876,
+      "mean_pixel_drift": 2.56,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/4f09cd3b3193ca286c65e8c5.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 653662,
+      "new_bytes": 1453500,
+      "mean_pixel_drift": 5.89,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/506d4295ea79fefb3a841f8f.webp",
+      "role": "card",
+      "before": [
+        600,
+        800
+      ],
+      "after": [
+        900,
+        1200
+      ],
+      "old_bytes": 74308,
+      "new_bytes": 195958,
+      "mean_pixel_drift": 2.84,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/5236f836edb3f1296f068de0.large.webp",
+      "role": "detail",
+      "before": [
+        1138,
+        1206
+      ],
+      "after": [
+        1800,
+        1908
+      ],
+      "old_bytes": 215206,
+      "new_bytes": 502318,
+      "mean_pixel_drift": 2.89,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/5ae4f0e20daf2a2eb022c628.webp",
+      "role": "card",
+      "before": [
+        575,
+        499
+      ],
+      "after": [
+        900,
+        781
+      ],
+      "old_bytes": 42846,
+      "new_bytes": 110630,
+      "mean_pixel_drift": 2.61,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/5fd02fa408e69bdf3584616b.webp",
+      "role": "card",
+      "before": [
+        665,
+        768
+      ],
+      "after": [
+        900,
+        1039
+      ],
+      "old_bytes": 104000,
+      "new_bytes": 239566,
+      "mean_pixel_drift": 3.41,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/637b8adaaa413899304fb480.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1199
+      ],
+      "after": [
+        2400,
+        1599
+      ],
+      "old_bytes": 406714,
+      "new_bytes": 918690,
+      "mean_pixel_drift": 3.73,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/65dfe9eaf436bd65036c37d3.webp",
+      "role": "card",
+      "before": [
+        748,
+        768
+      ],
+      "after": [
+        900,
+        924
+      ],
+      "old_bytes": 96260,
+      "new_bytes": 198006,
+      "mean_pixel_drift": 3.88,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/6c6da8d666ed0dfcf13bc1bc.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1349
+      ],
+      "after": [
+        2400,
+        1799
+      ],
+      "old_bytes": 790222,
+      "new_bytes": 1784398,
+      "mean_pixel_drift": 4.72,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/716ff9c67b359118800adf7b.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 360912,
+      "new_bytes": 844092,
+      "mean_pixel_drift": 3.12,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/743163d91bf8397a1d2a29d0.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1197
+      ],
+      "after": [
+        2400,
+        1596
+      ],
+      "old_bytes": 376638,
+      "new_bytes": 835900,
+      "mean_pixel_drift": 2.73,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/77f77a580d43e34aabd4387c.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 593674,
+      "new_bytes": 1307988,
+      "mean_pixel_drift": 4.75,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/7badf0a56af89e59862f3880.webp",
+      "role": "card",
+      "before": [
+        575,
+        769
+      ],
+      "after": [
+        900,
+        1204
+      ],
+      "old_bytes": 94886,
+      "new_bytes": 262270,
+      "mean_pixel_drift": 3.17,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/7df5bfeb0449039f340080d1.webp",
+      "role": "card",
+      "before": [
+        628,
+        468
+      ],
+      "after": [
+        900,
+        671
+      ],
+      "old_bytes": 51594,
+      "new_bytes": 126702,
+      "mean_pixel_drift": 3.19,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/7f3fd01ab5be2565b045312c.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 625692,
+      "new_bytes": 1377280,
+      "mean_pixel_drift": 5.1,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8b408785324e1de0a641f24b.webp",
+      "role": "card",
+      "before": [
+        673,
+        448
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 31964,
+      "new_bytes": 79326,
+      "mean_pixel_drift": 2.75,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8b9f3607c430e2e046b5066d.webp",
+      "role": "card",
+      "before": [
+        522,
+        768
+      ],
+      "after": [
+        900,
+        1324
+      ],
+      "old_bytes": 57980,
+      "new_bytes": 168336,
+      "mean_pixel_drift": 2.43,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8c0b82f56eba9cb088b355f6.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 680800,
+      "new_bytes": 1561232,
+      "mean_pixel_drift": 5.84,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8d2a6d691f89730536153dad.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 247964,
+      "new_bytes": 585652,
+      "mean_pixel_drift": 2.53,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8da3d820bc6cb18e831252a6.webp",
+      "role": "card",
+      "before": [
+        630,
+        380
+      ],
+      "after": [
+        900,
+        543
+      ],
+      "old_bytes": 49130,
+      "new_bytes": 123804,
+      "mean_pixel_drift": 4.13,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/8fadb684eb79fdcc6f7fa685.webp",
+      "role": "card",
+      "before": [
+        673,
+        448
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 30798,
+      "new_bytes": 69492,
+      "mean_pixel_drift": 2.63,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/902f10840ad535945bf636cc.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 674136,
+      "new_bytes": 1472252,
+      "mean_pixel_drift": 5.24,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/96d3d0130fe1b757c734ccd1.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 158304,
+      "new_bytes": 350728,
+      "mean_pixel_drift": 1.68,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/9895a7edda9effbc3b682095.webp",
+      "role": "card",
+      "before": [
+        640,
+        426
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 51470,
+      "new_bytes": 135102,
+      "mean_pixel_drift": 3.17,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/993be55766a510dbe4d8f110.webp",
+      "role": "card",
+      "before": [
+        640,
+        426
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 91506,
+      "new_bytes": 229026,
+      "mean_pixel_drift": 6.8,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/a07028f827e5c1e2d443a9b7.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 868748,
+      "new_bytes": 1889668,
+      "mean_pixel_drift": 7.36,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/a6be51d941962273086e0e72.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 212386,
+      "new_bytes": 458856,
+      "mean_pixel_drift": 2.15,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/a789e687a20b5a7054ea236c.webp",
+      "role": "card",
+      "before": [
+        668,
+        505
+      ],
+      "after": [
+        900,
+        680
+      ],
+      "old_bytes": 61416,
+      "new_bytes": 144776,
+      "mean_pixel_drift": 3.48,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/b062e5438d76d81345c66785.webp",
+      "role": "card",
+      "before": [
+        557,
+        768
+      ],
+      "after": [
+        900,
+        1241
+      ],
+      "old_bytes": 50792,
+      "new_bytes": 136870,
+      "mean_pixel_drift": 2.28,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/b7bf58b19f11d9af9845225b.webp",
+      "role": "card",
+      "before": [
+        640,
+        426
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 63070,
+      "new_bytes": 164234,
+      "mean_pixel_drift": 4.07,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/b8951b93fa6b5de7150d87c7.webp",
+      "role": "card",
+      "before": [
+        517,
+        671
+      ],
+      "after": [
+        900,
+        1168
+      ],
+      "old_bytes": 56516,
+      "new_bytes": 161900,
+      "mean_pixel_drift": 2.37,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/b90833ca2b1baa2ea6570405.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1350
+      ],
+      "after": [
+        2400,
+        1800
+      ],
+      "old_bytes": 820484,
+      "new_bytes": 1817154,
+      "mean_pixel_drift": 5.05,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/b98c5a963af19f3739cb2b70.webp",
+      "role": "card",
+      "before": [
+        640,
+        426
+      ],
+      "after": [
+        900,
+        599
+      ],
+      "old_bytes": 46768,
+      "new_bytes": 119092,
+      "mean_pixel_drift": 3.08,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/be34675e1a6624d53b4ad9e2.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1199
+      ],
+      "after": [
+        2400,
+        1599
+      ],
+      "old_bytes": 417082,
+      "new_bytes": 937290,
+      "mean_pixel_drift": 3.14,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/c1852b9d611d2f5cfc8746af.webp",
+      "role": "card",
+      "before": [
+        612,
+        409
+      ],
+      "after": [
+        900,
+        601
+      ],
+      "old_bytes": 66060,
+      "new_bytes": 171076,
+      "mean_pixel_drift": 3.53,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/c6a96703f899b4939ca99557.webp",
+      "role": "card",
+      "before": [
+        573,
+        495
+      ],
+      "after": [
+        900,
+        777
+      ],
+      "old_bytes": 53548,
+      "new_bytes": 143634,
+      "mean_pixel_drift": 2.88,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/c88be8a6a384758fcc0f8957.webp",
+      "role": "card",
+      "before": [
+        575,
+        431
+      ],
+      "after": [
+        900,
+        675
+      ],
+      "old_bytes": 49952,
+      "new_bytes": 130486,
+      "mean_pixel_drift": 2.93,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/d53315e4f25cfdb6b00486e4.webp",
+      "role": "card",
+      "before": [
+        836,
+        768
+      ],
+      "after": [
+        900,
+        827
+      ],
+      "old_bytes": 65468,
+      "new_bytes": 112806,
+      "mean_pixel_drift": 2.71,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/d58a61dfa0308cc7127539b1.webp",
+      "role": "card",
+      "before": [
+        641,
+        768
+      ],
+      "after": [
+        900,
+        1078
+      ],
+      "old_bytes": 63436,
+      "new_bytes": 152384,
+      "mean_pixel_drift": 3.1,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/dfed034d8c70f5fd551fb2c5.webp",
+      "role": "card",
+      "before": [
+        467,
+        480
+      ],
+      "after": [
+        900,
+        925
+      ],
+      "old_bytes": 48060,
+      "new_bytes": 159270,
+      "mean_pixel_drift": 2.68,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/e2ddda29405597abf537505e.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 297168,
+      "new_bytes": 695790,
+      "mean_pixel_drift": 2.88,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/ef14ef1cbc0af975d9f05038.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 388426,
+      "new_bytes": 882832,
+      "mean_pixel_drift": 3.44,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/f8b012ff68dc2614c8bae99a.webp",
+      "role": "card",
+      "before": [
+        614,
+        467
+      ],
+      "after": [
+        900,
+        685
+      ],
+      "old_bytes": 68574,
+      "new_bytes": 171784,
+      "mean_pixel_drift": 4.05,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    },
+    {
+      "asset": "assets/properties/fba98d0eb926f4543d50a016.large.webp",
+      "role": "hero",
+      "before": [
+        1800,
+        1200
+      ],
+      "after": [
+        2400,
+        1600
+      ],
+      "old_bytes": 185236,
+      "new_bytes": 410112,
+      "mean_pixel_drift": 1.89,
+      "method": "Lanczos high-quality resize + restrained luminance unsharp + WebP"
+    }
+  ],
+  "skips": []
+}
