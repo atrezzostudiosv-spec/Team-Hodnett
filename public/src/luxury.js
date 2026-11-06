@@ -29,8 +29,10 @@
    const team=scenes.find(scene=>scene.classList.contains('connection-team'));
    if(team){
     const viewport=$('.connection-viewport',team);
-    const hold=Math.max(1,team.offsetHeight-(viewport?.offsetHeight||height));
-    const teamProgress=Math.min(1,Math.max(0,-team.getBoundingClientRect().top/hold));
+    // Short viewports and reduced-motion users see normal flow and no zoom jump.
+    const pinned=viewport&&getComputedStyle(viewport).position==='sticky';
+    const hold=pinned?Math.max(1,team.offsetHeight-viewport.offsetHeight):1;
+    const teamProgress=pinned?Math.min(1,Math.max(0,-team.getBoundingClientRect().top/hold)):0;
     team.style.setProperty('--team-scale',String(reduced()?1:1+teamProgress*.055));
    }
    scenes.forEach((scene,i)=>{const r=scene.getBoundingClientRect();if(r.top<height*.85&&r.bottom>0)scene.classList.add('is-entered');if(r.top<height*(i===0?.16:.58))scene.classList.add('is-copy-ready');});
