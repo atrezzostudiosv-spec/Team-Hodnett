@@ -7,7 +7,7 @@ const files=await walk(root),htmlFiles=files.filter(f=>f.endsWith('.html'));let 
 for(const f of htmlFiles){const text=await readFile(f,'utf8');if(!/<h1\b/.test(text))broken.push({page:path.relative(root,f),error:'Missing H1'});if(/elite-realtor-demo|Elite Real Estate|Steve Penate/.test(text))broken.push({page:path.relative(root,f),error:'Reference-site identity leaked'});
  for(const m of text.matchAll(/(?:href|src)=["']([^"']+)["']/g)){
   const u=m[1].replaceAll('&amp;','&');if(/^(?:https?:|tel:|mailto:|data:|#)/.test(u))continue;
-  const p=u.split(/[?#]/)[0];if(!p)continue;
+  const urlPath=u.split(/[?#]/)[0];const siteBase=(process.env.SITE_BASE_PATH||'').replace(/^\/+|\/+$/g,'');const p=siteBase&&urlPath.startsWith('/'+siteBase+'/')?urlPath.slice(siteBase.length+1):urlPath;if(!p)continue;
   const target=p.startsWith('/')?path.join(root,p):path.resolve(path.dirname(f),p);
   try{const info=await stat(target);if(info.isDirectory())await access(path.join(target,'index.html'));}catch{broken.push({page:path.relative(root,f),target:u});}
   checked++;
