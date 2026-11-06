@@ -20,7 +20,19 @@
   const story=$('[data-connection-story]');if(!story)return;
   const scenes=$$('[data-connection-scene]',story),media=matchMedia('(prefers-reduced-motion: reduce)');let frame=0,near=true;
   const reduced=()=>media.matches||document.body.classList.contains('reduced-motion');
-  function update(){frame=0;if(!near)return;const height=innerHeight,progress=Math.min(1,Math.max(0,-story.getBoundingClientRect().top/(height*.35)));story.style.setProperty('--connection-scale',String(reduced()?1:1+progress*.025));
+  function update(){
+   frame=0;if(!near)return;
+   const height=innerHeight,progress=Math.min(1,Math.max(0,-story.getBoundingClientRect().top/(height*.35)));
+   story.style.setProperty('--connection-scale',String(reduced()?1:1+progress*.025));
+   // Each chapter uses native scroll. Team stays pinned until its additional track is consumed:
+   // the photograph zooms smoothly while its copy and CTA remain readable and stationary.
+   const team=scenes.find(scene=>scene.classList.contains('connection-team'));
+   if(team){
+    const viewport=$('.connection-viewport',team);
+    const hold=Math.max(1,team.offsetHeight-(viewport?.offsetHeight||height));
+    const teamProgress=Math.min(1,Math.max(0,-team.getBoundingClientRect().top/hold));
+    team.style.setProperty('--team-scale',String(reduced()?1:1+teamProgress*.055));
+   }
    scenes.forEach((scene,i)=>{const r=scene.getBoundingClientRect();if(r.top<height*.85&&r.bottom>0)scene.classList.add('is-entered');if(r.top<height*(i===0?.16:.58))scene.classList.add('is-copy-ready');});
   }
   const schedule=()=>{if(!frame)frame=requestAnimationFrame(update);};
