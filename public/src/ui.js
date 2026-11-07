@@ -134,8 +134,11 @@ function galleryPhoto(){const image=$('[data-gallery-image]');image.src=gallery[
 function initHeader(){
  const header=$('.site-header');if(!header)return;
  let previous=Math.max(0,window.scrollY),frame=false,hidden=false;
- const show=()=>{if(!hidden)return;hidden=false;header.classList.remove('is-hidden');header.inert=false;};
- const hide=()=>{if(hidden||header.contains(document.activeElement))return;hidden=true;header.classList.add('is-hidden');header.inert=true;};
+ const syncHeaderHeight=()=>document.documentElement.style.setProperty('--catalog-header-height',header.offsetHeight+'px');
+ document.body.classList.remove('has-hidden-header');
+ syncHeaderHeight();
+ const show=()=>{if(!hidden)return;hidden=false;header.classList.remove('is-hidden');document.body.classList.remove('has-hidden-header');header.inert=false;};
+ const hide=()=>{if(hidden||header.contains(document.activeElement))return;hidden=true;header.classList.add('is-hidden');document.body.classList.add('has-hidden-header');header.inert=true;};
  function update(){
   frame=false;const current=Math.max(0,window.scrollY),delta=current-previous;
   header.classList.toggle('is-scrolled',current>65);
@@ -146,7 +149,7 @@ function initHeader(){
  }
  const schedule=()=>{if(!frame){frame=true;requestAnimationFrame(update);}};
  addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',()=>{show();previous=window.scrollY;schedule();},{passive:true});
+ addEventListener('resize',()=>{syncHeaderHeight();show();previous=window.scrollY;schedule();},{passive:true});
  addEventListener('pageshow',()=>{show();previous=window.scrollY;schedule();});
  header.addEventListener('focusin',show);
  update();
