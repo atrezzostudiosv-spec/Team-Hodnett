@@ -50,3 +50,41 @@
 .hodnett-assistant :is(button,a,input,select):focus-visible{outline:2px solid #cba45c;outline-offset:3px}
 @media(max-width:600px){.hodnett-assistant{right:12px;bottom:calc(13px + env(safe-area-inset-bottom,0px))}.ah-launcher{min-height:52px;padding:0 16px;font-size:11px}.ah-panel{height:min(640px,calc(100dvh - 84px));width:calc(100vw - 24px);right:0;bottom:calc(100% + 12px)}.ah-head{padding:18px 18px 14px}.ah-head h2{font-size:25px}.ah-controls{padding:10px 15px}.ah-form{padding:14px 15px 12px}.ah-answer{padding:13px 15px 0}.ah-list{padding-inline:15px}.ah-disclaimer{padding:10px 15px}}
 @media(prefers-reduced-motion:reduce){.ah-launcher{transition:none}.ah-launcher:hover{transform:none}}
+
+/* CONCIERGE V2 — one clear destination, no in-panel card browser. */
+.ah-panel{
+ height:auto;
+ min-height:0;
+ max-height:calc(100dvh - 105px);
+ width:min(390px,calc(100vw - 30px));
+}
+.ah-head{padding:22px 22px 17px}
+.ah-head h2{font-size:27px;line-height:1.16}
+.ah-controls{justify-content:flex-end;padding:10px 22px}
+.ah-controls label{font-size:11px;cursor:pointer}
+.ah-form{padding:17px 22px 15px}
+.ah-answer{min-height:0;padding:17px 22px 3px}
+.ah-answer p[data-assistant-heard]{font-size:11px;color:#78736b;overflow-wrap:anywhere}
+.ah-answer [data-assistant-status]{font-size:14px;line-height:1.5;font-weight:500;color:#27241e}
+.ah-list{flex:none;overflow:visible;min-height:0;padding:7px 22px 21px}
+.ah-list:empty{display:none}
+.ah-destination{
+ display:flex;align-items:center;justify-content:space-between;gap:14px;
+ min-height:55px;padding:14px 17px;
+ color:#fff;background:#111216;border:1px solid #111216;
+ font-size:12px;font-weight:600;letter-spacing:.035em;
+ text-decoration:none;transition:background .2s ease,color .2s ease;
+}
+.ah-destination:hover,.ah-destination:focus-visible{background:#333027;color:#fff}
+.ah-destination-arrow{font-size:19px;line-height:1;flex-shrink:0;color:#d3b67a}
+.ah-disclaimer{font-size:10px;line-height:1.55}
+@media(max-width:600px){
+ .ah-panel{height:auto;min-height:0;max-height:calc(100dvh - 83px)}
+ .ah-head{padding:18px 18px 14px}
+ .ah-controls{padding:8px 18px}
+ .ah-form{padding:13px 18px}
+ .ah-answer{padding:14px 18px 3px}
+ .ah-list{padding:7px 18px 17px}
+ .ah-disclaimer{padding:10px 18px}
+}
+@media(prefers-reduced-motion:reduce){.ah-destination{transition:none}}
