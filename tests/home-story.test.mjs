@@ -47,3 +47,14 @@ test('recognition showcases known saved badges with descriptive text and dated c
  assert.match(html,/Historical recognitions are shown with their original dates/);
  assert.match(html,/href="\/awards\/"/);
 });
+
+test('The Hodnett Team keeps original full-bleed pinned image and scroll reveal',()=>{
+ const html=render();
+ assert.match(html,/class="team-scroll-story" data-team-scroll/);
+ assert.match(html,/class="connection-scene connection-team"/);
+ assert.match(html,/class="connection-photo connection-photo--team"/);
+ assert.match(html,/data-team-scene/);
+ assert.match(html,/class="connection-shade" aria-hidden="true"/);
+ assert.match(html,/class="connection-reveal"/);
+ assert.doesNotMatch(html,/class="team-editorial"/);
+});
