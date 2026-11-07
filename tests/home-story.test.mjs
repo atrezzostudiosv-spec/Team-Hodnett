@@ -37,7 +37,7 @@ test('cinematic video uses known archived film and links directly to the source'
  assert.match(html,/data-video-id="pZeJBjZkZU0"/);
  assert.match(html,/https:\/\/www\.youtube\.com\/watch\?v=pZeJBjZkZU0/);
  assert.match(html,/class="connection-film__motion"/);
- assert.match(html,/class="connection-film__poster"/);
+ assert.match(html,/class="connection-photo connection-photo--team connection-film__poster"/);
 });
 test('recognition showcases known saved badges with descriptive text and dated context',()=>{
  const html=render();
