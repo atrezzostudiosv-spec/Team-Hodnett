@@ -41,7 +41,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
    <img class="connection-photo connection-photo--team connection-film__poster" src="${U(sharonFilm.cover)}" alt="Sharon Hodnett film still" loading="lazy">
    <div class="connection-film__motion" data-sharon-film data-video-id="${e(sharonFilm.id)}" aria-hidden="true"></div>
    <div class="connection-shade" aria-hidden="true"></div>
-   <div class="connection-copy connection-film__copy"><div class="eyebrow connection-reveal">SHARON'S STORY / ON FILM</div><h2 class="connection-reveal" id="sharon-story-title">A closer look.<br>A personal story.</h2><p class="connection-reveal">Hear Sharon share the experience and perspective behind her approach to real estate.</p><div class="connection-reveal"><a class="line-link" href="${e(sharonFilm.url)}" target="_blank" rel="noopener noreferrer" aria-label="Watch Sharon Hodnett's original film on YouTube">Watch Sharon’s film ${icon('arrow')}</a></div></div>
+   <div class="connection-copy connection-film__copy"><div class="eyebrow connection-reveal">SHARON'S STORY / ON FILM</div><h2 class="connection-reveal" id="sharon-story-title">A closer look.<br>A personal story.</h2><p class="connection-reveal">Explore the original film archive and the perspective behind Sharon’s approach to real estate.</p><div class="connection-reveal"><a class="line-link" href="${U('vlog/')}" data-sharon-film-link data-film-url="${e(sharonFilm.url)}" aria-label="Explore Sharon Hodnett's original film archive">Explore Sharon’s films ${icon('arrow')}</a></div></div>
   </div>
  </section>
  </div>
