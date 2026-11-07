@@ -341,3 +341,8 @@
   }
   .place-index .place-photo-credits{padding:12px 24px;font-size:9px}
 }
+
+/* Optional user-supplied Westlake residence feature, shown only when the file exists. */
+.westlake-architecture-photo{margin:0 0 clamp(30px,4vw,55px);padding:0;max-width:100%}
+.westlake-architecture-photo img{display:block;width:100%;height:auto;max-height:640px;object-fit:cover;object-position:center}
+.westlake-architecture-photo figcaption{padding-top:13px;color:#727272;font:400 11px/1.6 var(--sans,Arial,sans-serif);letter-spacing:.04em}
