@@ -1,15 +1,17 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 768,
+  "images": 769,
   "counts_by_role": {
     "logo_or_misc": 86,
-    "editorial": 25,
+    "editorial": 26,
     "hero": 33,
     "detail": 51,
     "card": 573
   },
-  "below_target": 0,
-  "below_target_by_role": {},
+  "below_target": 1,
+  "below_target_by_role": {
+    "hero": 1
+  },
   "high_priority": [
     {
       "asset": "assets/editorial/colleyville.webp",
@@ -27,11 +29,11 @@
     {
       "asset": "assets/editorial/flower-mound.webp",
       "role": "hero",
-      "width": 2400,
-      "height": 1500,
-      "bytes": 372430,
+      "width": 3000,
+      "height": 1688,
+      "bytes": 249098,
       "format": "WEBP",
-      "edge_score": 59.6,
+      "edge_score": 26.2,
       "target_width": 2400,
       "below_target": false,
       "in_catalog": true,
@@ -118,13 +120,13 @@
     {
       "asset": "assets/editorial/westlake.webp",
       "role": "hero",
-      "width": 2400,
-      "height": 1500,
-      "bytes": 518392,
+      "width": 1672,
+      "height": 941,
+      "bytes": 507336,
       "format": "WEBP",
-      "edge_score": 72.4,
+      "edge_score": 70.9,
       "target_width": 2400,
-      "below_target": false,
+      "below_target": true,
       "in_catalog": true,
       "priority": true
     },
@@ -441,7 +443,21 @@
       "priority": true
     }
   ],
-  "candidates": [],
+  "candidates": [
+    {
+      "asset": "assets/editorial/westlake.webp",
+      "role": "hero",
+      "width": 1672,
+      "height": 941,
+      "bytes": 507336,
+      "format": "WEBP",
+      "edge_score": 70.9,
+      "target_width": 2400,
+      "below_target": true,
+      "in_catalog": true,
+      "priority": true
+    }
+  ],
   "records": [
     {
       "asset": "assets/brand/keller-williams.png",
@@ -1031,11 +1047,11 @@
     {
       "asset": "assets/editorial/flower-mound.webp",
       "role": "hero",
-      "width": 2400,
-      "height": 1500,
-      "bytes": 372430,
+      "width": 3000,
+      "height": 1688,
+      "bytes": 249098,
       "format": "WEBP",
-      "edge_score": 59.6,
+      "edge_score": 26.2,
       "target_width": 2400,
       "below_target": false,
       "in_catalog": true,
@@ -1978,15 +1994,28 @@
       "priority": false
     },
     {
+      "asset": "assets/editorial/westlake-residence.webp",
+      "role": "editorial",
+      "width": 1671,
+      "height": 941,
+      "bytes": 665706,
+      "format": "WEBP",
+      "edge_score": 81.7,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
+      "priority": false
+    },
+    {
       "asset": "assets/editorial/westlake.webp",
       "role": "hero",
-      "width": 2400,
-      "height": 1500,
-      "bytes": 518392,
+      "width": 1672,
+      "height": 941,
+      "bytes": 507336,
       "format": "WEBP",
-      "edge_score": 72.4,
+      "edge_score": 70.9,
       "target_width": 2400,
-      "below_target": false,
+      "below_target": true,
       "in_catalog": true,
       "priority": true
     },
