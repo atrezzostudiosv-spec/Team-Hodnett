@@ -3,24 +3,25 @@
    desktop screens; the source image remains the fallback on other devices. */
 
 .connection-film .connection-film__viewport{background:#101214}
-.connection-film .connection-film__poster{filter:saturate(.88) contrast(1.04)}
-.connection-film .connection-shade{
+.connection-film .connection-film__poster{filter:saturate(.88) contrast(1.04);z-index:-2;opacity:1!important}
+.connection-film .connection-shade{z-index:0;
  background:
   linear-gradient(90deg,rgba(3,5,7,.12) 0%,rgba(3,5,7,.22) 34%,rgba(3,5,7,.72) 62%,rgba(3,5,7,.91) 100%),
   linear-gradient(0deg,rgba(0,0,0,.38),transparent 38%);
 }
 .connection-film__motion{
- position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
- opacity:0;transition:opacity 1.2s ease;
+ position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+ opacity:0;visibility:hidden;transition:opacity 1.2s ease,visibility 0s 1.2s;
  background:#101214;
 }
-.connection-film__motion.is-playing{opacity:1}
+.connection-film__motion.is-playing{opacity:1;visibility:visible;transition:opacity 1.2s ease}
 .connection-film__motion iframe{
  position:absolute;top:50%;left:50%;
  width:max(100%,177.78svh);height:max(100%,56.25vw);
  transform:translate(-50%,-50%);border:0;pointer-events:none;
  filter:saturate(.85);
 }
+.connection-film__copy{z-index:1}
 .connection-film__copy h2{max-width:580px}
 .connection-film__copy p{max-width:465px}
 .connection-film__copy .line-link{display:inline-flex;align-items:center}
@@ -69,21 +70,36 @@
 .sharon-awards__window:focus-within .sharon-awards__track{animation-play-state:paused}
 .sharon-awards__note{font-size:10px;color:#85817b;margin-top:22px;letter-spacing:.035em}
 
-.team-editorial{display:grid;grid-template-columns:55% 45%;min-height:670px;height:76svh;background:#111419;color:#fff}
-.team-editorial__image{min-height:0;overflow:hidden}
-.team-editorial__image img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.team-editorial__copy{
- display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
- padding:clamp(50px,6.3vw,110px);
+/* Restore the original full-bleed pinned chapter instead of a static split screen.
+   Scroll drives a restrained zoom, with editorial copy above a photo scrim. */
+.team-scroll-story{position:relative;isolation:isolate;background:#08090b;z-index:2}
+.team-scroll-story .connection-team{
+ margin-top:0;
+ height:195svh;
+ min-height:calc(680px + 95svh);
+ background:#08090b;
 }
-.team-editorial__copy .eyebrow{color:#d5ba84;font-size:10px;letter-spacing:.18em;margin-bottom:26px}
-.team-editorial__copy h2{
- font:400 clamp(38px,4.1vw,66px)/1.1 var(--sans,Arial,sans-serif);
- letter-spacing:-.06em;color:#fff;margin:0 0 30px;
+.team-scroll-story .connection-team .connection-viewport{
+ position:sticky;top:0;height:100svh;min-height:680px;
 }
-.team-editorial__copy p{color:#ffffffc7;font-size:15px;line-height:1.82;max-width:460px;margin-bottom:33px}
-.team-editorial__copy .line-link{color:#fff;border-color:#fff7;font-size:12px}
-.team-editorial+.collection-section{padding-top:85px;background:#fff}
+.team-scroll-story .connection-photo--team{
+ opacity:1!important;
+ transform:scale(var(--team-scale,1));
+ will-change:transform;
+}
+.team-scroll-story .connection-shade{
+ background:linear-gradient(90deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.19) 37%,rgba(0,0,0,.64) 64%,rgba(0,0,0,.84) 100%);
+}
+.team-scroll-story.is-enhanced .connection-reveal{
+ opacity:0;transform:translateY(18px);
+ transition:opacity .8s ease,transform 1s cubic-bezier(.2,.7,.2,1);
+}
+.team-scroll-story.is-enhanced .is-copy-ready .connection-reveal{opacity:1;transform:none}
+.team-scroll-story .connection-copy>.connection-reveal:nth-child(1){transition-delay:.08s}
+.team-scroll-story .connection-copy>.connection-reveal:nth-child(2){transition-delay:.24s}
+.team-scroll-story .connection-copy>.connection-reveal:nth-child(3){transition-delay:.42s}
+.team-scroll-story .connection-copy>.connection-reveal:nth-child(4){transition-delay:.60s}
+.team-scroll-story+.collection-section{padding-top:85px;background:#fff}
 
 @media(max-width:767px){
  .connection-film .connection-shade{background:linear-gradient(0deg,rgba(2,3,4,.95) 0%,rgba(2,3,4,.73) 37%,rgba(2,3,4,.1) 82%)}
@@ -104,11 +120,10 @@
  .sharon-awards__set[aria-hidden=true]{display:none}
  .sharon-award{width:190px;height:164px;scroll-snap-align:start}
  .sharon-award img{height:80px}
- .team-editorial{height:auto;min-height:0;grid-template-columns:1fr}
- .team-editorial__image{height:46svh;min-height:330px}
- .team-editorial__copy{padding:clamp(38px,7vw,55px) 24px 60px}
- .team-editorial__copy h2{font-size:clamp(38px,9vw,51px)}
- .team-editorial+.collection-section{padding-top:58px}
+ .team-scroll-story .connection-team{margin-top:0;min-height:calc(780px + 95svh)}
+ .team-scroll-story .connection-team .connection-viewport{min-height:780px}
+ .team-scroll-story .connection-shade{background:linear-gradient(0deg,rgba(2,3,4,.94) 0%,rgba(2,3,4,.75) 33%,rgba(2,3,4,.12) 77%)}
+ .team-scroll-story+.collection-section{padding-top:58px}
 }
 @media(prefers-reduced-motion:reduce){
  .connection-film__motion{display:none}
@@ -118,3 +133,23 @@
 body.reduced-motion .connection-film__motion{display:none}
 body.reduced-motion .sharon-awards__track{animation:none}
 body.reduced-motion .sharon-awards__window{overflow-x:auto}
+
+/* Short displays keep the original chapter accessible and free from overflow. */
+@media(max-height:700px){
+ .team-scroll-story .connection-team{height:100svh;min-height:680px}
+ .team-scroll-story .connection-team .connection-viewport{position:relative;height:100%;min-height:inherit}
+}
+@media(max-width:767px) and (max-height:740px){
+ .team-scroll-story .connection-team{height:780px;min-height:780px}
+ .team-scroll-story .connection-team .connection-viewport{position:relative;height:100%;min-height:780px}
+}
+@media(prefers-reduced-motion:reduce){
+ .team-scroll-story .connection-team{height:100svh;min-height:680px}
+ .team-scroll-story .connection-team .connection-viewport{position:relative;height:100%;min-height:inherit}
+ .team-scroll-story .connection-photo--team{transform:none!important;will-change:auto}
+ .team-scroll-story.is-enhanced .connection-reveal{opacity:1!important;transform:none!important;transition:none!important}
+}
+body.reduced-motion .team-scroll-story .connection-team{height:100svh;min-height:680px}
+body.reduced-motion .team-scroll-story .connection-team .connection-viewport{position:relative;height:100%;min-height:inherit}
+body.reduced-motion .team-scroll-story .connection-photo--team{transform:none!important;will-change:auto}
+body.reduced-motion .team-scroll-story.is-enhanced .connection-reveal{opacity:1!important;transform:none!important;transition:none!important}
