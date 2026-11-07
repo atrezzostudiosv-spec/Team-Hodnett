@@ -50,10 +50,15 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   <div class="sharon-awards__window" aria-label="Selected historical awards"><div class="sharon-awards__track"><div class="sharon-awards__set">${awardFigures}</div><div class="sharon-awards__set" aria-hidden="true">${awardFigures}</div></div></div>
   <p class="sharon-awards__note wrap">Historical recognitions are shown with their original dates and descriptions.</p>
  </section>
- <section class="team-editorial" id="hodnett-team" aria-labelledby="team-scene-title">
-  <div class="team-editorial__image"><img src="${U(featured[0].gallery[1]||featured[0].cover)}" loading="lazy" alt="A home represented by The Hodnett Team"></div>
-  <div class="team-editorial__copy"><div class="eyebrow">THE HODNETT TEAM</div><h2 id="team-scene-title">A place that feels<br>entirely your own.</h2><p>From the first conversation to your next address, discover a personal perspective on buying and selling in Southlake and Dallas–Fort Worth.</p>${link('properties/sale/','Explore our homes')}</div>
- </section>
+ <div class="team-scroll-story" data-team-scroll>
+  <section class="connection-scene connection-team" id="hodnett-team" aria-labelledby="team-scene-title" data-team-scene>
+   <div class="connection-viewport">
+    <img class="connection-photo connection-photo--team" src="${U(featured[0].gallery[1]||featured[0].cover)}" alt="A home represented by The Hodnett Team" loading="lazy">
+    <div class="connection-shade" aria-hidden="true"></div>
+    <div class="connection-copy"><div class="eyebrow connection-reveal">THE HODNETT TEAM</div><h2 class="connection-reveal" id="team-scene-title">A place that feels<br>entirely your own.</h2><p class="connection-reveal">From the first conversation to your next address, discover a personal perspective on buying and selling in Southlake and Dallas–Fort Worth.</p><div class="connection-reveal">${link('properties/sale/','Explore our homes')}</div></div>
+   </div>
+  </section>
+ </div>
  <section class="collection-section" id="collection" aria-labelledby="selected-homes-heading">
   <div class="collection-intro wrap"><div><div class="eyebrow">SELECTED HOMES</div><h2 id="selected-homes-heading">The exceptional.<br>Up close.</h2></div><p>Discover three distinctive homes represented by The Hodnett Team.</p></div>
   <div class="collection-scroll-track" data-collection-track>
