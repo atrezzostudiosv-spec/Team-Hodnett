@@ -74,7 +74,18 @@ export function resolveAssistantDestination(question,properties=[],entries=[],ba
  // A locality query without purchase or listing intent goes to the community guide.
  if(selected&&parsed.kind!=='properties')
   return {href:base+selected.href,message:copy.community(selected.title),label:copy.communityAction,language,kind:'community'};
+ const catalogCity=[...new Set(properties.map(p=>p.city).filter(Boolean))]
+  .find(city=>q===fold(city)||q===fold(city)+' texas');
+ if(parsed.kind==='knowledge'&&catalogCity){
+  const filters={city:catalogCity,status:'',query:''};
+  return {href:propertyUrl(filters,base),message:copy.homes(catalogCity),label:copy.homesAction,language,kind:'homes'};
+ }
  if(parsed.kind==='properties'){
+  // Include editorial communities even when there are currently no archived listings.
+  if(selected&&!parsed.city){
+   parsed.city=selected.title;
+   parsed.query=parsed.query.split(/\s+/).filter(t=>t!==fold(selected.title)).join(' ');
+  }
   // Do not force an arbitrary listing when a city-level or multi-filter request is made.
   const matches=searchProperties(properties,{...parsed,sort:'featured'});
   return {href:propertyUrl(parsed,base),message:copy.homes(parsed.city),label:copy.homesAction,language,kind:'homes',matchCount:matches.length};
