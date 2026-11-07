@@ -81,3 +81,29 @@ body .site-header.is-hidden,body .site-header.is-hidden.is-scrolled{
 @media(prefers-reduced-motion:reduce){
  body .site-header,body .site-header.is-scrolled{transition:none}
 }
+
+/* CATALOG / SCROLL-AWARE FILTERS
+   Header returns on upward scroll; the filter bar always stays fully visible.
+   Header z-index is 20, so filters remain below it when both are shown. */
+@media(min-width:768px){
+ body .page-main .catalog-filters{
+  position:sticky;
+  top:var(--catalog-header-height,88px);
+  z-index:19;
+  background:rgba(255,255,255,.98);
+  border-top:1px solid rgba(0,0,0,.07);
+  box-shadow:0 8px 18px rgba(0,0,0,.045);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  transition:top .33s cubic-bezier(.25,.75,.25,1);
+ }
+ body.has-hidden-header .page-main .catalog-filters{top:0}
+ .page-main .catalog-grid{scroll-margin-top:calc(var(--catalog-header-height,88px) + 115px)}
+ body.has-hidden-header .page-main .catalog-grid{scroll-margin-top:125px}
+}
+@media(max-width:767px){
+ body .page-main .catalog-filters{position:static;top:auto;z-index:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ body .page-main .catalog-filters{transition:none}
+}
