@@ -62,3 +62,15 @@ test('speech reply language inferred from recognized question, otherwise browser
  assert.equal(detectAssistantLanguage('Show homes in Southlake','es-ES'),'en');
  assert.equal(detectAssistantLanguage('Westlake','es-ES'),'es');
 });
+
+test('a bare catalog city still takes the visitor to its filtered properties',()=>{
+ const result=route('Argyle');
+ assert.equal(result.kind,'homes');
+ assert.match(result.href,/city=Argyle/);
+});
+test('homes in an editorial community retain the community filter even with no archived listings',()=>{
+ const result=route('Show me homes in Westlake');
+ assert.equal(result.kind,'homes');
+ assert.match(result.href,/city=Westlake/);
+ assert.equal(result.matchCount,0);
+});
