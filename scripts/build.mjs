@@ -20,7 +20,7 @@ const mainQuote=testimonials.find(t=>t.name==='Joanna M.')||testimonials[0];
 const excerpt=mainQuote.quote.split(/(?<=[.!?])\s/).slice(0,2).join(' ').replace(/\.{3}.*$/,'');
 
 const client=await load('client-brand');
-const home=renderHome({featured,communities,homeArticles,journalCard,mainQuote,excerpt,client});
+const home=renderHome({featured,communities,homeArticles,journalCard,mainQuote,excerpt,client,recognition,videos});
 await save('','Find your extraordinary','A personal perspective on distinctive homes in Southlake and Dallas–Fort Worth.',home,{page:'home'});
 
 const cities=[...new Set(properties.map(p=>p.city))].sort();
