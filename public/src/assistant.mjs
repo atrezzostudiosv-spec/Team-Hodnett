@@ -1,5 +1,5 @@
 /* ATREZZO · Voice and text property concierge. One useful destination per search. */
-import {resolveAssistantDestination,detectAssistantLanguage} from './assistant-navigation.mjs';
+import {resolveAssistantDestination} from './assistant-navigation.mjs';
 import {siteKnowledge} from '../data/knowledge.mjs';
 const root=document.querySelector('[data-hodnett-assistant]');
 if(root){
@@ -11,12 +11,8 @@ if(root){
  const voice=$('[data-assistant-voice]'),status=$('[data-assistant-status]');
  const results=$('[data-assistant-results]'),heard=$('[data-assistant-heard]'),speak=$('[data-assistant-speak]');
  const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
- const browserLanguage=navigator.language||document.documentElement.lang||'en-US';
- let recognition=null,listening=false,voiceQuery=false,language='en';
- const copy={
-  en:{question:'Your search:',listening:'Listening…',micError:'Microphone unavailable. Type your search instead.',micDenied:'Allow microphone access in your browser, or type your search.',micRetry:'I couldn’t recognize that. Try again or type your search.',initial:'Where would you like to go?',example:'Show homes in Argyle'},
-  es:{question:'Tu búsqueda:',listening:'Escuchando…',micError:'El micrófono no está disponible. Escribe tu búsqueda.',micDenied:'Permite el micrófono en el navegador o escribe tu búsqueda.',micRetry:'No pude reconocer la voz. Vuelve a intentarlo o escribe tu búsqueda.',initial:'¿Qué te gustaría explorar?',example:'Busco casas en Argyle'}
- };
+ let recognition=null,listening=false,voiceQuery=false;
+ const copy={question:'Your search:',listening:'Listening…',micError:'Microphone unavailable. Type your search instead.',micDenied:'Allow microphone access in your browser, or type your search.',micRetry:'I couldn’t recognize that. Try again or type your search.',example:'Show homes in Argyle'};
  const setStatus=message=>{status.textContent=message;};
  function open(){panel.hidden=false;launcher.setAttribute('aria-expanded','true');input.focus();}
  function shut(){panel.hidden=true;launcher.setAttribute('aria-expanded','false');if(listening)recognition?.stop();launcher.focus();}
@@ -29,7 +25,7 @@ if(root){
   if(!voiceQuery||!speak.checked||!('speechSynthesis' in window))return;
   window.speechSynthesis.cancel();
   const utterance=new SpeechSynthesisUtterance(message);
-  utterance.lang=language==='es'?'es-ES':'en-US';
+  utterance.lang='en-US';
   utterance.rate=.96;
   window.speechSynthesis.speak(utterance);
  }
@@ -38,16 +34,15 @@ if(root){
   if(!question)return;
   voiceQuery=fromVoice;
   input.value=question;
-  const destination=resolveAssistantDestination(question,window.HODNETT_CATALOG||[],siteKnowledge,base,browserLanguage);
-  language=destination.language;
-  heard.textContent=copy[language].question+' '+question;
+  const destination=resolveAssistantDestination(question,window.HODNETT_CATALOG||[],siteKnowledge,base,'en-US');
+  heard.textContent=copy.question+' '+question;
   setStatus(destination.message);
   results.innerHTML='<a class="ah-destination" data-atz-link href="'+E(destination.href)+'"><span>'+E(destination.label)+'</span><span class="ah-destination-arrow" aria-hidden="true">↗</span></a>';
   speakAnswer(destination.message);
  }
  form.addEventListener('submit',event=>{event.preventDefault();ask(input.value,false);});
  root.addEventListener('click',event=>{
-  if(event.target.closest('[data-assistant-sample]'))ask(copy[detectAssistantLanguage('',browserLanguage)].example);
+  if(event.target.closest('[data-assistant-sample]'))ask(copy.example);
  });
  if(!Recognition){
   voice.disabled=true;
@@ -57,26 +52,25 @@ if(root){
    if(listening){recognition?.stop();return;}
    try{
     recognition=new Recognition();
-    // The browser controls recognition locale. No language selector is required.
-    // The reply language is inferred from the recognized words.
-    recognition.lang=browserLanguage;
+    // Only English speech recognition and English spoken replies are supported.
+    recognition.lang='en-US';
     recognition.interimResults=false;
     recognition.continuous=false;
     recognition.maxAlternatives=1;
     recognition.onstart=()=>{
      listening=true;voice.classList.add('is-listening');voice.setAttribute('aria-pressed','true');
-     setStatus(copy[language].listening);
+     setStatus(copy.listening);
     };
     recognition.onresult=event=>{
      const transcript=event.results?.[0]?.[0]?.transcript||'';
      if(transcript.trim())ask(transcript,true);
     };
-    recognition.onerror=event=>setStatus(event.error==='not-allowed'?copy[language].micDenied:copy[language].micRetry);
+    recognition.onerror=event=>setStatus(event.error==='not-allowed'?copy.micDenied:copy.micRetry);
     recognition.onend=()=>{
      listening=false;voice.classList.remove('is-listening');voice.setAttribute('aria-pressed','false');
     };
     recognition.start();
-   }catch{setStatus(copy[language].micError);}
+   }catch{setStatus(copy.micError);}
   });
  }
 }
