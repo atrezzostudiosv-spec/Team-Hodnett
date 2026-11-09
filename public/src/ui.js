@@ -53,6 +53,7 @@ function initCollection(){
  const panels=$$('[data-collection-panel]',track);
  const tabs=$$('[data-collection-tab]',track);
  const counter=$('[data-collection-counter]',track);
+ const propertyLink=$('[data-collection-property-link]',stage);
  if(!section||!panels.length||panels.length!==tabs.length)return;
  const media=matchMedia('(min-height:700px) and (prefers-reduced-motion:no-preference)');
  const clamp=x=>Math.min(1,Math.max(0,x));
@@ -63,6 +64,13 @@ function initCollection(){
   if(selected!==active){
    active=selected;
    counter.textContent=String(selected+1).padStart(2,'0')+' / '+String(panels.length).padStart(2,'0');
+   // The understated CTA stays anchored where "Scroll to explore" used to be,
+   // but always links to the home that is currently visible.
+   const activeCardLink=panels[selected].querySelector('.collection-card-link');
+   if(propertyLink&&activeCardLink){
+    propertyLink.href=activeCardLink.href;
+    propertyLink.setAttribute('aria-label',activeCardLink.getAttribute('aria-label')||'Discover this home');
+   }
    tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===selected));tab.setAttribute('aria-current',i===selected?'step':'false');tab.tabIndex=i===selected?0:-1;});
    panels.forEach((panel,i)=>{const visible=i===selected;panel.inert=!visible;panel.setAttribute('aria-hidden',String(!visible));panel.style.pointerEvents=visible?'auto':'none';});
   }
