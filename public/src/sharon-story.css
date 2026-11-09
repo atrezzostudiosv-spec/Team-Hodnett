@@ -1,30 +1,5 @@
-/* ATREZZO · MEET SHARON → FILM → REAL RECOGNITION → TEAM
-   The hero remains unchanged. Video is a muted YouTube embed only on visible
-   desktop screens; the source image remains the fallback on other devices. */
-
-.connection-film .connection-film__viewport{background:#101214}
-.connection-film .connection-film__poster{filter:saturate(.88) contrast(1.04);z-index:-2;opacity:1!important}
-.connection-film .connection-shade{z-index:0;
- background:
-  linear-gradient(90deg,rgba(3,5,7,.12) 0%,rgba(3,5,7,.22) 34%,rgba(3,5,7,.72) 62%,rgba(3,5,7,.91) 100%),
-  linear-gradient(0deg,rgba(0,0,0,.38),transparent 38%);
-}
-.connection-film__motion{
- position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
- opacity:0;transition:opacity 1.2s ease;
- background:#101214;
-}
-.connection-film__motion.is-playing{opacity:1}
-.connection-film__motion iframe{
- position:absolute;top:50%;left:50%;
- width:max(100%,177.78svh);height:max(100%,56.25vw);
- transform:translate(-50%,-50%);border:0;pointer-events:none;
- filter:saturate(.85);
-}
-.connection-film__copy{z-index:1}
-.connection-film__copy h2{max-width:580px}
-.connection-film__copy p{max-width:465px}
-.connection-film__copy .line-link{display:inline-flex;align-items:center}
+/* ATREZZO · One cinematic Meet Sharon chapter, historical recognition,
+   and the restored full-screen pinned Team scene. No third-party video embed. */
 
 .sharon-awards{
  background:#f7f6f3;color:#1a1a19;
@@ -153,3 +128,48 @@ body.reduced-motion .team-scroll-story .connection-team{height:100svh;min-height
 body.reduced-motion .team-scroll-story .connection-team .connection-viewport{position:relative;height:100%;min-height:inherit}
 body.reduced-motion .team-scroll-story .connection-photo--team{transform:none!important;will-change:auto}
 body.reduced-motion .team-scroll-story.is-enhanced .connection-reveal{opacity:1!important;transform:none!important;transition:none!important}
+
+/* The Meet Sharon chapter holds its original portrait while the next story emerges.
+   One image, one CTA, no YouTube embed or duplicate presentation. */
+body.home .connection-story{
+ height:142svh;
+ min-height:900px;
+ position:relative;
+ isolation:isolate;
+ background:#08090b;
+}
+body.home .connection-story .connection-sharon{
+ position:sticky;
+ top:0;
+ height:100svh;
+ min-height:680px;
+}
+body.home .connection-sharon .connection-copy h2{
+ font-size:clamp(40px,4.45vw,70px);
+ max-width:670px;
+ text-wrap:balance;
+}
+body.home .connection-sharon .connection-copy p{
+ max-width:540px;
+ line-height:1.85;
+}
+body.home .connection-sharon .connection-shade{
+ background:linear-gradient(90deg,rgba(3,5,7,0) 0%,rgba(3,5,7,.07) 32%,rgba(3,5,7,.56) 55%,rgba(3,5,7,.85) 100%);
+}
+@media(max-width:767px){
+ body.home .connection-story{height:127svh;min-height:850px}
+ body.home .connection-story .connection-sharon{min-height:780px}
+ body.home .connection-sharon .connection-copy h2{font-size:clamp(35px,8.2vw,49px)}
+ body.home .connection-sharon .connection-shade{
+  background:linear-gradient(0deg,rgba(3,5,7,.96) 0%,rgba(3,5,7,.79) 34%,rgba(3,5,7,.13) 78%);
+ }
+}
+@media(max-height:700px), (prefers-reduced-motion:reduce){
+ body.home .connection-story{height:auto;min-height:0}
+ body.home .connection-story .connection-sharon{position:relative;min-height:680px}
+}
+@media(max-width:767px) and (max-height:740px){
+ body.home .connection-story .connection-sharon{min-height:780px}
+}
+body.reduced-motion.home .connection-story{height:auto;min-height:0}
+body.reduced-motion.home .connection-story .connection-sharon{position:relative;min-height:680px}
