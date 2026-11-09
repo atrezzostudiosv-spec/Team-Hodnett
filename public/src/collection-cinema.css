@@ -95,3 +95,98 @@
 @media(prefers-reduced-motion:reduce){
  .collection-panel,.collection-photo,.collection-tab-rule:after{transition:none!important;animation:none!important}
 }
+
+
+/* NOV 2026 — Restore the uninterrupted full-viewport real-estate chapters.
+ * The photographic scene and three original progress tabs are unchanged.
+ * Only the redundant white button is replaced by an understated text +.
+ */
+.collection-section.is-cinema-active .collection-stage{
+ height:100svh;
+ min-height:0;
+ width:100%;
+}
+.collection-section.is-cinema-active .collection-frames,
+.collection-section.is-cinema-active .collection-panel,
+.collection-section.is-cinema-active .collection-photo{
+ height:100%;
+}
+.collection-section .collection-overlay{
+ bottom:clamp(170px,23svh,232px);
+}
+.collection-section .collection-property-copy{
+ max-width:min(100%,950px);
+}
+.collection-section .collection-card-link{display:none}
+.collection-section .collection-text-link{
+ display:inline-flex;
+ align-items:center;
+ justify-content:flex-start;
+ gap:clamp(16px,2vw,30px);
+ width:max-content;
+ max-width:100%;
+ padding:9px 0;
+ background:none!important;
+ border:0!important;
+ border-radius:0!important;
+ box-shadow:none!important;
+ color:#fff;
+ font:500 11px/1.3 var(--sans,Arial,sans-serif);
+ letter-spacing:.14em;
+ text-transform:uppercase;
+ text-decoration:none;
+ white-space:nowrap;
+ cursor:pointer;
+ transition:color .24s ease;
+}
+.collection-section .collection-text-link:hover,
+.collection-section .collection-text-link:focus-visible{color:#ebd3a7}
+.collection-section .collection-text-link:focus-visible{
+ outline:2px solid #fff;
+ outline-offset:6px;
+}
+.collection-section .collection-text-plus{
+ display:inline-block;
+ font:300 28px/0.8 var(--sans,Arial,sans-serif);
+ color:#f4e2bd;
+ transform-origin:center;
+ transition:transform .3s ease,color .3s ease;
+}
+.collection-section .collection-text-link:hover .collection-text-plus,
+.collection-section .collection-text-link:focus-visible .collection-text-plus{
+ transform:scale(1.18) rotate(90deg);
+ color:#fff;
+}
+/* The single fixed CTA is bound to the visible slide in ui.js. */
+.collection-section.is-cinema-active .collection-sticky-link{display:inline-flex}
+.collection-section:not(.is-cinema-active) .collection-sticky-link{display:none}
+.collection-section:not(.is-cinema-active) .collection-overlay{
+ align-items:flex-start;
+ flex-direction:column;
+ gap:16px;
+}
+.collection-section:not(.is-cinema-active) .collection-card-link{
+ display:inline-flex;
+ align-self:flex-start;
+}
+.collection-section .collection-bottom-top{
+ min-height:47px;
+ align-items:center;
+}
+@media(max-width:767px){
+ .collection-section .collection-overlay{bottom:clamp(167px,22svh,210px)}
+ .collection-section .collection-bottom{bottom:clamp(15px,2.4svh,23px)}
+ .collection-section .collection-bottom-top{gap:12px;min-height:40px}
+ .collection-section .collection-text-link{font-size:10px;letter-spacing:.075em;gap:11px}
+ .collection-section .collection-text-plus{font-size:23px}
+ .collection-section .collection-all-homes{font-size:10px;min-height:34px;padding:7px 10px}
+ .collection-section:not(.is-cinema-active) .collection-overlay{bottom:34px}
+}
+@media(max-width:390px){
+ .collection-section .collection-bottom-top{flex-wrap:wrap;justify-content:space-between}
+ .collection-section .collection-text-link{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+ .collection-section .collection-text-link,
+ .collection-section .collection-text-plus{transition:none}
+}
