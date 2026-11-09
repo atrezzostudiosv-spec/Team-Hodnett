@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,statSync} from 'node:fs';
 import vm from 'node:vm';
 import {renderHome} from '../scripts/home.mjs';
 
@@ -56,7 +56,9 @@ function galleryHarness(){
 
 test('intro photograph is a unique asset, not Southlake first community picture',()=>{
  const code=readFileSync(new URL('../scripts/home.mjs',import.meta.url),'utf8');
- assert.match(code,/placeIntroImage='assets\/editorial\/landscape\.webp'/);
+ assert.match(code,/placeIntroImage='assets\/editorial\/place-intro-north-texas-2026\.webp'/);
+ assert.match(code,/c\.slug==='colleyville'/);
+ assert.match(code,/assets\/editorial\/colleyville-local-life-2026\.webp/);
  assert.match(code,/atg1-index__intro-photo is-active/);
  assert.match(code,/places\.map\(c=>[^;]*atg1-index__photo/);
  assert.match(code,/atg1-index__entry-content/);
@@ -93,4 +95,20 @@ test('opening text remains pinned to allow a full reading pause and slow photo z
  const html=readFileSync(new URL('../scripts/home.mjs',import.meta.url),'utf8');
  assert.match(html,/class="place-index-intro__content"/);
  assert.match(source,/i === 0 && introPhoto \? viewportHeight \* \.36/);
+});
+
+test('new intro and Colleyville slide photos are exact uploaded WebP assets without changing community covers',()=>{
+ const root=new URL('../public/assets/editorial/',import.meta.url);
+ for(const [name,minBytes] of [
+  ['place-intro-north-texas-2026.webp',350000],
+  ['colleyville-local-life-2026.webp',450000]
+ ]){
+  const file=new URL(name,root);
+  assert.ok(statSync(file).size>minBytes);
+  const bytes=readFileSync(file);
+  assert.equal(bytes.subarray(0,4).toString('ascii'),'RIFF');
+  assert.equal(bytes.subarray(8,12).toString('ascii'),'WEBP');
+ }
+ const c=JSON.parse(readFileSync(new URL('../content/communities.json',import.meta.url),'utf8'));
+ assert.equal(c.find(x=>x.slug==='colleyville').cover,'assets/editorial/colleyville.webp','Individual community page cover remains unchanged');
 });
