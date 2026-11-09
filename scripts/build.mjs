@@ -15,13 +15,13 @@ await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});aw
 const get=title=>properties.find(p=>p.title===title);
 const featured=[get('1204 Andre Court'),get('4106 Shady Valley Drive'),get('2011 Ridgemont Court')].filter(Boolean);
 const photo=(p,n=0)=>p.gallery[n]||p.cover;
-const defaultSocial='assets/editorial/sharon-scene-desktop.webp';
+const defaultSocial='assets/social/sharon-hodnett-editorial-share.jpg';
 const socialSources=[...new Set([
  defaultSocial,'assets/editorial/sharon.webp',
  ...properties.map(p=>p.cover).filter(Boolean),
  ...communities.map(c=>c.cover).filter(Boolean),
  ...articles.map(a=>a.cover).filter(Boolean)
-])];
+])].filter(source=>!/^assets\/social\/[^/]+\.jpe?g$/i.test(source));
 await mkdir(path.join(dist,'data'),{recursive:true});
 const manifest=path.join(dist,'data','social-sources.json');
 await writeFile(manifest,JSON.stringify(socialSources));
