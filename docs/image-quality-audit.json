@@ -1,15 +1,16 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 776,
+  "images": 777,
   "counts_by_role": {
     "logo_or_misc": 87,
-    "editorial": 32,
+    "editorial": 33,
     "hero": 33,
     "detail": 51,
     "card": 573
   },
-  "below_target": 1,
+  "below_target": 2,
   "below_target_by_role": {
+    "editorial": 1,
     "hero": 1
   },
   "high_priority": [
@@ -444,6 +445,19 @@
     }
   ],
   "candidates": [
+    {
+      "asset": "assets/editorial/sharon-media-perspective-2026.png",
+      "role": "editorial",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2566444,
+      "format": "PNG",
+      "edge_score": 33.3,
+      "target_width": 1440,
+      "below_target": true,
+      "in_catalog": false,
+      "priority": false
+    },
     {
       "asset": "assets/editorial/westlake.webp",
       "role": "hero",
@@ -1977,6 +1991,19 @@
       "edge_score": 53.6,
       "target_width": 0,
       "below_target": false,
+      "in_catalog": false,
+      "priority": false
+    },
+    {
+      "asset": "assets/editorial/sharon-media-perspective-2026.png",
+      "role": "editorial",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2566444,
+      "format": "PNG",
+      "edge_score": 33.3,
+      "target_width": 1440,
+      "below_target": true,
       "in_catalog": false,
       "priority": false
     },
