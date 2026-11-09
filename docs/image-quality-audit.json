@@ -1,9 +1,9 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 772,
+  "images": 775,
   "counts_by_role": {
     "logo_or_misc": 87,
-    "editorial": 28,
+    "editorial": 31,
     "hero": 33,
     "detail": 51,
     "card": 573
@@ -1058,6 +1058,19 @@
       "priority": false
     },
     {
+      "asset": "assets/editorial/flower-mound-local-life-2026.webp",
+      "role": "editorial",
+      "width": 1672,
+      "height": 941,
+      "bytes": 421174,
+      "format": "WEBP",
+      "edge_score": 71.4,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
+      "priority": false
+    },
+    {
       "asset": "assets/editorial/flower-mound.webp",
       "role": "hero",
       "width": 3000,
@@ -1069,6 +1082,19 @@
       "below_target": false,
       "in_catalog": true,
       "priority": true
+    },
+    {
+      "asset": "assets/editorial/grapevine-local-life-2026.webp",
+      "role": "editorial",
+      "width": 1671,
+      "height": 941,
+      "bytes": 460554,
+      "format": "WEBP",
+      "edge_score": 76.6,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
+      "priority": false
     },
     {
       "asset": "assets/editorial/grapevine.webp",
@@ -1107,6 +1133,19 @@
       "target_width": 1440,
       "below_target": false,
       "in_catalog": true,
+      "priority": false
+    },
+    {
+      "asset": "assets/editorial/keller-local-life-2026.webp",
+      "role": "editorial",
+      "width": 1672,
+      "height": 941,
+      "bytes": 388260,
+      "format": "WEBP",
+      "edge_score": 72.0,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
       "priority": false
     },
     {
