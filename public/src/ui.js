@@ -135,7 +135,7 @@ function initHeader(){
  const header=$('.site-header');if(!header)return;
  const dropdowns=$$('details[data-header-nav]',header);
  const hoverMedia=matchMedia('(hover:hover) and (pointer:fine)');
- let previous=Math.max(0,window.scrollY),frame=false,hidden=false;
+ let previous=Math.max(0,window.scrollY),frame=false,hidden=false,directionTravel=0;
  const syncHeaderHeight=()=>document.documentElement.style.setProperty('--catalog-header-height',header.offsetHeight+'px');
  const closeDropdowns=(except=null)=>dropdowns.forEach(item=>{if(item!==except)item.open=false;});
  const show=()=>{
@@ -186,23 +186,27 @@ function initHeader(){
   const current=Math.max(0,window.scrollY),delta=current-previous;
   header.classList.toggle('is-scrolled',current>65);
   syncHeaderHeight();
+  // Sum fine trackpad/wheel increments. A single scroll frame can be 1-4px,
+  // so instantaneous delta thresholds must not leave the header stuck open.
+  if(delta>0)directionTravel=Math.max(0,directionTravel)+delta;
+  else if(delta<0)directionTravel=Math.min(0,directionTravel)+delta;
   if(current<Math.max(130,header.offsetHeight+28)){
-   closeDropdowns();show();
-  }else if(delta>5&&!document.querySelector('dialog[open]')){
-   // Downward scroll hides the header even if a menu was previously focused.
-   hide();
-  }else if(delta< -5){
-   show();
+   directionTravel=0;closeDropdowns();show();
+  }else if(directionTravel>=18&&!document.querySelector('dialog[open]')){
+   // Downward scroll always closes menus and hides navigation, even after focus.
+   hide();directionTravel=0;
+  }else if(directionTravel<=-12){
+   show();directionTravel=0;
   }
   previous=current;
  }
  const schedule=()=>{if(!frame){frame=true;requestAnimationFrame(update);}};
  addEventListener('scroll',schedule,{passive:true});
  addEventListener('resize',()=>{
-  closeDropdowns();syncHeaderHeight();show();previous=window.scrollY;schedule();
+  closeDropdowns();directionTravel=0;syncHeaderHeight();show();previous=window.scrollY;schedule();
  },{passive:true});
  addEventListener('pageshow',()=>{
-  closeDropdowns();show();previous=window.scrollY;schedule();
+  closeDropdowns();directionTravel=0;show();previous=window.scrollY;schedule();
  });
  document.addEventListener('pointerdown',event=>{
   if(!event.target.closest('.site-header details[data-header-nav]'))closeDropdowns();
@@ -220,6 +224,11 @@ function initHeader(){
 }
 function init(){
  contactTemplate=$('[data-contact-content]').innerHTML;$('#video-dialog').addEventListener('close',()=>$('[data-video-frame]').replaceChildren());
+ // Initialize the cinematic hero and collection independently of header menus.
+ // A future navigation regression must not turn the three property chapters
+ // into stacked cards or disable the original full-screen scroll experience.
+ initHero();
+ initCollection();
  initHeader();
  $$('dialog').forEach(dialog=>{dialog.addEventListener('close',()=>{if(!document.querySelector('dialog[open]'))document.body.style.overflow='';});dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeDialog(dialog);}});});
  document.addEventListener('click',async event=>{
@@ -244,7 +253,7 @@ function init(){
   // The preview intentionally does not call a network endpoint or send lead data.
   const copy=$('[data-contact-content]');copy.innerHTML=`<div class="success-panel"><div class="eyebrow">PREPARED ON THIS DEVICE</div><h2 id="contact-title">Your next step,<br><em>considered.</em></h2><p>Your ${data.intent==='showing'?'visit request':'inquiry'} is prepared for this presentation.</p><div class="request-summary">${escapeHTML(details)}</div><p class="form-disclosure">This preview has not sent your request. In the approved website, this step will connect to the team’s selected contact service.</p><button class="button" data-close>Continue exploring</button></div>`;$('.success-panel button').focus();
  });
- document.addEventListener('hodnett:catalog-updated',updateSaved);updateSaved();initHero();initCollection();initMotion();
+ document.addEventListener('hodnett:catalog-updated',updateSaved);updateSaved();initMotion();
  window.HodnettUI=Object.freeze({refreshSaved:updateSaved,openDialog});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
