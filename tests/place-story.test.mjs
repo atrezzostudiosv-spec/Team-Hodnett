@@ -60,6 +60,7 @@ test('intro photograph is a unique asset, not Southlake first community picture'
  assert.match(code,/colleyville:'assets\/editorial\/colleyville-local-life-2026\.webp'/);
  assert.match(code,/grapevine:'assets\/editorial\/grapevine-local-life-2026\.webp'/);
  assert.match(code,/'flower-mound':'assets\/editorial\/flower-mound-local-life-2026\.webp'/);
+ assert.match(code,/keller:'assets\/editorial\/keller-local-life-2026\.webp'/);
  assert.match(code,/existsSync\(new URL/);
  assert.match(code,/assets\/editorial\/colleyville-local-life-2026\.webp/);
  assert.match(code,/atg1-index__intro-photo is-active/);
@@ -100,13 +101,14 @@ test('opening text remains pinned to allow a full reading pause and slow photo z
  assert.match(source,/i === 0 && introPhoto \? viewportHeight \* \.36/);
 });
 
-test('approved intro, Colleyville, Grapevine and Flower Mound slide photos are WebP assets without changing guide covers',()=>{
+test('approved community slide photos are WebP assets without changing individual guide covers',()=>{
  const root=new URL('../public/assets/editorial/',import.meta.url);
  for(const [name,minBytes] of [
   ['place-intro-north-texas-2026.webp',350000],
   ['colleyville-local-life-2026.webp',450000],
   ['grapevine-local-life-2026.webp',450000],
-  ['flower-mound-local-life-2026.webp',420000]
+  ['flower-mound-local-life-2026.webp',420000],
+  ['keller-local-life-2026.webp',380000]
  ]){
   const file=new URL(name,root);
   assert.ok(statSync(file).size>minBytes);
@@ -115,7 +117,7 @@ test('approved intro, Colleyville, Grapevine and Flower Mound slide photos are W
   assert.equal(bytes.subarray(8,12).toString('ascii'),'WEBP');
  }
  const c=JSON.parse(readFileSync(new URL('../content/communities.json',import.meta.url),'utf8'));
- for(const slug of ['colleyville','grapevine','flower-mound']){
+ for(const slug of ['colleyville','grapevine','flower-mound','keller']){
   assert.equal(c.find(x=>x.slug===slug).cover,'assets/editorial/'+slug+'.webp',slug+' individual guide cover remains unchanged');
  }
 });

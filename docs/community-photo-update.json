@@ -51,6 +51,17 @@
       "bytes": 421174,
       "sha256": "e831ba437bc08903cbff6bb20c17291afaa79b8795fa7923d718456ca9ffa97d",
       "individual_guide_cover_unchanged": true
+    },
+    "keller": {
+      "filename": "assets/editorial/keller-local-life-2026.webp",
+      "source": "user-supplied original image",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 388260,
+      "sha256": "8c1136736d9196e643427f62c156ee066a4e6db10175ae0e5c5bbc2e35315b41",
+      "individual_guide_cover_unchanged": true
     }
   }
 }

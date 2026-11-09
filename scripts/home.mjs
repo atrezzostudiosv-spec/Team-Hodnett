@@ -9,7 +9,8 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  const slidePhotos={
   colleyville:'assets/editorial/colleyville-local-life-2026.webp',
   grapevine:'assets/editorial/grapevine-local-life-2026.webp',
-  'flower-mound':'assets/editorial/flower-mound-local-life-2026.webp'
+  'flower-mound':'assets/editorial/flower-mound-local-life-2026.webp',
+  keller:'assets/editorial/keller-local-life-2026.webp'
  };
  const placeImage=c=>{
   const image=slidePhotos[c.slug];
