@@ -1,8 +1,8 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 769,
+  "images": 770,
   "counts_by_role": {
-    "logo_or_misc": 86,
+    "logo_or_misc": 87,
     "editorial": 26,
     "hero": 33,
     "detail": 51,
@@ -10441,6 +10441,19 @@
       "target_width": 900,
       "below_target": false,
       "in_catalog": true,
+      "priority": false
+    },
+    {
+      "asset": "assets/social/sharon-hodnett-editorial-share.jpg",
+      "role": "logo_or_misc",
+      "width": 1200,
+      "height": 630,
+      "bytes": 119567,
+      "format": "JPEG",
+      "edge_score": 56.3,
+      "target_width": 0,
+      "below_target": false,
+      "in_catalog": false,
       "priority": false
     },
     {
