@@ -76,9 +76,24 @@ test('Experience in Numbers appears immediately after Meet Sharon with original 
 test('Featured slide has one shared minimal text CTA, with fallback links and no white buttons',()=>{
  const html=render();
  assert.equal((html.match(/data-collection-property-link/g)||[]).length,1);
- assert.equal((html.match(/class="collection-text-link collection-card-link"/g)||[]).length,3);
+ assert.equal((html.match(/class="collection-text-link collection-card-link"/g)||[]).length,0);
+ assert.equal((html.match(/data-collection-property-url=/g)||[]).length,3);
+ assert.equal((html.match(/class="collection-property-title-link"/g)||[]).length,3);
  assert.match(html,/Discover This Home <span class="collection-text-plus"/);
  assert.doesNotMatch(html,/class="button light collection-property-link"/);
  assert.match(html,/data-collection-track/);
  assert.match(html,/data-collection-stage/);
+});
+
+test('one immersive community experience replaces the duplicated Featured Neighborhoods section',()=>{
+ const html=render();
+ assert.doesNotMatch(html,/featured-neighborhoods atz-service-showcase/);
+ assert.doesNotMatch(html,/FEATURED NEIGHBORHOODS/);
+ assert.doesNotMatch(html,/Find your place\./);
+ assert.equal((html.match(/A SENSE OF PLACE/g)||[]).length,1);
+ assert.equal((html.match(/class="atg1-index__entry/g)||[]).length,6);
+ assert.equal((html.match(/class="community-name"/g)||[]).length,6);
+ const selected=html.indexOf('id="collection"');
+ const community=html.indexOf('data-place-index');
+ assert.ok(selected>=0&&community>selected,'immersive community section follows selected homes');
 });
