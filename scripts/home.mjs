@@ -3,6 +3,9 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  const places=['southlake','westlake','colleyville','grapevine','flower-mound','keller'].map(slug=>communities.find(c=>c.slug===slug));
  const descriptions={southlake:'A local perspective on Southlake, from the town square to the places you call home.',westlake:'Discover Westlake and a different pace of North Texas living.',colleyville:'Explore the neighborhoods and local character of Colleyville.',grapevine:'A closer look at Grapevine, its Main Street and the surrounding community.','flower-mound':'Get to know Flower Mound and the possibilities around your next move.',keller:'Explore Keller with a perspective rooted in the local community.'};
  const placeImage=c=>c.cover||'assets/editorial/'+c.slug+'.webp';
+ // Intro is a separate authentic North Texas editorial photo, not Southlake's
+ // first community slide. Southlake retains its original dedicated photograph.
+ const placeIntroImage='assets/editorial/landscape.webp';
 
  const chosenAwards=[
   '2026 Five Star Legends',
@@ -69,19 +72,22 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   <div class="atg1-index">
    <div class="atg1-index__layout">
     <div class="atg1-index__stage" aria-hidden="true">
-     ${places.map((c,i)=>`<img class="atg1-index__photo${i===0?' is-active':''}" loading="lazy" decoding="async" src="${U(placeImage(c))}" alt="">`).join('')}
-     <div class="atg1-index__stage-meta"><span>LOCAL PERSPECTIVE</span><span data-atg1-index-number>01 / 06</span></div>
+     <img class="atg1-index__photo atg1-index__intro-photo is-active" loading="lazy" decoding="async" src="${U(placeIntroImage)}" alt="">
+     ${places.map(c=>`<img class="atg1-index__photo" loading="lazy" decoding="async" src="${U(placeImage(c))}" alt="">`).join('')}
+     <div class="atg1-index__stage-meta"><span>LOCAL PERSPECTIVE</span><span data-atg1-index-number>NORTH TEXAS</span></div>
      
     </div>
     <div class="atg1-index__content">
      <div class="place-index-intro"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div>
      <div class="atg1-index__entries">
-      ${places.map((c,i)=>`<article class="atg1-index__entry${i===0?' is-active':''}" id="local-${c.slug}">
-       <div class="atg1-index__entry-header"><span>0${i+1} / THE COMMUNITY</span>${icon('arrow')}</div>
-       <h3><a class="community-name" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>${e(c.name)}</a></h3>
-       <img class="atg1-index__mobile-photo" loading="lazy" src="${U(placeImage(c))}" alt="Illustrative community photograph for ${e(c.name)}">
-       <p>${e(descriptions[c.slug])}</p>
-       <a class="place-guide-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore the area ${icon('arrow')}</a>
+      ${places.map((c,i)=>`<article class="atg1-index__entry" id="local-${c.slug}">
+       <div class="atg1-index__entry-content">
+        <div class="atg1-index__entry-header"><span>0${i+1} / THE COMMUNITY</span>${icon('arrow')}</div>
+        <h3><a class="community-name" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>${e(c.name)}</a></h3>
+        <img class="atg1-index__mobile-photo" loading="lazy" src="${U(placeImage(c))}" alt="Illustrative community photograph for ${e(c.name)}">
+        <p>${e(descriptions[c.slug])}</p>
+        <a class="place-guide-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore the area ${icon('arrow')}</a>
+       </div>
       </article>`).join('')}
      </div>
     </div>
