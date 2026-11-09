@@ -18,11 +18,11 @@ const classList=(initial=[])=>{
 function galleryHarness(){
  let scroll=0;
  const callbacks=[],events={};
- const intro={getBoundingClientRect:()=>({top:-scroll,height:1035,bottom:1035-scroll})};
+ const intro={getBoundingClientRect:()=>({top:-scroll,height:1584,bottom:1584-scroll})};
  const introPhoto={classList:classList(['is-active'])};
  const entries=Array.from({length:6},(_,i)=>({
   classList:classList(),addEventListener(){},
-  getBoundingClientRect:()=>({top:1035+1548*i-scroll,height:1548,bottom:1035+1548*(i+1)-scroll})
+  getBoundingClientRect:()=>({top:1584+1548*i-scroll,height:1548,bottom:1584+1548*(i+1)-scroll})
  }));
  const photos=Array.from({length:6},()=>({classList:classList()}));
  const indexNumber={textContent:'NORTH TEXAS'};
@@ -67,10 +67,13 @@ test('introduction stays visible before Southlake, then each town advances on sc
  assert.equal(x.photos[0].classList.contains('is-active'),false);
  assert.equal(x.indexNumber.textContent,'NORTH TEXAS');
  x.scrollTo(500);
+ assert.equal(x.introPhoto.classList.contains('is-active'),true,'intro holds through the opening scroll');
+ assert.equal(x.photos[0].classList.contains('is-active'),false);
+ x.scrollTo(1330);
  assert.equal(x.introPhoto.classList.contains('is-active'),false);
  assert.equal(x.photos[0].classList.contains('is-active'),true);
  assert.equal(x.indexNumber.textContent,'01 / 06');
- x.scrollTo(2200);
+ x.scrollTo(2800);
  assert.equal(x.photos[0].classList.contains('is-active'),false);
  assert.equal(x.photos[1].classList.contains('is-active'),true);
  assert.equal(x.indexNumber.textContent,'02 / 06');
@@ -81,4 +84,13 @@ test('native scrolling retains longer 1.5-viewport reading holds and reduced-mot
  assert.match(css,/min-height:150svh/);
  assert.match(css,/\.atg1-index__entry-content\{\s*position:sticky/);
  assert.match(css,/\.atg1-index__entry-content\{\s*position:static!important/);
+});
+
+test('opening text remains pinned to allow a full reading pause and slow photo zoom',()=>{
+ assert.match(css,/\.place-index-intro\{\s*display:block!important;[\s\S]*?min-height:176svh/);
+ assert.match(css,/\.place-index-intro__content\{\s*position:sticky;/);
+ assert.match(css,/\.place-index-intro__content\{\s*position:static!important/);
+ const html=readFileSync(new URL('../scripts/home.mjs',import.meta.url),'utf8');
+ assert.match(html,/class="place-index-intro__content"/);
+ assert.match(source,/i === 0 && introPhoto \? viewportHeight \* \.36/);
 });
