@@ -19,7 +19,7 @@ export function socialPhotoPath(source){
 export function socialPhotoUrl(source){
  return siteOrigin+sitePrefix+socialPhotoPath(source);
 }
-export function makeSeo({title,description,route='',image='assets/editorial/landscape.webp',kind='website',indexable=true}){
+export function makeSeo({title,description,route='',image='assets/editorial/sharon-scene-desktop.webp',kind='website',indexable=true}){
  const cleanTitle=String(title||'The Hodnett Team').trim();
  const fullTitle=cleanTitle.includes('Sharon Hodnett')?cleanTitle:cleanTitle+' | Sharon Hodnett';
  const cleanDescription=String(description||'Explore North Texas homes and communities with The Hodnett Team.').trim().replace(/\s+/g,' ');
@@ -35,7 +35,7 @@ export function makeSeo({title,description,route='',image='assets/editorial/land
  if(route)crumbs.push({'@type':'ListItem',position:crumbs.length+1,name:cleanTitle,item:canonical});
  const orgId=canonicalUrl('')+'#real-estate-team';
  const entities=[
-  {'@type':'RealEstateAgent','@id':orgId,name:'The Hodnett Team | Sharon Hodnett',url:canonicalUrl(''),telephone:'+1-817-994-7152',image:socialPhotoUrl('assets/editorial/landscape.webp'),areaServed:[{'@type':'Place',name:'Southlake, Texas'},{'@type':'Place',name:'Dallas–Fort Worth, Texas'}]},
+  {'@type':'RealEstateAgent','@id':orgId,name:'The Hodnett Team | Sharon Hodnett',url:canonicalUrl(''),telephone:'+1-817-994-7152',image:socialPhotoUrl('assets/editorial/sharon-scene-desktop.webp'),areaServed:[{'@type':'Place',name:'Southlake, Texas'},{'@type':'Place',name:'Dallas–Fort Worth, Texas'}]},
   {'@type':'WebSite','@id':canonicalUrl('')+'#website',url:canonicalUrl(''),name:'Sharon Hodnett | The Hodnett Team',inLanguage:'en-US',publisher:{'@id':orgId}},
   {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:fullTitle,description:cleanDescription,inLanguage:'en-US',isPartOf:{'@id':canonicalUrl('')+'#website'},primaryImageOfPage:{'@type':'ImageObject',url:imageUrl,width:1200,height:630}}
  ];
