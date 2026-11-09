@@ -91,7 +91,7 @@ test('one immersive community experience replaces the duplicated Featured Neighb
  assert.doesNotMatch(html,/FEATURED NEIGHBORHOODS/);
  assert.doesNotMatch(html,/Find your place\./);
  assert.equal((html.match(/A SENSE OF PLACE/g)||[]).length,1);
- assert.equal((html.match(/class="atg1-index__entry/g)||[]).length,6);
+ assert.equal((html.match(/<article class="atg1-index__entry(?: is-active)?"/g)||[]).length,6);
  assert.equal((html.match(/class="community-name"/g)||[]).length,6);
  const selected=html.indexOf('id="collection"');
  const community=html.indexOf('data-place-index');
