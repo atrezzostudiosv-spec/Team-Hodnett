@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {detectAssistantLanguage,resolveAssistantDestination} from '../public/src/assistant-navigation.mjs';
+import {resolveAssistantDestination} from '../public/src/assistant-navigation.mjs';
 
 const properties=[
  {id:'a1',title:'10029 Lakeside Drive',address:'10029 Lakeside Dr, Fort Worth',city:'Fort Worth',status:'For Sale',beds:4,price:800000,has_pool:false,zip:'76179',search_text:''},
@@ -17,13 +17,13 @@ const route=(q,lang='en-US')=>resolveAssistantDestination(q,properties,entries,'
 
 test('spoken Spanish property search returns a single filtered link, not cards',()=>{
  const result=route('Busco casas en Argyle');
- assert.equal(result.language,'es');
+ assert.equal(result.language,'en');
  assert.equal(result.kind,'homes');
  assert.match(result.href,/^\/Team-Hodnett\/homes\/\?/);
  assert.match(result.href,/city=Argyle/);
  assert.match(result.href,/status=/);
  assert.equal(result.matchCount,2);
- assert.equal(result.label,'Ver propiedades');
+ assert.equal(result.label,'View homes');
 });
 test('community-only request opens its guide, rather than an arbitrary property',()=>{
  const result=route('Tell me about Westlake');
@@ -34,7 +34,7 @@ test('specific address navigates directly to its listing even with abbreviated s
  const result=route('Quiero ver la propiedad 10029 Lakeside Dr');
  assert.equal(result.kind,'property');
  assert.equal(result.href,'/Team-Hodnett/properties/a1/');
- assert.equal(result.language,'es');
+ assert.equal(result.language,'en');
 });
 test('unique street name is a direct property request',()=>{
  const result=route('Lakeside Drive');
@@ -57,10 +57,17 @@ test('team questions link to the grounded website page',()=>{
  assert.equal(result.kind,'page');
  assert.equal(result.href,'/Team-Hodnett/about/');
 });
-test('speech reply language inferred from recognized question, otherwise browser locale',()=>{
- assert.equal(detectAssistantLanguage('Quiero casas en Southlake','en-US'),'es');
- assert.equal(detectAssistantLanguage('Show homes in Southlake','es-ES'),'en');
- assert.equal(detectAssistantLanguage('Westlake','es-ES'),'es');
+test('concierge always responds in English even for Spanish text or a Spanish browser',()=>{
+ for(const [text,locale] of [
+  ['Quiero casas en Southlake','es-ES'],
+  ['Show homes in Southlake','es-ES'],
+  ['Westlake','es-ES'],
+  ['Busco casas en Argyle','es-ES']
+ ]){
+  const result=route(text,locale);
+  assert.equal(result.language,'en');
+  assert.doesNotMatch(result.label,/Ver propiedad|Explorar comunidad|Ver propiedades/);
+ }
 });
 
 test('a bare catalog city still takes the visitor to its filtered properties',()=>{
