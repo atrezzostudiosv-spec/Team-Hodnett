@@ -25,3 +25,7 @@ body.reduced-motion .hero-video{opacity:0}body.reduced-motion .hero-film-media{b
 .footer-legal{border-color:#ddd}.footer-legal a{color:#555}.footer-legal>img{filter:none;opacity:1}.footer-bottom p,.motion-control{color:#777}
 @media(max-width:767px){.home-closing{min-height:650px}}
 @media(max-width:767px){.footer-contact{grid-column:auto;margin-top:0}.footer-contact .footer-social{font-size:10px;gap:12px}.footer-col a{overflow-wrap:anywhere}}
+
+/* Vector-only external link icons retain the original subtle footer scale. */
+.footer-social a{display:inline-flex;align-items:center;gap:6px}
+.footer-social a svg{display:block;width:12px;height:12px;stroke:currentColor}
