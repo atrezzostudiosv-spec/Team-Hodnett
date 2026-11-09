@@ -78,7 +78,7 @@ export function renderAbout({recognition}){
   </section>
 
   <section class="about-media" aria-labelledby="about-media-heading">
-   <div class="about-media__image"><img src="${U('assets/editorial/sharon-scene-desktop.webp')}" width="2400" height="1351" loading="lazy" alt="Sharon Hodnett featured in the Team Hodnett editorial photography"></div>
+   <div class="about-media__image"><img src="${U('assets/editorial/sharon-media-perspective-2026.png')}" width="1254" height="1254" loading="lazy" decoding="async" alt="Sharon Hodnett seated in a black blazer, smiling toward the camera"></div>
    <div class="about-media__copy">
     <div class="about-section-marker">04 <span></span> MEDIA &amp; PERSPECTIVE</div>
     <h2 id="about-media-heading">An experienced<br><em>voice in real estate.</em></h2>

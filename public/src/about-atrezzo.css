@@ -193,7 +193,7 @@
 .about-media__image{min-height:650px;overflow:hidden}
 .about-media__image img{
  width:100%;height:100%;object-fit:cover;
- object-position:37% 50%;filter:saturate(.87);
+ object-position:50% 50%;
 }
 .about-media__copy{
  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;

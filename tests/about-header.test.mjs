@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {renderAbout} from '../scripts/about.mjs';
 import {header,dialogs} from '../scripts/templates.mjs';
 
@@ -52,4 +53,20 @@ test('mobile navigation includes expandable property and town groups',()=>{
  assert.match(html,/href="\/properties\/sold\/"/);
  assert.match(html,/href="\/home-search\/listings\/\?city=Southlake"/);
  assert.match(html,/href="\/home-search\/listings\/\?city=Argyle"/);
+});
+
+test('Media & Perspective uses the approved independent Sharon portrait with responsive framing',()=>{
+ const html=renderAbout({recognition});
+ const media=html.match(/<section class="about-media"[\s\S]*?<\/section>/)?.[0];
+ assert.ok(media,'The media section exists');
+ assert.ok(media.includes('assets/editorial/sharon-media-perspective-2026.png'));
+ assert.ok(media.includes('width="1254" height="1254"'));
+ assert.ok(media.includes('An experienced<br><em>voice in real estate.</em>'));
+ assert.ok(media.includes('Explore her film archive'));
+ assert.ok(!media.includes('sharon-scene-desktop.webp'));
+ const original=readFileSync(new URL('../public/assets/editorial/sharon-media-perspective-2026.png',import.meta.url));
+ assert.equal(original.length,2566444);
+ assert.equal(original.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+ const css=readFileSync(new URL('../public/src/about-atrezzo.css',import.meta.url),'utf8');
+ assert.match(css,/object-position:50% 50%/);
 });
