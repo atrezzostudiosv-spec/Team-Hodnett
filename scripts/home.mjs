@@ -2,10 +2,12 @@ import {e,U,icon,link,price,stats,detailURL,closing} from './templates.mjs';
 export function renderHome({featured,communities,homeArticles,journalCard,mainQuote,excerpt,client,recognition,videos}){
  const places=['southlake','westlake','colleyville','grapevine','flower-mound','keller'].map(slug=>communities.find(c=>c.slug===slug));
  const descriptions={southlake:'A local perspective on Southlake, from the town square to the places you call home.',westlake:'Discover Westlake and a different pace of North Texas living.',colleyville:'Explore the neighborhoods and local character of Colleyville.',grapevine:'A closer look at Grapevine, its Main Street and the surrounding community.','flower-mound':'Get to know Flower Mound and the possibilities around your next move.',keller:'Explore Keller with a perspective rooted in the local community.'};
- const placeImage=c=>c.cover||'assets/editorial/'+c.slug+'.webp';
- // Intro is a separate authentic North Texas editorial photo, not Southlake's
- // first community slide. Southlake retains its original dedicated photograph.
- const placeIntroImage='assets/editorial/landscape.webp';
+ // These two approved images are exclusive to the homepage's immersive
+ // community sequence; the individual city pages keep their existing covers.
+ const placeImage=c=>c.slug==='colleyville'
+  ? 'assets/editorial/colleyville-local-life-2026.webp'
+  : c.cover||'assets/editorial/'+c.slug+'.webp';
+ const placeIntroImage='assets/editorial/place-intro-north-texas-2026.webp';
 
  const chosenAwards=[
   '2026 Five Star Legends',
