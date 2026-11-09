@@ -1,9 +1,9 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 770,
+  "images": 772,
   "counts_by_role": {
     "logo_or_misc": 87,
-    "editorial": 26,
+    "editorial": 28,
     "hero": 33,
     "detail": 51,
     "card": 573
@@ -733,6 +733,19 @@
       "priority": false
     },
     {
+      "asset": "assets/editorial/colleyville-local-life-2026.webp",
+      "role": "editorial",
+      "width": 1672,
+      "height": 941,
+      "bytes": 525500,
+      "format": "WEBP",
+      "edge_score": 75.1,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
+      "priority": false
+    },
+    {
       "asset": "assets/editorial/colleyville.webp",
       "role": "hero",
       "width": 2400,
@@ -1146,6 +1159,19 @@
       "target_width": 1440,
       "below_target": false,
       "in_catalog": true,
+      "priority": false
+    },
+    {
+      "asset": "assets/editorial/place-intro-north-texas-2026.webp",
+      "role": "editorial",
+      "width": 1672,
+      "height": 941,
+      "bytes": 384690,
+      "format": "WEBP",
+      "edge_score": 69.4,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
       "priority": false
     },
     {
