@@ -15,12 +15,11 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  const awardFigures=chosenAwards.map(item=>'<figure class="sharon-award"><img src="'+U(item.src)+'" width="180" height="112" loading="lazy" alt="'+e(item.alt)+'"><figcaption>'+e(item.alt)+'</figcaption></figure>').join('');
 
 
- const featuredPanels=featured.map((p,i)=>`<article class="collection-panel" id="collection-panel-${i+1}" data-collection-panel role="tabpanel" aria-labelledby="collection-tab-${i+1}" aria-hidden="false">
+ const featuredPanels=featured.map((p,i)=>`<article class="collection-panel" id="collection-panel-${i+1}" data-collection-panel data-collection-property-url="${U(detailURL(p))}" data-collection-property-title="${e(p.title)}" role="tabpanel" aria-labelledby="collection-tab-${i+1}" aria-hidden="false">
   <div class="collection-image-wrap"><img class="collection-photo" src="${U(p.cover)}" alt="${e(p.title)}, ${e(p.city)}" loading="${i===0?'eager':'lazy'}" decoding="async"></div>
   <div class="collection-scrim" aria-hidden="true"></div>
   <div class="collection-overlay">
-   <div class="collection-property-copy"><div class="eyebrow">${e(p.city)}, TEXAS</div><h3>${e(p.title)}</h3><div class="collection-meta"><span>${price(p.price,p.status)}</span>${stats(p).map(t=>`<span>${e(t)}</span>`).join('')}</div></div>
-   <a class="collection-text-link collection-card-link" href="${U(detailURL(p))}" data-atz-link aria-label="Discover ${e(p.title)}">Discover This Home <span class="collection-text-plus" aria-hidden="true">+</span></a>
+   <div class="collection-property-copy"><div class="eyebrow">${e(p.city)}, TEXAS</div><h3><a class="collection-property-title-link" href="${U(detailURL(p))}" data-atz-link>${e(p.title)}</a></h3><div class="collection-meta"><span>${price(p.price,p.status)}</span>${stats(p).map(t=>`<span>${e(t)}</span>`).join('')}</div></div>
   </div>
  </article>`).join('');
  const featuredNavigation=featured.map((p,i)=>`<button class="collection-tab" type="button" role="tab" id="collection-tab-${i+1}" data-collection-tab="${i}" aria-selected="${i===0?'true':'false'}" aria-controls="collection-panel-${i+1}" tabindex="${i===0?0:-1}">
@@ -66,7 +65,6 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   </div>
   <div class="collection-fallback-link wrap">${link('homes/','Explore All Homes')}</div>
  </section>
- <section class="featured-neighborhoods atz-service-showcase" data-atz-service-showcase aria-labelledby="featured-places-title"><div class="neighborhoods-lead wrap"><div class="eyebrow">FEATURED NEIGHBORHOODS</div><div><h2 id="featured-places-title">Find your place.</h2><p>Three communities. A world of possibility.</p></div></div><div data-atz-panels><div class="atz-panels">${places.slice(0,3).map((c,i)=>`<article class="atz-panel${i===0?' is-active':''}" data-atz-service-panel><img loading="lazy" src="${U(placeImage(c))}" alt="${e(c.name)} community photograph"><button class="atz-panel-toggle" type="button" data-atz-panel-toggle aria-controls="neighborhood-copy-${i}" aria-expanded="${i===0}"><span class="atz-micro">0${i+1} / NORTH TEXAS</span><span class="atz-panel-toggle-bottom"><span class="atz-panel-title">${e(c.name)}</span><span class="atz-panel-plus" aria-hidden="true">+</span></span></button><div class="atz-panel-content" data-atz-panel-content id="neighborhood-copy-${i}"><p>${e(descriptions[c.slug])}</p><a class="atz-outline-link" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link>Explore ${e(c.name)} ${icon('arrow')}</a></div></article>`).join('')}</div></div><div class="neighborhoods-end wrap"><span>Explore the places behind the properties.</span>${link('neighborhoods/','All communities')}</div></section>
  <section class="atg1 place-index" data-place-index aria-labelledby="local-life-title">
   <div class="atg1-index">
    <div class="atg1-index__layout">
