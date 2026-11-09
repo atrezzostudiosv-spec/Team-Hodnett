@@ -48,3 +48,21 @@ test('image sitemap includes distinct page URLs and deduplicates repeats',()=>{
  assert.match(xml,/sitemaps\.org\/schemas\/sitemap/);
  assert.match(xml,/https:\/\/atrezzostudiosv-spec\.github\.io\/Team-Hodnett\/neighborhoods\/southlake\//);
 });
+
+test('homepage and brand preview defaults use Sharon’s approved portrait',()=>{
+ const selected='assets/editorial/sharon-scene-desktop.webp';
+ const homepage=makeSeo({title:'Luxury Real Estate in North Texas',description:'The Hodnett Team',route:''});
+ const biography=makeSeo({title:'Meet Sharon',description:'A career rooted in North Texas',route:'about',image:selected});
+ assert.ok(homepage.includes('property="og:image" content="'+socialPhotoUrl(selected)+'"'));
+ assert.ok(biography.includes('property="og:image" content="'+socialPhotoUrl(selected)+'"'));
+ assert.ok(homepage.includes('"image":"'+socialPhotoUrl(selected)+'"'));
+ assert.ok(!homepage.includes(socialPhotoUrl('assets/editorial/landscape.webp')));
+});
+test('property and community shared links retain their own photography',()=>{
+ const propertyPhoto='assets/properties/example-house.webp';
+ const townPhoto='assets/editorial/southlake.webp';
+ const listing=makeSeo({title:'Example home',description:'Southlake listing',route:'properties/example-house',image:propertyPhoto});
+ const town=makeSeo({title:'Southlake',description:'Community guide',route:'neighborhoods/southlake',image:townPhoto});
+ assert.ok(listing.includes('property="og:image" content="'+socialPhotoUrl(propertyPhoto)+'"'));
+ assert.ok(town.includes('property="og:image" content="'+socialPhotoUrl(townPhoto)+'"'));
+});
