@@ -107,10 +107,12 @@ function collectionHarness(enabled=true){
  let top=0;
  const track={offsetHeight:3900,closest:()=>section,getBoundingClientRect:()=>({top,bottom:top+3900})};
  const counter={textContent:''};
+ const propertyLink={href:'',attrs:{},setAttribute(name,value){this.attrs[name]=value;}};
  const panels=Array.from({length:3},(_,i)=>{
   const photo={style:style()};
-  return {inert:false,aria:{},style:style(),photo,setAttribute(name,value){this.aria[name]=value;},
-   querySelector:sel=>sel==='.collection-photo'?photo:null};
+  const cardLink={href:'https://example.test/properties/test-'+i+'/',getAttribute:()=> 'Discover Test Home '+i};
+  return {inert:false,aria:{},style:style(),photo,cardLink,setAttribute(name,value){this.aria[name]=value;},
+   querySelector:sel=>sel==='.collection-photo'?photo:sel==='.collection-card-link'?cardLink:null};
  });
  const tabs=Array.from({length:3},()=>({
   attrs:{},style:style(),tabIndex:0,
@@ -119,7 +121,8 @@ function collectionHarness(enabled=true){
  Object.assign(media,{matches:enabled});
  Object.assign(doc,{hidden:false});
  const selectors={
-  '[data-collection-track]':track,'[data-collection-stage]':stage,'[data-collection-counter]':counter
+  '[data-collection-track]':track,'[data-collection-stage]':stage,'[data-collection-counter]':counter,
+  '[data-collection-property-link]':propertyLink
  };
  const current={scrollY:0,scrollTo:({top:y})=>{current.scrollY=y;}};
  const context={
@@ -131,7 +134,7 @@ function collectionHarness(enabled=true){
  };
  const fn=vm.runInNewContext('('+extract('function initCollection(){','let gallery=[]')+')',context);
  fn();
- return {section,panels,tabs,counter,media,advance(progress){
+ return {section,panels,tabs,counter,propertyLink,media,advance(progress){
   top=-(track.offsetHeight-stage.offsetHeight)*progress;
   calls.emit('scroll');
  }};
@@ -156,4 +159,15 @@ test('Selected Homes retains an accessible stacked fallback when motion is reduc
  assert.equal(x.section.classList.contains('is-cinema-active'),false);
  assert.ok(x.panels.every(p=>p.inert===false));
  assert.ok(x.panels.every(p=>p.aria['aria-hidden']==='false'));
+});
+
+test('one fixed Discover This Home link follows the correct featured home during scroll',()=>{
+ const x=collectionHarness(true);
+ assert.match(x.propertyLink.href,/test-0\/$/);
+ x.advance(.51);
+ assert.match(x.propertyLink.href,/test-1\/$/);
+ assert.equal(x.propertyLink.attrs['aria-label'],'Discover Test Home 1');
+ x.advance(.90);
+ assert.match(x.propertyLink.href,/test-2\/$/);
+ assert.equal(x.propertyLink.attrs['aria-label'],'Discover Test Home 2');
 });
