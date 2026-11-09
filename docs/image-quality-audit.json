@@ -1,9 +1,9 @@
 {
   "note": "Resolution-based audit. Upscaling cannot reconstruct lost photographic detail; source originals are preferable.",
-  "images": 775,
+  "images": 776,
   "counts_by_role": {
     "logo_or_misc": 87,
-    "editorial": 31,
+    "editorial": 32,
     "hero": 33,
     "detail": 51,
     "card": 573
@@ -2083,6 +2083,19 @@
       "below_target": true,
       "in_catalog": true,
       "priority": true
+    },
+    {
+      "asset": "assets/editorial/your-next-chapter-2026.webp",
+      "role": "editorial",
+      "width": 2005,
+      "height": 784,
+      "bytes": 488200,
+      "format": "WEBP",
+      "edge_score": 73.1,
+      "target_width": 1440,
+      "below_target": false,
+      "in_catalog": false,
+      "priority": false
     },
     {
       "asset": "assets/properties/0030b539c101e4743cbb5738.large.webp",
