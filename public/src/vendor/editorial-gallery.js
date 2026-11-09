@@ -16,7 +16,9 @@
     let destroyed = false;
 
     const entries = Array.from(root.querySelectorAll('.atg1-index__entry'));
-    const photos = Array.from(root.querySelectorAll('.atg1-index__photo'));
+    const intro = root.querySelector('.place-index-intro');
+    const introPhoto = root.querySelector('.atg1-index__intro-photo');
+    const photos = Array.from(root.querySelectorAll('.atg1-index__photo:not(.atg1-index__intro-photo)'));
     const indexNumber = root.querySelector('[data-atg1-index-number]');
     const thumbs = Array.from(root.querySelectorAll('.atg1-contact__item'));
     const features = Array.from(root.querySelectorAll('.atg1-contact__feature-image'));
@@ -26,7 +28,7 @@
     const range = root.querySelector('.atg1-perspective__range');
     const compare = root.querySelector('.atg1-perspective__canvas');
     const compareValue = root.querySelector('[data-atg1-split-value]');
-    let indexActive = 0;
+    let indexActive = -2;
     let selected = 0;
     let reduced = false;
 
@@ -36,33 +38,43 @@
     }
 
     function setIndex(idx) {
-      idx = clamp(idx, 0, Math.max(0, entries.length - 1));
-      if (idx === indexActive && indexNumber && indexNumber.textContent) return;
+      // -1 is the distinct editorial introduction; 0..5 are the communities.
+      idx = clamp(idx, introPhoto ? -1 : 0, Math.max(0, entries.length - 1));
+      if (idx === indexActive) return;
       indexActive = idx;
+      root.classList.toggle('is-intro-active', idx === -1);
+      if (introPhoto) introPhoto.classList.toggle('is-active', idx === -1);
       entries.forEach((el, i) => el.classList.toggle('is-active', i === idx));
       photos.forEach((el, i) => el.classList.toggle('is-active', i === idx));
-      if (indexNumber) indexNumber.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(entries.length).padStart(2, '0');
+      if (indexNumber) indexNumber.textContent = idx === -1
+        ? 'NORTH TEXAS'
+        : String(idx + 1).padStart(2, '0') + ' / ' + String(entries.length).padStart(2, '0');
     }
 
     function updateIndex() {
       raf = 0;
       if (destroyed || reduced || !entries.length || (global.innerWidth <= 680 && !root.classList.contains('is-immersive'))) return;
-      const center = global.innerHeight * .49;
-      let closest = 0;
-      let distance = Infinity;
+      const viewportHeight = Math.max(1, global.innerHeight);
+      const activationLine = viewportHeight * .64;
+      // Hold each photograph through a full reading chapter. The next photo
+      // appears only when the NEXT community has properly entered the stage;
+      // the introduction gets its own dedicated photograph and a clear pause.
+      let selected = introPhoto ? -1 : 0;
       entries.forEach((entry, i) => {
-        const r = entry.getBoundingClientRect();
-        const d = Math.abs((r.top + r.bottom) / 2 - center);
-        if (d < distance) { distance = d; closest = i; }
+        if (entry.getBoundingClientRect().top <= activationLine) selected = i;
       });
-      setIndex(closest);
-      // Hodnett full-bleed variant: a restrained scroll-driven photo zoom.
-      // Keep it scoped to this one page, never to other editorial galleries.
+      setIndex(selected);
       if (root.classList.contains('is-immersive')) {
-        const rect = entries[closest].getBoundingClientRect();
-        const distance = Math.max(1, rect.height + global.innerHeight);
-        const progress = clamp((global.innerHeight - rect.top) / distance, 0, 1);
-        root.style.setProperty('--place-photo-zoom', String((1.025 + progress * .055).toFixed(4)));
+        let progress = 0;
+        if (selected === -1 && intro) {
+          const rect = intro.getBoundingClientRect();
+          progress = clamp(-rect.top / Math.max(1, rect.height), 0, 1);
+        } else if (selected >= 0) {
+          const rect = entries[selected].getBoundingClientRect();
+          progress = clamp((activationLine - rect.top) / Math.max(1, rect.height - activationLine), 0, 1);
+        }
+        // Only 6.2% slow zoom over each chapter, not a jump on photo change.
+        root.style.setProperty('--place-photo-zoom', String((1.028 + progress * .062).toFixed(4)));
       }
     }
     function scheduleIndex() { if (!raf) raf = global.requestAnimationFrame(updateIndex); }
@@ -90,7 +102,7 @@
 
     applyReduced();
     if (entries.length) {
-      setIndex(0);
+      setIndex(introPhoto ? -1 : 0);
       // ATREZZO Hodnett adaptation: mouse and keyboard previews complement native scroll.
       entries.forEach((entry,i)=>{
         entry.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse')setIndex(i);},{signal:abort.signal});
