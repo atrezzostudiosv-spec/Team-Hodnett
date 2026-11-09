@@ -78,7 +78,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
      
     </div>
     <div class="atg1-index__content">
-     <div class="place-index-intro"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div>
+     <div class="place-index-intro"><div class="place-index-intro__content"><div class="eyebrow">A SENSE OF PLACE</div><h2 id="local-life-title">Local life.<br>Lasting connection.</h2><p>Discover a personal perspective on the communities of North Texas.</p></div></div>
      <div class="atg1-index__entries">
       ${places.map((c,i)=>`<article class="atg1-index__entry" id="local-${c.slug}">
        <div class="atg1-index__entry-content">
