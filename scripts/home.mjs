@@ -20,7 +20,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   <div class="collection-scrim" aria-hidden="true"></div>
   <div class="collection-overlay">
    <div class="collection-property-copy"><div class="eyebrow">${e(p.city)}, TEXAS</div><h3>${e(p.title)}</h3><div class="collection-meta"><span>${price(p.price,p.status)}</span>${stats(p).map(t=>`<span>${e(t)}</span>`).join('')}</div></div>
-   <a class="button light collection-property-link" href="${U(detailURL(p))}" data-atz-link>Discover This Home ${icon('arrow')}</a>
+   <a class="collection-text-link collection-card-link" href="${U(detailURL(p))}" data-atz-link aria-label="Discover ${e(p.title)}">Discover This Home <span class="collection-text-plus" aria-hidden="true">+</span></a>
   </div>
  </article>`).join('');
  const featuredNavigation=featured.map((p,i)=>`<button class="collection-tab" type="button" role="tab" id="collection-tab-${i+1}" data-collection-tab="${i}" aria-selected="${i===0?'true':'false'}" aria-controls="collection-panel-${i+1}" tabindex="${i===0?0:-1}">
@@ -36,6 +36,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   </div>
  </section>
  </div>
+ <section class="performance-section" id="experience-in-numbers" data-performance-section aria-labelledby="performance-title"><div class="performance-heading wrap"><div class="eyebrow">EXPERIENCE IN NUMBERS</div><h2 id="performance-title">A record that<br>speaks for itself.</h2><p>Selected achievements published on Sharon’s original website.</p></div><div class="performance-grid wrap">${client.stats.map(s=>`<div class="performance-stat"><strong data-performance-count="${e(s.value)}" aria-label="${e(s.value)}">${e(s.value)}</strong><span>${e(s.label)}</span></div>`).join('')}</div><p class="performance-source wrap">Historical figures from the original website. Office totals, award periods and the stated 2022 / 2023 dates retain their original scope.</p></section>
  <section class="sharon-awards" id="awards-recognition" aria-labelledby="sharon-awards-title">
   <div class="sharon-awards__intro wrap"><div><span class="eyebrow">AWARDS &amp; RECOGNITION</span><h2 id="sharon-awards-title">Recognition.<br>Over the years.</h2></div><div class="sharon-awards__aside"><p>A selection of honors documented in The Hodnett Team’s original archives.</p>${link('awards/','View all recognition')}</div></div>
   <div class="sharon-awards__window" aria-label="Selected historical awards"><div class="sharon-awards__track"><div class="sharon-awards__set">${awardFigures}</div><div class="sharon-awards__set" aria-hidden="true">${awardFigures}</div></div></div>
@@ -58,7 +59,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
     <div class="collection-image-index">SELECTED HOMES / THE HODNETT TEAM</div>
     <div class="collection-image-counter" data-collection-counter aria-hidden="true">01 / 03</div>
     <div class="collection-bottom">
-     <div class="collection-bottom-top"><span>SCROLL TO EXPLORE</span><a class="collection-all-homes" href="${U('homes/')}" data-atz-link>Explore All Homes ${icon('arrow')}</a></div>
+     <div class="collection-bottom-top"><a class="collection-text-link collection-sticky-link" data-collection-property-link href="${U(detailURL(featured[0]))}" data-atz-link aria-label="Discover ${e(featured[0].title)}">Discover This Home <span class="collection-text-plus" aria-hidden="true">+</span></a><a class="collection-all-homes" href="${U('homes/')}" data-atz-link>Explore All Homes ${icon('arrow')}</a></div>
      <div class="collection-tabs" role="tablist" aria-label="Choose a featured home">${featuredNavigation}</div>
     </div>
    </div>
@@ -89,7 +90,6 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
    </div>
   <p class="place-photo-credits">Flower Mound photography: <a href="https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg" target="_blank" rel="noopener noreferrer">Shiva Shenoy</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>. Resized and converted to WebP.</p>
  </section>
- <section class="performance-section" aria-labelledby="performance-title"><div class="performance-heading wrap"><div class="eyebrow">EXPERIENCE IN NUMBERS</div><h2 id="performance-title">A record that<br>speaks for itself.</h2><p>Selected achievements published on Sharon’s original website.</p></div><div class="performance-grid wrap">${client.stats.map(s=>`<div class="performance-stat"><strong>${e(s.value)}</strong><span>${e(s.label)}</span></div>`).join('')}</div><p class="performance-source wrap">Historical figures from the original website. Office totals, award periods and the stated 2022 / 2023 dates retain their original scope.</p></section>
  <section class="quote-section home-quote"><div class="eyebrow">IN OUR CLIENTS’ WORDS</div><blockquote>“${e(excerpt)}”</blockquote><cite>${e(mainQuote.name)}</cite><p>${link('testimonials/','Read client stories')}</p></section>
  <section class="journal-section wrap"><div class="section-heading"><div><div class="eyebrow">THE JOURNAL</div><h2>A local perspective.</h2></div>${link('blog/','All stories')}</div><div class="journal-grid">${homeArticles.map(journalCard).join('')}</div></section>
  <section class="home-closing"><img class="home-closing-photo" loading="lazy" src="${U('assets/editorial/landscape.webp')}" alt=""><div class="eyebrow">YOUR NEXT CHAPTER</div><h2>Let’s make<br><em>your next move.</em></h2><button class="button outline" data-contact>Start a conversation ${icon('arrow')}</button></section>`;
