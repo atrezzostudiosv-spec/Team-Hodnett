@@ -18,26 +18,29 @@ const recognition={images:[
 ]};
 const videos=[{id:'pZeJBjZkZU0',title:'Sharon Hodnett - A Departure from the Ordinary - Listing Presentation',cover:'assets/editorial/sharon-film.webp',url:'https://www.youtube.com/watch?v=pZeJBjZkZU0'}];
 const render=()=>renderHome({featured,communities,homeArticles:[],journalCard:()=>'',mainQuote:{name:'Client',quote:'Lovely service. Everything was excellent.'},excerpt:'Lovely service.',client:{stats:[]},recognition,videos});
-test('homepage preserves the entry film and follows it with Meet Sharon, video, genuine awards, and team',()=>{
+test('homepage flows from entry film to one Meet Sharon chapter, recognition and Team',()=>{
  const html=render();
  const order=[
   'class="hero hero-film"',
-  'MEET SHARON',
-  'id="sharon-story"',
+  'id="personal-connection"',
   'id="awards-recognition"',
   'id="hodnett-team"',
   'id="collection"'
  ].map(needle=>html.indexOf(needle));
- assert.ok(order.every(x=>x>=0), 'all expected chapters must be present');
- assert.deepEqual([...order].sort((a,b)=>a-b),order,'chapters follow the agreed narrative order');
+ assert.ok(order.every(x=>x>=0), 'every approved chapter should exist');
+ assert.deepEqual([...order].sort((a,b)=>a-b),order,'story follows the agreed order');
+ assert.equal((html.match(/id="personal-connection"/g)||[]).length,1);
  assert.equal((html.match(/id="hodnett-team"/g)||[]).length,1);
 });
-test('cinematic video uses known archived film and links directly to the source',()=>{
+test('Meet Sharon merges the original story and film into a single portrait with a biography link',()=>{
  const html=render();
- assert.match(html,/data-video-id="pZeJBjZkZU0"/);
- assert.match(html,/https:\/\/www\.youtube\.com\/watch\?v=pZeJBjZkZU0/);
- assert.match(html,/class="connection-film__motion"/);
- assert.match(html,/class="connection-photo connection-photo--team connection-film__poster"/);
+ assert.match(html,/MEET SHARON \/ A DEPARTURE FROM THE ORDINARY/);
+ assert.match(html,/Experience\.<br>Perspective\.<br>A personal connection\./);
+ assert.match(html,/sharon-scene-desktop\.webp/);
+ assert.match(html,/href="\/about\/"/);
+ assert.doesNotMatch(html,/id="sharon-story"/);
+ assert.doesNotMatch(html,/data-sharon-film/);
+ assert.doesNotMatch(html,/connection-film__motion/);
 });
 test('recognition showcases known saved badges with descriptive text and dated context',()=>{
  const html=render();
