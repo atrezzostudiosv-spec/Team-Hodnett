@@ -43,7 +43,7 @@ export function renderCommunities({communities}){
     <div class="ci-hero__eyebrow"><span class="ci-line"></span> THE HODNETT TEAM <span class="ci-separator">/</span> NORTH TEXAS</div>
     <h1 id="ci-title">A sense<br>of <em>place.</em></h1>
     <p>Discover the communities, neighborhoods and local perspectives that make North Texas feel like home.</p>
-    <a class="ci-hero__explore" href="#communities-to-explore">Explore the communities <span aria-hidden="true">↘</span></a>
+    <a class="ci-hero__explore" href="#communities-to-explore">Explore the communities <span aria-hidden="true">${icon('arrow')}</span></a>
     <div class="ci-hero__foot">
      <span>${number(total)} AREA GUIDES</span>
      <span>SOUTHLAKE &amp; DALLAS–FORT WORTH</span>
@@ -51,7 +51,7 @@ export function renderCommunities({communities}){
    </div>
    <div class="ci-hero__visual">
     <img src="${U('assets/editorial/landscape.webp')}" alt="Editorial view of a North Texas residential landscape" width="1600" height="1000" fetchpriority="high" decoding="async">
-    <span class="ci-hero__visual-label">LOCAL PERSPECTIVE <span aria-hidden="true">↗</span></span>
+    <span class="ci-hero__visual-label">LOCAL PERSPECTIVE <span aria-hidden="true">${icon('arrow')}</span></span>
    </div>
   </section>
   <div class="ci-introduction" id="communities-to-explore">
