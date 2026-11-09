@@ -17,12 +17,13 @@ const recognition={images:[
  {src:'assets/editorial/award-producers.webp',alt:'2023 DFW Real Producers Top Agent award badge'}
 ]};
 const videos=[{id:'pZeJBjZkZU0',title:'Sharon Hodnett - A Departure from the Ordinary - Listing Presentation',cover:'assets/editorial/sharon-film.webp',url:'https://www.youtube.com/watch?v=pZeJBjZkZU0'}];
-const render=()=>renderHome({featured,communities,homeArticles:[],journalCard:()=>'',mainQuote:{name:'Client',quote:'Lovely service. Everything was excellent.'},excerpt:'Lovely service.',client:{stats:[]},recognition,videos});
+const render=()=>renderHome({featured,communities,homeArticles:[],journalCard:()=>'',mainQuote:{name:'Client',quote:'Lovely service. Everything was excellent.'},excerpt:'Lovely service.',client:{stats:[{value:'30+',label:'Years In Business'},{value:'$2.3 Billion',label:'Closed volume as an office'},{value:'1,750 +',label:'Total Transactions'}]},recognition,videos});
 test('homepage flows from entry film to one Meet Sharon chapter, recognition and Team',()=>{
  const html=render();
  const order=[
   'class="hero hero-film"',
   'id="personal-connection"',
+  'id="experience-in-numbers"',
   'id="awards-recognition"',
   'id="hodnett-team"',
   'id="collection"'
@@ -60,4 +61,24 @@ test('The Hodnett Team keeps original full-bleed pinned image and scroll reveal'
  assert.match(html,/class="connection-shade" aria-hidden="true"/);
  assert.match(html,/class="connection-reveal"/);
  assert.doesNotMatch(html,/class="team-editorial"/);
+});
+
+test('Experience in Numbers appears immediately after Meet Sharon with original metrics',()=>{
+ const html=render();
+ const meet=html.indexOf('id="personal-connection"'),numbers=html.indexOf('id="experience-in-numbers"'),awards=html.indexOf('id="awards-recognition"');
+ assert.ok(meet<numbers&&numbers<awards);
+ assert.equal((html.match(/id="experience-in-numbers"/g)||[]).length,1);
+ assert.match(html,/data-performance-count="30\+"/);
+ assert.match(html,/data-performance-count="\$2\.3 Billion"/);
+ assert.match(html,/data-performance-count="1,750 \+"/);
+ assert.match(html,/Closed volume as an office/);
+});
+test('Featured slide has one shared minimal text CTA, with fallback links and no white buttons',()=>{
+ const html=render();
+ assert.equal((html.match(/data-collection-property-link/g)||[]).length,1);
+ assert.equal((html.match(/class="collection-text-link collection-card-link"/g)||[]).length,3);
+ assert.match(html,/Discover This Home <span class="collection-text-plus"/);
+ assert.doesNotMatch(html,/class="button light collection-property-link"/);
+ assert.match(html,/data-collection-track/);
+ assert.match(html,/data-collection-stage/);
 });
