@@ -2,6 +2,8 @@ import {readFile,writeFile,mkdir,rm,cp} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {generateSitemap,siteOrigin,sitePrefix} from './seo.mjs';
 import {renderHome} from './home.mjs';
 import {renderAbout} from './about.mjs';
 import {renderCommunities} from './communities.mjs';
@@ -13,7 +15,38 @@ await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});aw
 const get=title=>properties.find(p=>p.title===title);
 const featured=[get('1204 Andre Court'),get('4106 Shady Valley Drive'),get('2011 Ridgemont Court')].filter(Boolean);
 const photo=(p,n=0)=>p.gallery[n]||p.cover;
-const save=async(route,title,description,body,options={})=>{const dir=path.join(dist,route);await mkdir(dir,{recursive:true});await writeFile(path.join(dir,'index.html'),shell({title,description,body,featured:featured[0],...options}));};
+const defaultSocial='assets/editorial/landscape.webp';
+const socialSources=[...new Set([
+ defaultSocial,'assets/editorial/sharon.webp',
+ ...properties.map(p=>p.cover).filter(Boolean),
+ ...communities.map(c=>c.cover).filter(Boolean),
+ ...articles.map(a=>a.cover).filter(Boolean)
+])];
+await mkdir(path.join(dist,'data'),{recursive:true});
+const manifest=path.join(dist,'data','social-sources.json');
+await writeFile(manifest,JSON.stringify(socialSources));
+execFileSync('python3',[
+ path.join(root,'scripts/create_social_previews.py'),
+ manifest,path.join(root,'public'),dist
+],{stdio:'inherit'});
+const photoForRoute=route=>{
+ if(route==='about')return 'assets/editorial/sharon.webp';
+ if(route==='')return defaultSocial;
+ if(route.startsWith('properties/'))return properties.find(p=>'properties/'+p.id===route)?.cover||featured[0]?.cover||defaultSocial;
+ if(route.startsWith('neighborhoods/'))return communities.find(c=>'neighborhoods/'+c.slug===route)?.cover||defaultSocial;
+ if(route.startsWith('blog/'))return articles.find(a=>'blog/'+a.slug===route)?.cover||defaultSocial;
+ if(route.startsWith('homes')||route.startsWith('home-search')||route.startsWith('properties'))return featured[0]?.cover||defaultSocial;
+ return defaultSocial;
+};
+const seoRoutes=[];
+const save=async(route,title,description,body,options={})=>{
+ const dir=path.join(dist,route);await mkdir(dir,{recursive:true});
+ const socialImage=options.socialImage||photoForRoute(route);
+ const indexable=options.indexable!==false;
+ const kind=route.startsWith('blog/')?'article':'website';
+ await writeFile(path.join(dir,'index.html'),shell({title,description,body,featured:featured[0],route,socialImage,indexable,kind,...options}));
+ seoRoutes.push({route,indexable,image:socialImage});
+};
 const intro=(kicker,title,description)=>`<section class="page-intro"><div class="eyebrow">${kicker}</div><h1>${title}</h1><p>${description}</p></section>`;
 const bodyBlocks=blocks=>blocks.map(b=>{const tag=['h1','h2','h3','h4','p','li'].includes(b.tag)?(b.tag==='h1'?'h2':b.tag==='li'?'p':b.tag):'p';return `<${tag}>${e(b.text)}</${tag}>`;}).join('');
 const journalCard=a=>`<article class="journal-card"><a href="${U('blog/'+a.slug+'/')}" data-atz-link><div class="image-wrap">${a.cover?`<img src="${U(a.cover)}" loading="lazy" alt="${e(a.title)}" width="900" height="700">`:''}</div><span class="eyebrow">LOCAL PERSPECTIVE${a.date?' / '+e(a.date):''}</span><h3>${e(a.title)}</h3><span class="line-link">Read the story ${icon('arrow')}</span></a></article>`;
@@ -76,7 +109,8 @@ await save('sitemap','Explore the website','Browse The Hodnett Team website.',in
 await mkdir(path.join(dist,'data'),{recursive:true});
 await writeFile(path.join(dist,'data/catalog.js'),'window.HODNETT_CATALOG='+JSON.stringify(catalog).replace(/<\//g,'<\\/')+';');
 await writeFile(path.join(dist,'favicon.svg'),'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="32" fill="#252b27"/><text x="32" y="46" font-family="Georgia,serif" font-size="44" text-anchor="middle" fill="#e3cda6">H</text></svg>');
-await writeFile(path.join(dist,'robots.txt'),'User-agent: *\nDisallow: /\n');
+await writeFile(path.join(dist,'sitemap.xml'),generateSitemap(seoRoutes));
+await writeFile(path.join(dist,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: '+siteOrigin+sitePrefix+'sitemap.xml\n');
 // Offline page knowledge for the voice/text concierge: sourced only from client content.
 const siteKnowledge=[
  ...communities.map(c=>({type:'Community guide',title:c.name,description:c.description,
