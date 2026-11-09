@@ -129,3 +129,4 @@
  .site-header .nav-dropdown__panel>a,
  .site-header .nav-dropdown__cities>a{transition:none;animation:none}
 }
+.site-header .nav-dropdown__all span svg{display:block;width:18px;height:18px;stroke:currentColor}
