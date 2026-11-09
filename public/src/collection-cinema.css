@@ -196,3 +196,28 @@
  .collection-section .collection-text-link,
  .collection-section .collection-text-plus{transition:none}
 }
+
+
+/* 2026-11-09 | Selected Homes — breathe above the persistent Ask Hodnett dock.
+ * Lift the entire three-home navigation, while keeping it inside each pinned scene.
+ * The metadata is lifted independently so no button or title overlaps the links. */
+@media(min-width:768px) and (min-height:701px){
+ .collection-section.is-cinema-active .collection-bottom{
+  bottom:clamp(88px,10svh,124px);
+ }
+ .collection-section.is-cinema-active .collection-overlay{
+  bottom:clamp(260px,34svh,365px);
+ }
+}
+@media(max-width:767px){
+ .collection-section.is-cinema-active .collection-bottom{
+  bottom:clamp(88px,12svh,114px);
+ }
+ .collection-section.is-cinema-active .collection-overlay{
+  bottom:clamp(245px,36svh,350px);
+ }
+}
+@media(min-width:768px) and (max-height:700px){
+ .collection-section .collection-bottom{bottom:90px}
+ .collection-section .collection-overlay{bottom:250px}
+}
