@@ -15,7 +15,7 @@ await rm(dist,{recursive:true,force:true});await mkdir(dist,{recursive:true});aw
 const get=title=>properties.find(p=>p.title===title);
 const featured=[get('1204 Andre Court'),get('4106 Shady Valley Drive'),get('2011 Ridgemont Court')].filter(Boolean);
 const photo=(p,n=0)=>p.gallery[n]||p.cover;
-const defaultSocial='assets/editorial/landscape.webp';
+const defaultSocial='assets/editorial/sharon-scene-desktop.webp';
 const socialSources=[...new Set([
  defaultSocial,'assets/editorial/sharon.webp',
  ...properties.map(p=>p.cover).filter(Boolean),
@@ -30,12 +30,12 @@ execFileSync('python3',[
  manifest,path.join(root,'public'),dist
 ],{stdio:'inherit'});
 const photoForRoute=route=>{
- if(route==='about')return 'assets/editorial/sharon.webp';
+ if(route==='about')return defaultSocial;
  if(route==='')return defaultSocial;
  if(route.startsWith('properties/'))return properties.find(p=>'properties/'+p.id===route)?.cover||featured[0]?.cover||defaultSocial;
  if(route.startsWith('neighborhoods/'))return communities.find(c=>'neighborhoods/'+c.slug===route)?.cover||defaultSocial;
  if(route.startsWith('blog/'))return articles.find(a=>'blog/'+a.slug===route)?.cover||defaultSocial;
- if(route.startsWith('homes')||route.startsWith('home-search')||route.startsWith('properties'))return featured[0]?.cover||defaultSocial;
+ if(route.startsWith('homes')||route.startsWith('home-search')||route.startsWith('properties'))return defaultSocial;
  return defaultSocial;
 };
 const seoRoutes=[];
