@@ -12,14 +12,18 @@ export function canonicalUrl(route=''){
  const path=String(route).replace(/^\/+|\/+$/g,'');
  return siteOrigin+sitePrefix+(path?path+'/':'');
 }
+export const brandShareImage='assets/social/sharon-hodnett-editorial-share.jpg';
 export function socialPhotoPath(source){
- const key=String(source||'assets/editorial/landscape.webp');
+ const key=String(source||brandShareImage);
+ // Exact approved social artwork is already a finished JPEG with typography.
+ // Do not crop it, recolor it or overlay the automatic share-image watermark.
+ if(/^assets\/social\/[a-z0-9-]+\.jpe?g$/i.test(key))return key;
  return 'assets/social/'+createHash('sha1').update(key,'utf8').digest('hex').slice(0,16)+'.jpg';
 }
 export function socialPhotoUrl(source){
  return siteOrigin+sitePrefix+socialPhotoPath(source);
 }
-export function makeSeo({title,description,route='',image='assets/editorial/sharon-scene-desktop.webp',kind='website',indexable=true}){
+export function makeSeo({title,description,route='',image=brandShareImage,kind='website',indexable=true}){
  const cleanTitle=String(title||'The Hodnett Team').trim();
  const fullTitle=cleanTitle.includes('Sharon Hodnett')?cleanTitle:cleanTitle+' | Sharon Hodnett';
  const cleanDescription=String(description||'Explore North Texas homes and communities with The Hodnett Team.').trim().replace(/\s+/g,' ');
@@ -35,7 +39,7 @@ export function makeSeo({title,description,route='',image='assets/editorial/shar
  if(route)crumbs.push({'@type':'ListItem',position:crumbs.length+1,name:cleanTitle,item:canonical});
  const orgId=canonicalUrl('')+'#real-estate-team';
  const entities=[
-  {'@type':'RealEstateAgent','@id':orgId,name:'The Hodnett Team | Sharon Hodnett',url:canonicalUrl(''),telephone:'+1-817-994-7152',image:socialPhotoUrl('assets/editorial/sharon-scene-desktop.webp'),areaServed:[{'@type':'Place',name:'Southlake, Texas'},{'@type':'Place',name:'Dallas–Fort Worth, Texas'}]},
+  {'@type':'RealEstateAgent','@id':orgId,name:'The Hodnett Team | Sharon Hodnett',url:canonicalUrl(''),telephone:'+1-817-994-7152',image:socialPhotoUrl(brandShareImage),areaServed:[{'@type':'Place',name:'Southlake, Texas'},{'@type':'Place',name:'Dallas–Fort Worth, Texas'}]},
   {'@type':'WebSite','@id':canonicalUrl('')+'#website',url:canonicalUrl(''),name:'Sharon Hodnett | The Hodnett Team',inLanguage:'en-US',publisher:{'@id':orgId}},
   {'@type':'WebPage','@id':canonical+'#webpage',url:canonical,name:fullTitle,description:cleanDescription,inLanguage:'en-US',isPartOf:{'@id':canonicalUrl('')+'#website'},primaryImageOfPage:{'@type':'ImageObject',url:imageUrl,width:1200,height:630}}
  ];
