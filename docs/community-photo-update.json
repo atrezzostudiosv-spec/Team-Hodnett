@@ -27,5 +27,30 @@
       "https://www.westlake-tx.org/ImageRepository/Document?documentID=3450: original only (1512, 1134), not a meaningful improvement",
       "https://westlake-tx.org/ImageRepository/Document?documentID=3450: original only (1512, 1134), not a meaningful improvement"
     ]
+  },
+  "home_slide_overrides_2026_11_09": {
+    "scope": "Homepage / A Sense of Place immersive sequence only",
+    "grapevine": {
+      "filename": "assets/editorial/grapevine-local-life-2026.webp",
+      "source": "user-supplied original image",
+      "dimensions": [
+        1671,
+        941
+      ],
+      "bytes": 460554,
+      "sha256": "f48907d5a986d2b559e02de6ecaf0dd46851a087bddc373ea2b2595559008f56",
+      "individual_guide_cover_unchanged": true
+    },
+    "flower_mound": {
+      "filename": "assets/editorial/flower-mound-local-life-2026.webp",
+      "source": "user-supplied original image",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "bytes": 421174,
+      "sha256": "e831ba437bc08903cbff6bb20c17291afaa79b8795fa7923d718456ca9ffa97d",
+      "individual_guide_cover_unchanged": true
+    }
   }
 }
