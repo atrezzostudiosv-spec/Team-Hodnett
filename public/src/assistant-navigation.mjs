@@ -6,12 +6,6 @@ import {searchProperties} from './search-core.mjs';
 const fold=value=>normalize(value).replace(/[^a-z0-9]+/g,' ').trim();
 const boundary=(text,phrase)=>phrase&&(' '+text+' ').includes(' '+phrase+' ');
 const streetTerm=value=>fold(value).replace(/\b(?:street|st|avenue|ave|drive|dr|road|rd|court|ct|lane|ln|trail|trl|boulevard|blvd|circle|cir|place|pl|way)\b/g,' ').replace(/\s+/g,' ').trim();
-export function detectAssistantLanguage(question,browserLanguage='en'){
- const q=fold(question);
- if(/\b(busco|buscar|quiero|casas|propiedad|propiedades|comprar|vender|venta|precio|donde|cuanto|cual|muestrame|ensename|necesito|informacion|habitaciones|alquiler|poblacion|comunidad|sobre|encuentra|ver)\b/.test(q))return 'es';
- if(/\b(show|find|homes|houses|properties|listing|price|where|what|search|looking|about|community|neighborhood|rent|sale|buy|bedrooms)\b/.test(q))return 'en';
- return String(browserLanguage).toLowerCase().startsWith('es')?'es':'en';
-}
 function matchingAddress(question,properties=[]){
  const cleaned=fold(question),simplified=streetTerm(question);
  const candidates=properties.filter(p=>{
@@ -37,34 +31,21 @@ function propertyUrl(filters,base){
  if(filters.maxPrice)params.set('max',String(filters.maxPrice));
  return base+'homes/?'+params.toString();
 }
+// The Hodnett concierge is English-only, regardless of browser locale or input.
 const labels={
- es:{
-  property:p=>'Encontré la ficha de '+p.title+'.',
-  propertyAction:'Ver propiedad',
-  homes:city=>city?'Ver las propiedades de '+city+'.':'Explora las propiedades disponibles en nuestro catálogo.',
-  homesAction:'Ver propiedades',
-  community:city=>'Descubre la comunidad de '+city+'.',
-  communityAction:'Explorar comunidad',
-  page:'Encontré la página correspondiente en nuestro sitio.',
-  pageAction:'Abrir página',
-  fallback:'Explora las secciones de nuestro sitio para continuar.',
-  fallbackAction:'Explorar el sitio'
- },
- en:{
-  property:p=>'Here is the property page for '+p.title+'.',
-  propertyAction:'View property',
-  homes:city=>city?'Explore homes in '+city+'.':'Explore the homes in our saved collection.',
-  homesAction:'View homes',
-  community:city=>'Discover the '+city+' community.',
-  communityAction:'Explore community',
-  page:'I found the matching page on our website.',
-  pageAction:'Open page',
-  fallback:'Explore the website to continue.',
-  fallbackAction:'Explore the site'
- }
+ property:p=>'Here is the property page for '+p.title+'.',
+ propertyAction:'View property',
+ homes:city=>city?'Explore homes in '+city+'.':'Explore the homes in our saved collection.',
+ homesAction:'View homes',
+ community:city=>'Discover the '+city+' community.',
+ communityAction:'Explore community',
+ page:'I found the matching page on our website.',
+ pageAction:'Open page',
+ fallback:'Explore the website to continue.',
+ fallbackAction:'Explore the site'
 };
 export function resolveAssistantDestination(question,properties=[],entries=[],base='/',browserLanguage='en'){
- const raw=String(question||'').trim(),language=detectAssistantLanguage(raw,browserLanguage),copy=labels[language],q=fold(raw);
+ const raw=String(question||'').trim(),language='en',copy=labels,q=fold(raw);
  if(!raw)return {href:'',message:'',label:'',language,kind:'empty'};
  const matched=matchingAddress(raw,properties);
  if(matched)return {href:base+'properties/'+encodeURIComponent(matched.id)+'/',message:copy.property(matched),label:copy.propertyAction,language,kind:'property'};
