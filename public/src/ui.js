@@ -133,30 +133,76 @@ let gallery=[],galleryTitle='',galleryIndex=0;
 function galleryPhoto(){const image=$('[data-gallery-image]');image.src=gallery[galleryIndex];image.alt=`${galleryTitle} · photograph ${galleryIndex+1}`;$('[data-gallery-counter]').textContent=String(galleryIndex+1).padStart(2,'0')+' / '+String(gallery.length).padStart(2,'0');$('[data-gallery-prev]').disabled=gallery.length<2;$('[data-gallery-next]').disabled=gallery.length<2;}
 function initHeader(){
  const header=$('.site-header');if(!header)return;
+ const dropdowns=$$('details[data-header-nav]',header);
+ const hoverMedia=matchMedia('(hover:hover) and (pointer:fine)');
  let previous=Math.max(0,window.scrollY),frame=false,hidden=false;
  const syncHeaderHeight=()=>document.documentElement.style.setProperty('--catalog-header-height',header.offsetHeight+'px');
+ const closeDropdowns=(except=null)=>dropdowns.forEach(item=>{if(item!==except)item.open=false;});
+ const show=()=>{
+  if(!hidden)return;
+  hidden=false;header.classList.remove('is-hidden');
+  document.body.classList.remove('has-hidden-header');header.inert=false;
+ };
+ const hide=()=>{
+  // Closing an opened menu is essential: an old focused menu should never keep
+  // the global header visible or prevent the Selected Homes scroll controller.
+  if(hidden)return;
+  closeDropdowns();
+  hidden=true;header.classList.add('is-hidden');
+  document.body.classList.add('has-hidden-header');header.inert=true;
+ };
  document.body.classList.remove('has-hidden-header');
- syncHeaderHeight();
- const show=()=>{if(!hidden)return;hidden=false;header.classList.remove('is-hidden');document.body.classList.remove('has-hidden-header');header.inert=false;};
- const hide=()=>{if(hidden||header.contains(document.activeElement)||header.querySelector('details[data-header-nav][open]'))return;hidden=true;header.classList.add('is-hidden');document.body.classList.add('has-hidden-header');header.inert=true;};
+ header.classList.remove('is-hidden');
+ header.inert=false;syncHeaderHeight();
+ dropdowns.forEach(item=>{
+  const summary=item.querySelector('summary');
+  // Desktop: mouse enters → immediately open; mouse leaves → immediately close.
+  // The entire <details>, including its absolutely-positioned panel, is the
+  // hover region, so moving from the label into links does not close it.
+  item.addEventListener('pointerenter',event=>{
+   if(!hoverMedia.matches||event.pointerType==='touch')return;
+   closeDropdowns(item);item.open=true;show();
+  });
+  item.addEventListener('pointerleave',event=>{
+   if(!hoverMedia.matches||event.pointerType==='touch')return;
+   item.open=false;
+   if(document.activeElement===summary)summary.blur();
+  });
+  // Keep keyboard/touch activation native. An ordinary desktop mouse click
+  // must not toggle shut a dropdown that is already opened by hover.
+  summary?.addEventListener('click',event=>{
+   if(!hoverMedia.matches||event.detail===0)return;
+   event.preventDefault();closeDropdowns(item);item.open=true;show();
+  });
+  item.addEventListener('toggle',()=>{
+   if(item.open){closeDropdowns(item);show();}
+  });
+  item.addEventListener('click',event=>{
+   if(event.target.closest('a'))item.open=false;
+  });
+ });
  function update(){
-  frame=false;const current=Math.max(0,window.scrollY),delta=current-previous;
+  frame=false;
+  const current=Math.max(0,window.scrollY),delta=current-previous;
   header.classList.toggle('is-scrolled',current>65);
-  if(current<Math.max(130,header.offsetHeight+28))show();
-  else if(delta>6&&!document.querySelector('dialog[open]'))hide();
-  else if(delta< -6)show();
+  syncHeaderHeight();
+  if(current<Math.max(130,header.offsetHeight+28)){
+   closeDropdowns();show();
+  }else if(delta>5&&!document.querySelector('dialog[open]')){
+   // Downward scroll hides the header even if a menu was previously focused.
+   hide();
+  }else if(delta< -5){
+   show();
+  }
   previous=current;
  }
  const schedule=()=>{if(!frame){frame=true;requestAnimationFrame(update);}};
  addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',()=>{syncHeaderHeight();show();previous=window.scrollY;schedule();},{passive:true});
- addEventListener('pageshow',()=>{show();previous=window.scrollY;schedule();});
- header.addEventListener('focusin',show);
- const dropdowns=$('details[data-header-nav]',header);
- const closeDropdowns=(except=null)=>dropdowns.forEach(item=>{if(item!==except)item.open=false;});
- dropdowns.forEach(item=>{
-  item.addEventListener('toggle',()=>{if(item.open){closeDropdowns(item);show();}});
-  item.addEventListener('click',event=>{if(event.target.closest('a'))item.open=false;});
+ addEventListener('resize',()=>{
+  closeDropdowns();syncHeaderHeight();show();previous=window.scrollY;schedule();
+ },{passive:true});
+ addEventListener('pageshow',()=>{
+  closeDropdowns();show();previous=window.scrollY;schedule();
  });
  document.addEventListener('pointerdown',event=>{
   if(!event.target.closest('.site-header details[data-header-nav]'))closeDropdowns();
@@ -164,8 +210,12 @@ function initHeader(){
  document.addEventListener('keydown',event=>{
   if(event.key!=='Escape')return;
   const current=dropdowns.find(item=>item.open);
-  if(current){closeDropdowns();current.querySelector('summary')?.focus();event.preventDefault();}
+  if(current){
+   closeDropdowns();current.querySelector('summary')?.focus();
+   event.preventDefault();
+  }
  });
+ header.addEventListener('focusin',show);
  update();
 }
 function init(){
