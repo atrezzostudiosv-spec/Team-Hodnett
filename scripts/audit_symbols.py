@@ -12,7 +12,7 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 ALLOWED_SUFFIXES = {".js", ".mjs", ".json", ".html", ".css", ".svg", ".xml"}
 IGNORED = {"social-sources.json"}
-SOURCE_DIRS = (ROOT / "content", ROOT / "public" / "src", ROOT / "scripts")
+SOURCE_DIRS = (ROOT / "content", ROOT / "public", ROOT / "scripts")
 
 def emoji_character(cp):
     return any((
