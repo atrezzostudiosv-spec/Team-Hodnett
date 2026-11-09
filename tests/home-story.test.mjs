@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {renderHome} from '../scripts/home.mjs';
 const cities=['southlake','westlake','colleyville','grapevine','flower-mound','keller'];
 const communities=cities.map(slug=>({slug,name:slug.replace(/-/g,' '),cover:'assets/editorial/'+slug+'.webp'}));
@@ -96,4 +97,16 @@ test('one immersive community experience replaces the duplicated Featured Neighb
  const selected=html.indexOf('id="collection"');
  const community=html.indexOf('data-place-index');
  assert.ok(selected>=0&&community>selected,'immersive community section follows selected homes');
+});
+
+test('Your Next Chapter uses the supplied lake background while preserving headline and CTA',()=>{
+ const html=render();
+ assert.match(html,/<section class="home-closing"><img class="home-closing-photo" loading="lazy" decoding="async" src="[^"]*assets\\/editorial\\/your-next-chapter-2026\\.webp"/);
+ assert.match(html,/YOUR NEXT CHAPTER<\\/div><h2>Let’s make<br><em>your next move\\.<\\/em><\\/h2>/);
+ assert.match(html,/Start a conversation/);
+ const file=new URL('../public/assets/editorial/your-next-chapter-2026.webp',import.meta.url);
+ const bytes=readFileSync(file);
+ assert.equal(bytes.length,488200,'Keep the supplied original WebP without recompression');
+ assert.equal(bytes.subarray(0,4).toString('ascii'),'RIFF');
+ assert.equal(bytes.subarray(8,12).toString('ascii'),'WEBP');
 });

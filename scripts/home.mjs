@@ -108,5 +108,5 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  </section>
  <section class="quote-section home-quote"><div class="eyebrow">IN OUR CLIENTS’ WORDS</div><blockquote>“${e(excerpt)}”</blockquote><cite>${e(mainQuote.name)}</cite><p>${link('testimonials/','Read client stories')}</p></section>
  <section class="journal-section wrap"><div class="section-heading"><div><div class="eyebrow">THE JOURNAL</div><h2>A local perspective.</h2></div>${link('blog/','All stories')}</div><div class="journal-grid">${homeArticles.map(journalCard).join('')}</div></section>
- <section class="home-closing"><img class="home-closing-photo" loading="lazy" src="${U('assets/editorial/landscape.webp')}" alt=""><div class="eyebrow">YOUR NEXT CHAPTER</div><h2>Let’s make<br><em>your next move.</em></h2><button class="button outline" data-contact>Start a conversation ${icon('arrow')}</button></section>`;
+ <section class="home-closing"><img class="home-closing-photo" loading="lazy" decoding="async" src="${U('assets/editorial/your-next-chapter-2026.webp')}" alt=""><div class="eyebrow">YOUR NEXT CHAPTER</div><h2>Let’s make<br><em>your next move.</em></h2><button class="button outline" data-contact>Start a conversation ${icon('arrow')}</button></section>`;
 }
