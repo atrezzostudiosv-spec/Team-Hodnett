@@ -57,7 +57,10 @@ function galleryHarness(){
 test('intro photograph is a unique asset, not Southlake first community picture',()=>{
  const code=readFileSync(new URL('../scripts/home.mjs',import.meta.url),'utf8');
  assert.match(code,/placeIntroImage='assets\/editorial\/place-intro-north-texas-2026\.webp'/);
- assert.match(code,/c\.slug==='colleyville'/);
+ assert.match(code,/colleyville:'assets\/editorial\/colleyville-local-life-2026\.webp'/);
+ assert.match(code,/grapevine:'assets\/editorial\/grapevine-local-life-2026\.webp'/);
+ assert.match(code,/'flower-mound':'assets\/editorial\/flower-mound-local-life-2026\.webp'/);
+ assert.match(code,/existsSync\(new URL/);
  assert.match(code,/assets\/editorial\/colleyville-local-life-2026\.webp/);
  assert.match(code,/atg1-index__intro-photo is-active/);
  assert.match(code,/places\.map\(c=>[^;]*atg1-index__photo/);
