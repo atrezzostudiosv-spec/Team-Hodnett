@@ -61,7 +61,10 @@
       // the introduction gets its own dedicated photograph and a clear pause.
       let selected = introPhoto ? -1 : 0;
       entries.forEach((entry, i) => {
-        if (entry.getBoundingClientRect().top <= activationLine) selected = i;
+        // The introduction deserves its entire reading hold. Southlake does
+        // not replace the opening photograph until the intro copy has passed.
+        const trigger = i === 0 && introPhoto ? viewportHeight * .36 : activationLine;
+        if (entry.getBoundingClientRect().top <= trigger) selected = i;
       });
       setIndex(selected);
       if (root.classList.contains('is-immersive')) {
