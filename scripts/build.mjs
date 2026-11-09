@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {renderHome} from './home.mjs';
 import {renderAbout} from './about.mjs';
+import {renderCommunities} from './communities.mjs';
 import {e,U,icon,brand,link,price,stats,card,closing,shell,consent,detailURL} from './templates.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist');
 const load=async name=>JSON.parse(await readFile(path.join(root,'content',name+'.json'),'utf8'));
@@ -43,8 +44,7 @@ for(const p of properties){
  await save('properties/'+p.id,p.title,p.description.slice(0,155)||p.address,body,{page:'property'});
 }
 
-const guides=communities.slice().sort((a,b)=>a.name.localeCompare(b.name));
-await save('neighborhoods','A sense of place','Explore the communities of Southlake and Dallas–Fort Worth.',intro('OUR COMMUNITIES','A sense of place.<br><em>A feeling of home.</em>','Local stories, neighborhood perspectives and a connection to the places that matter to you.')+`<section class="community-index">${guides.map((c,i)=>`<a class="community-tile" href="${U('neighborhoods/'+c.slug+'/')}" data-atz-link><div class="image-wrap">${c.cover?`<img loading="lazy" src="${U(c.cover)}" alt="${e(c.name)} community guide">`:''}</div><div class="tile-meta"><h2>${e(c.name)}</h2><span>0${i+1} ${icon('arrow')}</span></div></a>`).join('')}</section>`);
+await save('neighborhoods','North Texas communities','Explore all 12 North Texas community guides from The Hodnett Team.',renderCommunities({communities}));
 const westlakeResidenceAvailable=existsSync(path.join(root,'public','assets','editorial','westlake-residence.webp'));
 for(const c of communities){
  const secondaryPhoto=c.slug==='westlake'&&westlakeResidenceAvailable?`<figure class="westlake-architecture-photo"><img loading="lazy" decoding="async" src="${U('assets/editorial/westlake-residence.webp')}" alt="Westlake residential architecture surrounded by mature trees"><figcaption>Residential architecture and landscape in Westlake, Texas.</figcaption></figure>`:'';
