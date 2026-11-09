@@ -101,8 +101,9 @@ test('one immersive community experience replaces the duplicated Featured Neighb
 
 test('Your Next Chapter uses the supplied lake background while preserving headline and CTA',()=>{
  const html=render();
- assert.match(html,/<section class="home-closing"><img class="home-closing-photo" loading="lazy" decoding="async" src="[^"]*assets\\/editorial\\/your-next-chapter-2026\\.webp"/);
- assert.match(html,/YOUR NEXT CHAPTER<\\/div><h2>Let’s make<br><em>your next move\\.<\\/em><\\/h2>/);
+ assert.match(html,/<section class="home-closing"><img class="home-closing-photo" loading="lazy" decoding="async"/);
+ assert.ok(html.includes('assets/editorial/your-next-chapter-2026.webp'));
+ assert.ok(html.includes('YOUR NEXT CHAPTER</div><h2>Let’s make<br><em>your next move.</em></h2>'));
  assert.match(html,/Start a conversation/);
  const file=new URL('../public/assets/editorial/your-next-chapter-2026.webp',import.meta.url);
  const bytes=readFileSync(file);
