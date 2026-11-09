@@ -104,7 +104,6 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
      </div>
     </div>
    </div>
-  <p class="place-photo-credits">Flower Mound photography: <a href="https://commons.wikimedia.org/wiki/File:Sunrise_on_a_foggy_cold_day_in_Flower_Mound_(52692865160).jpg" target="_blank" rel="noopener noreferrer">Shiva Shenoy</a>, <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>. Resized and converted to WebP.</p>
  </section>
  <section class="quote-section home-quote"><div class="eyebrow">IN OUR CLIENTS’ WORDS</div><blockquote>“${e(excerpt)}”</blockquote><cite>${e(mainQuote.name)}</cite><p>${link('testimonials/','Read client stories')}</p></section>
  <section class="journal-section wrap"><div class="section-heading"><div><div class="eyebrow">THE JOURNAL</div><h2>A local perspective.</h2></div>${link('blog/','All stories')}</div><div class="journal-grid">${homeArticles.map(journalCard).join('')}</div></section>

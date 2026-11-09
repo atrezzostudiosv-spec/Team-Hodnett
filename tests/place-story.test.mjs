@@ -100,11 +100,13 @@ test('opening text remains pinned to allow a full reading pause and slow photo z
  assert.match(source,/i === 0 && introPhoto \? viewportHeight \* \.36/);
 });
 
-test('new intro and Colleyville slide photos are exact uploaded WebP assets without changing community covers',()=>{
+test('approved intro, Colleyville, Grapevine and Flower Mound slide photos are WebP assets without changing guide covers',()=>{
  const root=new URL('../public/assets/editorial/',import.meta.url);
  for(const [name,minBytes] of [
   ['place-intro-north-texas-2026.webp',350000],
-  ['colleyville-local-life-2026.webp',450000]
+  ['colleyville-local-life-2026.webp',450000],
+  ['grapevine-local-life-2026.webp',450000],
+  ['flower-mound-local-life-2026.webp',420000]
  ]){
   const file=new URL(name,root);
   assert.ok(statSync(file).size>minBytes);
@@ -113,5 +115,7 @@ test('new intro and Colleyville slide photos are exact uploaded WebP assets with
   assert.equal(bytes.subarray(8,12).toString('ascii'),'WEBP');
  }
  const c=JSON.parse(readFileSync(new URL('../content/communities.json',import.meta.url),'utf8'));
- assert.equal(c.find(x=>x.slug==='colleyville').cover,'assets/editorial/colleyville.webp','Individual community page cover remains unchanged');
+ for(const slug of ['colleyville','grapevine','flower-mound']){
+  assert.equal(c.find(x=>x.slug===slug).cover,'assets/editorial/'+slug+'.webp',slug+' individual guide cover remains unchanged');
+ }
 });
