@@ -27,6 +27,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Set up Python for genuine-photo share previews
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image tools
+        run: python -m pip install Pillow==11.3.0
       - name: Test property search
         run: npm test
       - name: Syntax-check browser modules
@@ -38,6 +44,7 @@ jobs:
           node --check scripts/home.mjs
           node --check scripts/build.mjs
           node --check scripts/templates.mjs
+          node --check scripts/seo.mjs
       - name: Build for repository subpath
         env:
           SITE_BASE_PATH: /Team-Hodnett
