@@ -266,3 +266,7 @@
  .ci-card__link,.ci-hero__explore,.ci-next__links a{transition:none}
  .ci-card:hover .ci-card__visual img{transform:none}
 }
+
+/* SVG-only editorial arrows: never rely on emoji-capable Unicode glyphs. */
+.ci-hero__explore span svg{width:19px;height:19px;transform:rotate(90deg);stroke:currentColor}
+.ci-hero__visual-label span svg{width:19px;height:19px;stroke:currentColor}
