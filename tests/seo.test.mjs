@@ -50,7 +50,7 @@ test('image sitemap includes distinct page URLs and deduplicates repeats',()=>{
 });
 
 test('homepage and brand preview defaults use Sharon’s approved portrait',()=>{
- const selected='assets/editorial/sharon-scene-desktop.webp';
+ const selected='assets/social/sharon-hodnett-editorial-share.jpg';
  const homepage=makeSeo({title:'Luxury Real Estate in North Texas',description:'The Hodnett Team',route:''});
  const biography=makeSeo({title:'Meet Sharon',description:'A career rooted in North Texas',route:'about',image:selected});
  assert.ok(homepage.includes('property="og:image" content="'+socialPhotoUrl(selected)+'"'));
@@ -65,4 +65,16 @@ test('property and community shared links retain their own photography',()=>{
  const town=makeSeo({title:'Southlake',description:'Community guide',route:'neighborhoods/southlake',image:townPhoto});
  assert.ok(listing.includes('property="og:image" content="'+socialPhotoUrl(propertyPhoto)+'"'));
  assert.ok(town.includes('property="og:image" content="'+socialPhotoUrl(townPhoto)+'"'));
+});
+
+test('the uploaded exact artwork is committed and used without text re-overlay',()=>{
+ const approved='assets/social/sharon-hodnett-editorial-share.jpg';
+ const bytes=readFileSync(new URL('../public/'+approved,import.meta.url));
+ assert.ok(bytes.length>60000,'Social artwork should be a real image file');
+ assert.equal(bytes[0],0xff);
+ assert.equal(bytes[1],0xd8);
+ assert.equal(socialPhotoPath(approved),approved,'Approved artwork should not be hashed or regenerated');
+ const page=makeSeo({title:'Meet Sharon',description:'North Texas luxury real estate',route:'about'});
+ assert.match(page,/property="og:image" content="https:\/\/atrezzostudiosv-spec.github.io\/Team-Hodnett\/assets\/social\/sharon-hodnett-editorial-share\.jpg"/);
+ assert.match(page,/name="twitter:image" content="https:\/\/atrezzostudiosv-spec.github.io\/Team-Hodnett\/assets\/social\/sharon-hodnett-editorial-share\.jpg"/);
 });
