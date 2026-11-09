@@ -110,9 +110,12 @@ function collectionHarness(enabled=true){
  const propertyLink={href:'',attrs:{},setAttribute(name,value){this.attrs[name]=value;}};
  const panels=Array.from({length:3},(_,i)=>{
   const photo={style:style()};
-  const cardLink={href:'https://example.test/properties/test-'+i+'/',getAttribute:()=> 'Discover Test Home '+i};
-  return {inert:false,aria:{},style:style(),photo,cardLink,setAttribute(name,value){this.aria[name]=value;},
-   querySelector:sel=>sel==='.collection-photo'?photo:sel==='.collection-card-link'?cardLink:null};
+  return {
+   inert:false,aria:{},style:style(),photo,
+   dataset:{collectionPropertyUrl:'https://example.test/properties/test-'+i+'/',collectionPropertyTitle:'Test Home '+i},
+   setAttribute(name,value){this.aria[name]=value;},
+   querySelector:sel=>sel==='.collection-photo'?photo:null
+  };
  });
  const tabs=Array.from({length:3},()=>({
   attrs:{},style:style(),tabIndex:0,
