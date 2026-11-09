@@ -346,3 +346,72 @@
 .westlake-architecture-photo{margin:0 0 clamp(30px,4vw,55px);padding:0;max-width:100%}
 .westlake-architecture-photo img{display:block;width:100%;height:auto;max-height:640px;object-fit:cover;object-position:center}
 .westlake-architecture-photo figcaption{padding-top:13px;color:#727272;font:400 11px/1.6 var(--sans,Arial,sans-serif);letter-spacing:.04em}
+
+
+/* NOV 2026 — Separate introductory photography and unhurried community stories.
+   No scroll hijacking: native scrolling and a sticky reading column create a
+   genuine pause, while the background has enough distance for subtle zoom. */
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__photo{
+ transition:opacity 1.15s cubic-bezier(.22,.65,.2,1),transform .22s linear;
+}
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry{
+ display:block;
+ position:relative;
+ box-sizing:border-box;
+ min-height:172svh;
+ padding:0;
+ background:transparent;
+}
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry-content{
+ position:sticky;
+ top:clamp(132px,23svh,248px);
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ justify-content:center;
+ gap:clamp(14px,2.8svh,23px);
+ width:100%;
+ max-width:100%;
+ padding:24px 0 clamp(70px,10svh,115px);
+ box-sizing:border-box;
+}
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry-content h3,
+.place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry-content p{
+ margin:0;
+}
+.place-index.atg1.is-immersive:not(.is-reduced) .place-index-intro{
+ min-height:115svh;
+}
+/* Keep the mobile reading block above the bottom edge and fully legible. */
+@media(max-width:767px){
+ .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry{
+  min-height:150svh;
+  padding:0;
+ }
+ .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry-content{
+  top:clamp(110px,28svh,235px);
+  padding:22px 0 75px;
+  gap:16px;
+ }
+ .place-index.atg1.is-immersive:not(.is-reduced) .place-index-intro{
+  min-height:110svh;
+ }
+}
+@media(max-width:767px) and (max-height:680px){
+ .place-index.atg1.is-immersive:not(.is-reduced) .atg1-index__entry-content{
+  top:96px;
+  gap:12px;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ .place-index.atg1 .atg1-index__entry-content{position:static!important}
+}
+.place-index.atg1.is-reduced .atg1-index__entry-content{
+ position:static!important;
+ width:100%;
+ padding:0;
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ gap:18px;
+}
