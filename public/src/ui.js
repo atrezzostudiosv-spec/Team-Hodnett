@@ -64,12 +64,12 @@ function initCollection(){
   if(selected!==active){
    active=selected;
    counter.textContent=String(selected+1).padStart(2,'0')+' / '+String(panels.length).padStart(2,'0');
-   // The understated CTA stays anchored where "Scroll to explore" used to be,
-   // but always links to the home that is currently visible.
-   const activeCardLink=panels[selected].querySelector('.collection-card-link');
-   if(propertyLink&&activeCardLink){
-    propertyLink.href=activeCardLink.href;
-    propertyLink.setAttribute('aria-label',activeCardLink.getAttribute('aria-label')||'Discover this home');
+   // Keep the one visible CTA, anchored at the bottom left, synchronized
+   // with the active property. Do not render any duplicate right-side button.
+   const selectedPanel=panels[selected];
+   if(propertyLink&&selectedPanel.dataset.collectionPropertyUrl){
+    propertyLink.href=selectedPanel.dataset.collectionPropertyUrl;
+    propertyLink.setAttribute('aria-label','Discover '+(selectedPanel.dataset.collectionPropertyTitle||'this home'));
    }
    tabs.forEach((tab,i)=>{tab.setAttribute('aria-selected',String(i===selected));tab.setAttribute('aria-current',i===selected?'step':'false');tab.tabIndex=i===selected?0:-1;});
    panels.forEach((panel,i)=>{const visible=i===selected;panel.inert=!visible;panel.setAttribute('aria-hidden',String(!visible));panel.style.pointerEvents=visible?'auto':'none';});
