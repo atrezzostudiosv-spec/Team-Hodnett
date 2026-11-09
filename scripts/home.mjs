@@ -4,7 +4,6 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
  const descriptions={southlake:'A local perspective on Southlake, from the town square to the places you call home.',westlake:'Discover Westlake and a different pace of North Texas living.',colleyville:'Explore the neighborhoods and local character of Colleyville.',grapevine:'A closer look at Grapevine, its Main Street and the surrounding community.','flower-mound':'Get to know Flower Mound and the possibilities around your next move.',keller:'Explore Keller with a perspective rooted in the local community.'};
  const placeImage=c=>c.cover||'assets/editorial/'+c.slug+'.webp';
 
- const sharonFilm=videos.find(v=>v.id==='pZeJBjZkZU0');
  const chosenAwards=[
   '2026 Five Star Legends',
   '2024 D Magazine Top Real Estate Producer',
@@ -33,15 +32,7 @@ export function renderHome({featured,communities,homeArticles,journalCard,mainQu
   <div class="connection-viewport">
    <picture class="connection-photo connection-photo--sharon"><source media="(max-width:767px)" srcset="${U('assets/editorial/sharon-scene-mobile.webp')}"><img src="${U('assets/editorial/sharon-scene-desktop.webp')}" width="1672" height="941" loading="lazy" alt="Sharon Hodnett, The Hodnett Team"></picture>
    <div class="connection-shade" aria-hidden="true"></div>
-   <div class="connection-copy"><div class="eyebrow connection-reveal">MEET SHARON</div><h2 class="connection-reveal" id="connection-title">Experience.<br>With perspective.</h2><p class="connection-reveal">Sharon represents buyers and sellers across Southlake and Dallas–Fort Worth. Her approach brings together local knowledge, considered property presentation and an understanding of what comes next.</p><div class="connection-reveal">${link('about/','Meet Sharon')}</div></div>
-  </div>
- </section>
- <section class="connection-scene connection-team connection-film" id="sharon-story" aria-labelledby="sharon-story-title" data-connection-scene>
-  <div class="connection-viewport connection-film__viewport">
-   <img class="connection-photo connection-photo--team connection-film__poster" src="${U(sharonFilm.cover)}" alt="Sharon Hodnett film still" loading="lazy">
-   <div class="connection-film__motion" data-sharon-film data-video-id="${e(sharonFilm.id)}" aria-hidden="true"></div>
-   <div class="connection-shade" aria-hidden="true"></div>
-   <div class="connection-copy connection-film__copy"><div class="eyebrow connection-reveal">SHARON'S STORY / ON FILM</div><h2 class="connection-reveal" id="sharon-story-title">A closer look.<br>A personal story.</h2><p class="connection-reveal">Explore the original film archive and the perspective behind Sharon’s approach to real estate.</p><div class="connection-reveal"><a class="line-link" href="${U('vlog/')}" data-sharon-film-link data-film-url="${e(sharonFilm.url)}" aria-label="Explore Sharon Hodnett's original film archive">Explore Sharon’s films ${icon('arrow')}</a></div></div>
+   <div class="connection-copy"><div class="eyebrow connection-reveal">MEET SHARON / A DEPARTURE FROM THE ORDINARY</div><h2 class="connection-reveal" id="connection-title">Experience.<br>Perspective.<br>A personal connection.</h2><p class="connection-reveal">Rooted in North Texas, Sharon brings decades of real estate experience, thoughtful property marketing and a personal commitment to buyers and sellers. Behind every move is a story worth understanding—and a relationship worth building.</p><div class="connection-reveal">${link('about/','Meet Sharon')}</div></div>
   </div>
  </section>
  </div>
