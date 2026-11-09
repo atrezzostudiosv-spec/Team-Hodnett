@@ -1,12 +1,22 @@
 import {e,U,icon,link,price,stats,detailURL,closing} from './templates.mjs';
+import {existsSync} from 'node:fs';
 export function renderHome({featured,communities,homeArticles,journalCard,mainQuote,excerpt,client,recognition,videos}){
  const places=['southlake','westlake','colleyville','grapevine','flower-mound','keller'].map(slug=>communities.find(c=>c.slug===slug));
  const descriptions={southlake:'A local perspective on Southlake, from the town square to the places you call home.',westlake:'Discover Westlake and a different pace of North Texas living.',colleyville:'Explore the neighborhoods and local character of Colleyville.',grapevine:'A closer look at Grapevine, its Main Street and the surrounding community.','flower-mound':'Get to know Flower Mound and the possibilities around your next move.',keller:'Explore Keller with a perspective rooted in the local community.'};
- // These two approved images are exclusive to the homepage's immersive
- // community sequence; the individual city pages keep their existing covers.
- const placeImage=c=>c.slug==='colleyville'
-  ? 'assets/editorial/colleyville-local-life-2026.webp'
-  : c.cover||'assets/editorial/'+c.slug+'.webp';
+ // Approved slide photography is exclusive to the homepage's immersive
+ // A Sense of Place sequence. Individual neighborhood covers remain unchanged.
+ // Optional images safely fall back to their current covers until uploaded.
+ const slidePhotos={
+  colleyville:'assets/editorial/colleyville-local-life-2026.webp',
+  grapevine:'assets/editorial/grapevine-local-life-2026.webp',
+  'flower-mound':'assets/editorial/flower-mound-local-life-2026.webp'
+ };
+ const placeImage=c=>{
+  const image=slidePhotos[c.slug];
+  return image&&existsSync(new URL('../public/'+image,import.meta.url))
+   ? image
+   : c.cover||'assets/editorial/'+c.slug+'.webp';
+ };
  const placeIntroImage='assets/editorial/place-intro-north-texas-2026.webp';
 
  const chosenAwards=[
