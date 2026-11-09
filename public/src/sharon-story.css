@@ -173,3 +173,26 @@ body.home .connection-sharon .connection-shade{
 }
 body.reduced-motion.home .connection-story{height:auto;min-height:0}
 body.reduced-motion.home .connection-story .connection-sharon{position:relative;min-height:680px}
+
+
+/* AWARDS — one intentionally composed viewport on desktop.
+   Preserve the horizontal original-logo showcase and its slow motion. */
+@media(min-width:768px) and (min-height:700px){
+ .sharon-awards{
+  min-height:100svh;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:clamp(50px,6svh,100px);
+  padding-bottom:clamp(42px,5svh,90px);
+ }
+ .sharon-awards__intro,.sharon-awards__note{width:100%;box-sizing:border-box}
+ .sharon-awards__intro{padding-bottom:clamp(25px,5svh,62px)}
+ .sharon-awards__window{width:100%}
+}
+/* Animated figures retain fixed-width numerals and their archived labels. */
+.performance-section [data-performance-count]{
+ font-variant-numeric:tabular-nums lining-nums;
+ font-feature-settings:"tnum" 1,"lnum" 1;
+}
